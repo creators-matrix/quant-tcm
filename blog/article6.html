@@ -3,555 +3,258 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>桂枝汤的“黄金配比”：用现代数学比例拆解经典第一方</title>
+  <title>桂枝汤的“黄金配比”：用现代数学比例拆解经典第一方 - 量化中医工具箱</title>
+  <meta name="description" content="从现代系统科学与数学比例角度，深度解构《伤寒论》群方之祖桂枝汤中桂枝与白芍1:1等量配伍的闭环控制模型。" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 text-gray-800 antialiased">
-<!-- 顶部面包屑导航（给爬虫留生路） -->
-<div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-  <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-    <div class="flex items-center space-x-2 text-sm">
-      <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
-        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-        返回量化中医首页
-      </a>
-      <span class="text-gray-300">/</span>
-      <span class="text-gray-500 truncate">中医深度考证</span>
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- 顶部面包屑导航（给爬虫留生路，提升用户体验） -->
+  <div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2 text-sm">
+        <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          返回量化中医首页
+        </a>
+        <span class="text-gray-300">/</span>
+        <span class="text-gray-500 truncate">桂枝汤黄金配比研究</span>
+      </div>
+      <span class="text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-md font-mono border border-emerald-100">Article #06</span>
     </div>
   </div>
-</div>
-  <main class="max-w-5xl mx-auto px-6 py-10">
 
-    <!-- Hero -->
+  <main class="max-w-5xl mx-auto px-6 py-10 flex-grow w-full">
+
+    <!-- Hero 头部大卡片 -->
     <section class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-10">
-
-      <div class="bg-gradient-to-r from-amber-900 via-orange-900 to-stone-900 px-8 py-10">
-
-        <div class="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-gray-200 text-sm tracking-wide mb-5">
-          伤寒论考证 · 经方比例学 · 桂枝汤结构研究
+      <div class="bg-gradient-to-r from-amber-950 via-stone-900 to-emerald-950 px-8 py-12 text-center md:text-left">
+        <div class="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-emerald-200 text-sm tracking-wide mb-5 border border-white/5 font-mono">
+          伤寒论考证 · 经方比例学 · 闭环控制模型
         </div>
-
-        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">
+        <h1 class="text-3xl md:text-5xl font-black text-white leading-tight">
           桂枝汤的“黄金配比”：<br class="hidden md:block" />
           用现代数学比例拆解经典第一方
         </h1>
-
-        <p class="text-gray-300 text-lg leading-relaxed mt-6">
-          《伤寒论》中的桂枝汤，
-          被后世称为“群方之祖”。
-          但真正让桂枝汤成为经典的，
-          并不仅仅是桂枝、白芍、生姜、大枣这些药物本身，
-          而是其背后极其精密的剂量比例结构。
-          尤其是桂枝与白芍“等量配伍”的1:1结构，
-          本质上是一种高度稳定的药效平衡模型。
-          一旦比例改变，
-          方剂的整体药性方向便会发生根本偏移。
+        <p class="text-gray-300 text-base md:text-lg leading-relaxed mt-6 max-w-4xl">
+          《伤寒论》中的桂枝汤，被后世称为“群方之祖”。但真正让桂枝汤成为经典的，并不仅仅是桂枝、白芍、生姜、大枣这些药物本身，而是其背后极其精密的剂量比例结构。尤其是桂枝与白芍“等量配伍”的 1:1 结构，本质上是一种高度稳定的药效平衡模型。一旦比例改变，方剂的整体药性方向便会发生根本偏移。
         </p>
-
       </div>
-
     </section>
 
+    <!-- 文章主体 -->
     <article class="space-y-10">
 
       <!-- section 1 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          一、桂枝汤为何被称为“经方第一方”？
+      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="text-emerald-600 mr-3 font-mono">01/</span> 桂枝汤为何被称为“经方第一方”？
         </h2>
-
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          桂枝汤出自《伤寒论》：
+          桂枝汤出自张仲景《伤寒论》，原方剂量极其讲究：
         </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
-<pre class="text-gray-800">
-桂枝三两
-芍药三两
-甘草二两
-生姜三两
-大枣十二枚
-</pre>
+        
+        <!-- 优化后的古方剂排版（美观且完美适配手机端） -->
+        <div class="bg-stone-50 rounded-2xl p-6 my-6 border border-stone-200/60 max-w-md mx-auto md:mx-0">
+          <div class="grid grid-cols-2 gap-y-3 font-medium text-stone-800">
+            <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-amber-600 mr-2.5"></span>桂枝 <span class="text-stone-400 font-normal ml-1">三两</span></div>
+            <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-amber-600 mr-2.5"></span>芍药 <span class="text-stone-400 font-normal ml-1">三两</span></div>
+            <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-stone-500 mr-2.5"></span>甘草 <span class="text-stone-400 font-normal ml-1">二两 (炙)</span></div>
+            <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-stone-500 mr-2.5"></span>生姜 <span class="text-stone-400 font-normal ml-1">三两</span></div>
+            <div class="col-span-2 flex items-center border-t border-stone-200 pt-2.5 mt-1 text-stone-600">
+              <span class="w-2 h-2 rounded-full bg-stone-400 mr-2.5"></span>大枣 <span class="text-stone-400 font-normal ml-1">十二枚</span>
+            </div>
+          </div>
         </div>
 
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代教材往往把它简单描述为：
-          “解肌发表、调和营卫”。
+          现代教材往往把它简单描述为“解肌发表、调和营卫”。但如果真正深入研究经方结构，就会发现桂枝汤的伟大之处，并不只是能治疗太阳中风证，而是它第一次在中医历史上建立了一套高度稳定的动态平衡模型。
         </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          但如果真正深入研究经方结构，
-          就会发现桂枝汤的伟大之处，
-          并不只是“能治疗太阳中风”，
-          而是它第一次在中医历史上，
-          建立了一套高度稳定的动态平衡模型。
-        </p>
-
         <p class="text-base text-gray-700 leading-relaxed">
-          从现代系统科学角度看，
-          桂枝汤本质上并不是简单药物组合，
-          而是一个能够自动维持“发散”与“收敛”平衡的药效网络。
+          从现代系统科学角度看，桂枝汤本质上并不是简单的草药组合，而是一个能够自动维持“发散”与“收敛”平衡的药效分布式网络。
         </p>
-
       </section>
 
       <!-- section 2 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          二、桂枝与白芍为什么必须保持 1:1？
+      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="text-emerald-600 mr-3 font-mono">02/</span> 桂枝与白芍为什么必须保持 1:1？
         </h2>
-
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          桂枝汤最核心的结构，
-          就是：
+          桂枝汤最核心的结构内核，就是：
         </p>
-
-        <div class="bg-amber-50 rounded-2xl p-6 my-6 text-center">
-          <p class="text-3xl font-black text-amber-800 tracking-wide">
+        <div class="bg-amber-50 rounded-2xl p-6 my-6 text-center border border-amber-100 max-w-sm mx-auto shadow-inner">
+          <p class="text-3xl font-black text-amber-900 tracking-wider font-mono">
             桂枝 : 白芍 = 1 : 1
           </p>
         </div>
-
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这个比例并不是偶然。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          桂枝属于典型“向外”的药物：
+          这个完美的对称比例绝非偶然。桂枝属于典型“向外”的动力药物，而白芍则完全相反：
         </p>
 
         <div class="grid md:grid-cols-2 gap-5 my-6">
-
-          <div class="bg-red-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-red-700 mb-3">
-              桂枝的核心方向
+          <div class="bg-red-50/60 rounded-2xl p-6 border border-red-100">
+            <h3 class="text-lg font-bold text-red-800 mb-3 flex items-center">
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+              桂枝的核心方向 (正反馈/发散)
             </h3>
-
-            <ul class="list-disc list-inside text-red-700 leading-relaxed space-y-2">
-              <li>温通阳气</li>
-              <li>推动外散</li>
-              <li>促进汗出</li>
-              <li>打开体表循环</li>
+            <ul class="list-disc list-inside text-red-700/90 leading-relaxed space-y-1.5 text-sm md:text-base">
+              <li>温通卫阳，为体表提供循环动力</li>
+              <li>推动外散，通达九窍关节</li>
+              <li>解肌发汗，驱逐肌表外邪</li>
             </ul>
           </div>
 
-          <div class="bg-blue-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-blue-700 mb-3">
-              白芍的核心方向
+          <div class="bg-blue-50/60 rounded-2xl p-6 border border-blue-100">
+            <h3 class="text-lg font-bold text-blue-800 mb-3 flex items-center">
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 112 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              白芍的核心方向 (负反馈/收敛)
             </h3>
-
-            <ul class="list-disc list-inside text-blue-700 leading-relaxed space-y-2">
-              <li>收敛阴液</li>
-              <li>缓急止痛</li>
-              <li>抑制过度发散</li>
-              <li>保护营阴</li>
+            <ul class="list-disc list-inside text-blue-700/90 leading-relaxed space-y-1.5 text-sm md:text-base">
+              <li>敛纯阴之汗，固护营阴不外泄</li>
+              <li>酸收营血，缓急止痛</li>
+              <li>制约桂枝过度发散的刚烈之性</li>
             </ul>
           </div>
-
         </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          从现代数学角度看，
-          桂枝与白芍实际上形成了一个“动态对冲系统”。
-        </p>
 
         <p class="text-base text-gray-700 leading-relaxed">
-          桂枝负责向外推动，
-          白芍负责限制失控。
-          两者等量，
-          才能让机体处于：
+          从现代控制工程来看，桂枝与白芍实际上形成了一个极其精妙的“动态对冲系统”。桂枝负责向外推动，白芍负责限制失控。两者等量，方能达成<span class="font-semibold text-emerald-700">“能发汗以祛邪，又不伤阴液”</span>的工业级稳态控制。
         </p>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
-          <p class="text-2xl font-black text-center tracking-wide">
-            “能发汗，但不伤阴”
-          </p>
-        </div>
-
       </section>
 
       <!-- section 3 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          三、现代数学如何理解桂枝汤的平衡结构？
+      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="text-emerald-600 mr-3 font-mono">03/</span> 现代数学如何理解桂枝汤的平衡结构？
         </h2>
-
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          如果用现代系统模型分析，
-          桂枝汤可以被视为一个“双向反馈系统”。
+          如果将桂枝汤放到系统工程模型中分析，它完全符合一个标准的“闭环反馈调节器”架构：
         </p>
 
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          其中：
-        </p>
-
-        <div class="overflow-x-auto mt-6">
-          <table class="min-w-full bg-white border border-gray-200 rounded-2xl overflow-hidden">
-
-            <thead class="bg-gray-50">
+        <div class="overflow-x-auto my-6 border border-gray-100 rounded-2xl shadow-sm">
+          <table class="min-w-full bg-white">
+            <thead class="bg-gray-50 text-stone-600 text-left text-sm font-semibold border-b border-gray-100">
               <tr>
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  药物
-                </th>
-
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  系统方向
-                </th>
-
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  功能属性
-                </th>
+                <th class="px-6 py-4">要素药物</th>
+                <th class="px-6 py-4">系统控制方向</th>
+                <th class="px-6 py-4">底层功能属性</th>
               </tr>
             </thead>
-
-            <tbody>
-
-              <tr class="border-b">
-                <td class="px-6 py-4">
-                  桂枝
-                </td>
-
-                <td class="px-6 py-4">
-                  正向输出
-                </td>
-
-                <td class="px-6 py-4">
-                  提升外散能量
-                </td>
-              </tr>
-
-              <tr class="bg-gray-50 border-b">
-                <td class="px-6 py-4">
-                  白芍
-                </td>
-
-                <td class="px-6 py-4">
-                  负向反馈
-                </td>
-
-                <td class="px-6 py-4">
-                  抑制失控外泄
-                </td>
-              </tr>
-
+            <tbody class="text-sm md:text-base text-gray-700 divide-y divide-gray-100">
               <tr>
-                <td class="px-6 py-4">
-                  甘草
-                </td>
-
-                <td class="px-6 py-4">
-                  缓冲稳定
-                </td>
-
-                <td class="px-6 py-4">
-                  降低系统震荡
-                </td>
+                <td class="px-6 py-4 font-medium text-gray-950">桂枝</td>
+                <td class="px-6 py-4 text-red-600">正向控制输出 (Input)</td>
+                <td class="px-6 py-4">提升外散能量流，开放毛细血管网络</td>
               </tr>
-
+              <tr class="bg-gray-50/50">
+                <td class="px-6 py-4 font-medium text-gray-950">白芍</td>
+                <td class="px-6 py-4 text-blue-600">负反馈调节 (Feedback)</td>
+                <td class="px-6 py-4">抑制系统失控过载，阻断津液无度外泄</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium text-gray-950">甘草</td>
+                <td class="px-6 py-4 text-stone-600">系统阻尼缓冲 (Buffer)</td>
+                <td class="px-6 py-4">调和诸药，延长药效半衰期，降低阻抗震荡</td>
+              </tr>
             </tbody>
-
           </table>
         </div>
 
-        <p class="text-base text-gray-700 leading-relaxed mt-6 mb-4">
-          这种结构非常类似现代工程中的“闭环控制系统”。
-        </p>
-
         <p class="text-base text-gray-700 leading-relaxed">
-          如果桂枝过强，
-          系统会过度发散；
-          如果白芍过强，
-          系统又会收敛过度。
-          只有两者维持接近1:1，
-          方剂才能保持稳定输出。
+          这种等量关系如果打破，比如桂枝权重过高，系统将陷入正反馈死循环导致大汗亡阳；反之如果白芍权重过高，负反馈过载，则体表闭塞，外邪彻底被冰封滞留体内。
         </p>
-
       </section>
 
       <!-- section 4 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          四、为什么桂枝减少后，桂枝汤就“不像桂枝汤了”？
+      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="text-emerald-600 mr-3 font-mono">04/</span> 为什么桂枝减少后，桂枝汤就“失魂”了？
         </h2>
-
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代临床中，
-          很多人为了“安全”会主动降低桂枝剂量。
+          现代临床中，很多医生出于对温热药发汗的谨慎，往往会机械地套用现代习惯，主动调低桂枝的用量。常见的门诊处方常常出现类似结构：
         </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          例如：
-        </p>
-
-        <div class="bg-red-50 rounded-2xl p-6 my-6">
-          <p class="text-red-700 text-lg font-semibold text-center">
-            桂枝 6克 + 白芍 15克
-          </p>
+        <div class="bg-red-50/50 rounded-2xl p-4 my-4 max-w-xs mx-auto text-center border border-red-100 font-mono text-red-700 font-bold">
+          桂枝 6克 &nbsp;:&nbsp; 白芍 15克
         </div>
-
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          表面上看，
-          仍然使用的是“桂枝汤”药味。
+          表面上，药味名称全中，仍然叫“桂枝汤”。但在系统参数上，这无异于将动力源砍掉大半，同时锁死了刹车装置。
         </p>
 
-        <p class="text-base text-gray-700 leading-relaxed">
-          但实际上，
-          整个方剂已经发生根本偏移。
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-5 mt-8">
-
-          <div class="bg-orange-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-orange-700 mb-3">
-              原始桂枝汤
-            </h3>
-
-            <ul class="list-disc list-inside text-orange-700 leading-relaxed space-y-2">
-              <li>发汗力量明确</li>
-              <li>营卫动态调节</li>
-              <li>体表循环开放</li>
-              <li>邪气可外解</li>
-            </ul>
+        <div class="grid md:grid-cols-2 gap-5 mt-6">
+          <div class="bg-stone-50 rounded-2xl p-5 border border-stone-200/60">
+            <h3 class="font-bold text-gray-900 mb-2">原方张仲景 1:1 动态配比</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">开放体表微循环，汗出热解，营卫双向自我修复，属于主动型的开放式网络。</p>
           </div>
-
-          <div class="bg-blue-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-blue-700 mb-3">
-              桂枝削弱后
-            </h3>
-
-            <ul class="list-disc list-inside text-blue-700 leading-relaxed space-y-2">
-              <li>收敛性增强</li>
-              <li>发散动力下降</li>
-              <li>偏向缓和养阴</li>
-              <li>外邪可能滞留</li>
-            </ul>
+          <div class="bg-stone-50 rounded-2xl p-5 border border-stone-200/60">
+            <h3 class="font-bold text-gray-900 mb-2">现代偏倚型小剂量配比</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">方剂趋于严重的静止酸收状态，丧失驱邪外出的穿透力，沦为纯粹的缓急滋阴药。</p>
           </div>
-
         </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6">
-          此时，
-          虽然药物名称没有变化，
-          但其真正药效已经不再是《伤寒论》原方。
-        </p>
-
       </section>
 
       <!-- section 5 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          五、为什么白芍增量后，方剂会逐渐偏向“酸收”？
+      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="text-emerald-600 mr-3 font-mono">05/</span> 比例微调带来的“路由级”功能变向
         </h2>
-
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          白芍在经方中的作用，
-          并不仅仅是“柔肝”。
+          张仲景本人就是最顶级的“剂量工程师”。在《伤寒论》中，药物不增不减、仅改变比例从而改变药效流向的范例屡见不鲜：
         </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          更关键的是：
-          它能够抑制过度发散。
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2 text-sm md:text-base">
+          <li><span class="font-semibold text-gray-900">桂枝加芍药汤：</span>当白芍剂量增加到六两（比例变为 桂枝1:芍药2），整个方剂的主战场瞬间从“体表营卫”被路由重定向到“腹中”，功能变成了治疗腹中急痛。</li>
+          <li><span class="font-semibold text-gray-900">桂枝加桂汤：</span>当桂枝剂量加大到五两（比例变为 桂枝1.6:芍药1），正向推动能量出现压倒性优势，专门用于压制并平冲奔豚气从少腹上冲心胸的危急状态。</li>
+        </ul>
+        <p class="text-base text-gray-700 leading-relaxed mt-4">
+          代码仅仅改动了一个变量参数，底层的业务逻辑和数据走向就彻底变了。这，就是经方比例学的震撼之处。
         </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          因此，
-          当白芍比例持续增加时，
-          整个方剂会逐渐出现：
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-5 mt-6">
-
-          <div class="bg-blue-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-blue-700 mb-2">
-              收敛增强
-            </h3>
-
-            <p class="text-blue-700 leading-relaxed">
-              汗出能力下降。
-            </p>
-          </div>
-
-          <div class="bg-indigo-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-indigo-700 mb-2">
-              阴性增强
-            </h3>
-
-            <p class="text-indigo-700 leading-relaxed">
-              方性趋于内守。
-            </p>
-          </div>
-
-          <div class="bg-cyan-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-cyan-700 mb-2">
-              动力下降
-            </h3>
-
-            <p class="text-cyan-700 leading-relaxed">
-              外邪不易透解。
-            </p>
-          </div>
-
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6">
-          这也是为什么：
-          桂枝加芍药汤、
-          桂枝加大黄汤等变方，
-          其病机靶向已经与原始桂枝汤明显不同。
-        </p>
-
       </section>
 
       <!-- section 6 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          六、桂枝汤的真正核心：不是“发汗”，而是“动态平衡”
+      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+          <span class="text-emerald-600 mr-3 font-mono">06/</span> 经方现代研究为何必须重构“比例学”？
         </h2>
-
         <p class="text-base text-gray-700 leading-relaxed mb-4">
-          很多人误以为桂枝汤只是“轻微发汗剂”。
+          长久以来，业界在整理传统医学时往往陷入“重药味、轻比例”的盲区。许多研究堆砌了大量的化学成分分析，却忽略了复方在特定物理重量比例下才能涌现出来的“系统级效应”。
         </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          实际上，
-          桂枝汤真正高级的地方在于：
-        </p>
-
-        <div class="bg-green-50 border-l-4 border-green-500 rounded-2xl p-6 my-6">
-          <p class="text-green-800 text-lg font-semibold leading-relaxed">
-            它既能推动机体外散，
-            又能防止发散失控。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这种“边释放、边控制”的结构，
-          与现代医学中的稳态调节理论高度相似。
-        </p>
-
         <p class="text-base text-gray-700 leading-relaxed">
-          从系统科学角度看，
-          桂枝汤实际上是在帮助机体恢复：
+          如果我们用现代计算机视角重新对经方建模，药味就像是基础函数库，而剂量比例才是串联整个控制系统的核心算法。保护并复原古代经典的1:1等量核心，是现代精准医学与传统文化交叉研究不可逾越的护城河。
         </p>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6 text-center">
-          <p class="text-2xl font-black tracking-wide">
-            “可控的体表开放能力”
-          </p>
-        </div>
-
       </section>
 
-      <!-- section 7 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          七、为什么现代经方研究必须重新重视“比例学”？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代中医长期存在一个问题：
+      <!-- conclusion 结语 -->
+      <section class="bg-gradient-to-br from-stone-900 via-stone-950 to-emerald-950 rounded-3xl shadow-2xl p-8 md:p-10 text-white">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6">结语：把握结构，才是对经典最高级的量化传承</h2>
+        <p class="text-stone-300 text-base leading-relaxed mb-6">
+          《伤寒论》的伟大，在于它是一套精密的控制论体系。桂枝汤真正的秘密，隐藏在桂枝与白芍那看似简单的等量天平中。
         </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 my-6">
-          <p class="text-gray-800 text-lg leading-relaxed text-center">
-            重视药味，
-            却忽略比例。
-          </p>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 my-6 max-w-xl mx-auto space-y-3 font-medium tracking-wide">
+          <p class="text-center text-lg text-amber-200">桂枝过强，正反馈过载，则伤阴大汗</p>
+          <p class="text-center text-lg text-blue-200">白芍过强，负反馈过载，则冰封留邪</p>
+          <p class="text-center text-lg text-emerald-200">唯有 1 : 1 闭环平衡，方能调和营卫</p>
         </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          于是很多经典方剂虽然名字还在，
-          但内部结构已经发生系统性改变。
+        <p class="text-stone-400 text-sm leading-relaxed text-center mt-6">
+          理解其背后的数学比例与系统结构。一旦比例失调，即使药名未换，药效本质也早已差之千里。
         </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          尤其在现代“小剂量化”趋势下，
-          很多经方会出现：
-        </p>
-
-        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-6">
-          <li>主药权重下降</li>
-          <li>药味平均化</li>
-          <li>动态结构消失</li>
-          <li>药效方向模糊</li>
-          <li>原始靶向偏移</li>
-        </ul>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          而桂枝汤恰恰是理解“比例决定药效”的最佳范例。
-        </p>
-
       </section>
-
-      <!-- conclusion -->
-      <section class="bg-gradient-to-br from-stone-900 to-gray-900 rounded-3xl shadow-2xl p-10 text-white">
-
-        <h2 class="text-3xl font-bold mb-6">
-          八、结语：桂枝汤真正的秘密，是“平衡结构”而不是药名本身
-        </h2>
-
-        <p class="text-gray-300 text-base leading-relaxed mb-5">
-          《伤寒论》的伟大之处，
-          并不仅仅在于记录了多少药方，
-          更在于它建立了一套高度精密的比例医学体系。
-        </p>
-
-        <p class="text-gray-300 text-base leading-relaxed mb-5">
-          桂枝与白芍1:1的结构，
-          本质上是一种动态药效平衡模型。
-          桂枝负责开放，
-          白芍负责制约，
-          两者共同维持机体的稳定输出。
-        </p>
-
-        <div class="bg-white/10 rounded-2xl p-6 my-8 text-center">
-
-          <p class="text-2xl font-black tracking-wide">
-            桂枝过强，则伤阴
-          </p>
-
-          <p class="text-2xl font-black tracking-wide mt-4">
-            白芍过强，则留邪
-          </p>
-
-          <p class="text-2xl font-black tracking-wide mt-4">
-            只有等量，才能调和营卫
-          </p>
-
-        </div>
-
-        <p class="text-gray-300 text-base leading-relaxed">
-          因此，
-          真正理解桂枝汤，
-          不能只看“用了哪些药”，
-          更要理解其背后的数学比例与系统结构。
-          一旦剂量比例发生改变，
-          即使药名不变，
-          其药效本质也可能早已不是原来的桂枝汤。
-        </p>
-
-      </section>
-
-      <!-- disclaimer -->
-      <footer class="text-center text-gray-500 text-sm py-8">
-
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm px-6 py-6">
-          本文及本站工具仅供学术探讨与文化研究，不构成任何临床处方建议。
-        </div>
-
-      </footer>
 
     </article>
 
+    <!-- disclaimer 免责声明 -->
+    <footer class="mt-12 text-center text-gray-500 text-sm">
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm px-6 py-4 max-w-2xl mx-auto leading-relaxed">
+        本文及本站工具仅供学术探讨与文化研究，不构成任何临床处方与医疗诊断建议。
+      </div>
+    </footer>
+
   </main>
+
+  <!-- 底部纯净版权栏 -->
+  <footer class="text-center py-6 text-xs text-gray-400 border-t border-gray-100 bg-white mt-12 w-full">
+    &copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.
+  </footer>
 
 </body>
 </html>
