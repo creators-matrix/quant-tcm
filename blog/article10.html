@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>当归四逆汤与桂枝汤的基底重合：用代码逻辑拆解方剂演变</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 antialiased">
+<!-- 顶部面包屑导航（给爬虫留生路） -->
+<div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+  <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-2 text-sm">
+      <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
+        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        返回量化中医首页
+      </a>
+      <span class="text-gray-300">/</span>
+      <span class="text-gray-500 truncate">中医深度考证</span>
+    </div>
+  </div>
+</div>
+  <main class="max-w-5xl mx-auto px-6 py-10">
+
+    <!-- Hero -->
+    <section class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-10">
+
+      <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-gray-950 px-8 py-10">
+
+        <div class="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-gray-200 text-sm tracking-wide mb-5">
+          伤寒论结构学 · 经方算法思维 · 方剂复用模型研究
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">
+          当归四逆汤与桂枝汤的基底重合：<br class="hidden md:block" />
+          用代码逻辑拆解方剂演变
+        </h1>
+
+        <p class="text-gray-300 text-lg leading-relaxed mt-6">
+          很多人学习《伤寒论》时，
+          往往把每一张方剂当作“独立药方”记忆。
+          于是，
+          桂枝汤是桂枝汤，
+          当归四逆汤是当归四逆汤，
+          小建中汤又是另一套体系。
+          但如果真正深入研究经方结构，
+          就会发现：
+          张仲景的方剂系统，
+          更像一套高度模块化的“函数库”。
+          基础方是核心底层逻辑，
+          加减药味则像程序中的变量覆盖、参数继承与功能扩展。
+          从这个角度重新理解当归四逆汤，
+          可以清晰看到：
+          它并不是凭空创造的新方，
+          而是在桂枝汤基底之上，
+          针对“血虚寒厥”状态进行的一次结构性升级。
+        </p>
+
+      </div>
+
+    </section>
+
+    <article class="space-y-10">
+
+      <!-- 第一部分 -->
+      <section class="bg-white rounded-3xl shadow-md p-8">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          一、为什么经方体系更像“代码库”而不是“药方合集”？
+        </h2>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          现代人学习中医时，
+          最大的问题之一，
+          是习惯用“背方歌”的方式理解方剂。
+        </p>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          这种方式会导致一个严重误区：
+        </p>
+
+        <div class="bg-red-50 border-l-4 border-red-500 rounded-2xl p-6 my-6">
+          <p class="text-red-800 text-lg font-semibold leading-relaxed">
+            认为每一张经方，
+            都是彼此孤立、互不相关的。
+          </p>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          但实际上，
+          《伤寒论》的方剂结构高度统一。
+        </p>
+
+        <p class="text-base text-gray-700 leading-relaxed">
+          如果用程序员思维理解，
+          仲景方更像：
+        </p>
+
+        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
+<pre class="text-sm md:text-base overflow-x-auto">
+BaseFormula + VariableExtension = NewFormula
+</pre>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed">
+          也就是说：
+          很多复杂方剂，
+          实际上只是“基础函数”的二次封装。
+        </p>
+
+      </section>
+
+      <!-- 第二部分 -->
+      <section class="bg-white rounded-3xl shadow-md p-8">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          二、桂枝汤为什么是《伤寒论》的“底层基类”？
+        </h2>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          桂枝汤原方：
+        </p>
+
+        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
+<pre class="text-gray-800">
+桂枝三两
+芍药三两
+甘草二两
+生姜三两
+大枣十二枚
+</pre>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          从传统角度看，
+          它是“解肌调营卫”之方。
+        </p>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          但从系统结构角度看，
+          桂枝汤真正重要的地方在于：
+        </p>
+
+        <div class="bg-amber-50 rounded-2xl p-6 my-6">
+          <p class="text-amber-800 text-lg font-semibold text-center">
+            它建立了一个稳定的人体外周循环调节框架。
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 mt-8">
+
+          <div class="bg-orange-50 rounded-2xl p-5">
+            <h3 class="text-xl font-bold text-orange-700 mb-3">
+              桂枝方向
+            </h3>
+
+            <ul class="list-disc list-inside text-orange-700 leading-relaxed space-y-2">
+              <li>推动外周循环</li>
+              <li>开放体表</li>
+              <li>增强动力输出</li>
+              <li>促进营卫流动</li>
+            </ul>
+          </div>
+
+          <div class="bg-blue-50 rounded-2xl p-5">
+            <h3 class="text-xl font-bold text-blue-700 mb-3">
+              白芍方向
+            </h3>
+
+            <ul class="list-disc list-inside text-blue-700 leading-relaxed space-y-2">
+              <li>抑制过度外散</li>
+              <li>保护阴液</li>
+              <li>稳定血管反应</li>
+              <li>维持系统平衡</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mt-6">
+          因此，
+          桂枝汤实际上是《伤寒论》中最核心的“循环控制基础模块”。
+        </p>
+
+      </section>
+
+      <!-- 第三部分 -->
+      <section class="bg-white rounded-3xl shadow-md p-8">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          三、当归四逆汤如何“继承”桂枝汤？
+        </h2>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          当归四逆汤原方：
+        </p>
+
+        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
+<pre class="text-gray-800">
+当归三两
+桂枝三两
+芍药三两
+细辛三两
+甘草二两
+通草二两
+大枣二十五枚
+</pre>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          仔细观察就会发现：
+        </p>
+
+        <div class="bg-indigo-50 rounded-2xl p-6 my-6">
+          <p class="text-indigo-800 text-lg font-semibold text-center">
+            桂枝、芍药、甘草、大枣的结构完全保留。
+          </p>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          换句话说，
+          当归四逆汤并不是推翻桂枝汤，
+          而是在其基础上：
+        </p>
+
+        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
+<pre class="text-sm md:text-base overflow-x-auto">
+function 桂枝汤() {
+    调营卫();
+    改善外周循环();
+}
+
+function 当归四逆汤() {
+    桂枝汤();
+    增加养血();
+    增加强温通络();
+}
+</pre>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed">
+          这正是典型的“函数复用”逻辑。
+        </p>
+
+      </section>
+
+      <!-- 第四部分 -->
+      <section class="bg-white rounded-3xl shadow-md p-8">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          四、为什么当归与细辛是“新增变量”？
+        </h2>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          桂枝汤主要处理的是：
+        </p>
+
+        <div class="bg-green-50 rounded-2xl p-6 my-6">
+          <p class="text-green-800 text-lg font-semibold text-center">
+            营卫不和 + 外周循环失调
+          </p>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          但当归四逆汤面对的问题，
+          更进一步：
+        </p>
+
+        <div class="bg-red-50 rounded-2xl p-6 my-6">
+          <p class="text-red-800 text-lg font-semibold text-center">
+            血虚 + 寒凝 + 四肢厥冷
+          </p>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          因此，
+          原有“桂枝汤底层循环框架”已经不够。
+        </p>
+
+        <p class="text-base text-gray-700 leading-relaxed">
+          必须额外增加两个关键变量：
+        </p>
+
+        <div class="overflow-x-auto mt-6">
+          <table class="min-w-full bg-white border border-gray-200 rounded-2xl overflow-hidden">
+
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
+                  新增药物
+                </th>
+
+                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
+                  功能扩展
+                </th>
+
+                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
+                  类似程序逻辑
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr class="border-b">
+                <td class="px-6 py-4">
+                  当归
+                </td>
+
+                <td class="px-6 py-4">
+                  增强血液供应
+                </td>
+
+                <td class="px-6 py-4">
+                  增加资源池
+                </td>
+              </tr>
+
+              <tr>
+                <td class="px-6 py-4">
+                  细辛
+                </td>
+
+                <td class="px-6 py-4">
+                  深层温通寒凝
+                </td>
+
+                <td class="px-6 py-4">
+                  提升底层驱动力
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+        </div>
+
+      </section>
+
+      <!-- 第五部分 -->
+      <section class="bg-white rounded-3xl shadow-md p-8">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          五、为什么说经方不是“加减药”，而是“重构算法”？
+        </h2>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          现代中医教学常把加减理解为：
+        </p>
+
+        <div class="bg-gray-50 rounded-2xl p-6 my-6">
+          <p class="text-gray-800 text-lg text-center leading-relaxed">
+            “症状A加某药，
+            症状B减某药。”
+          </p>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          这种理解非常机械。
+        </p>
+
+        <p class="text-base text-gray-700 leading-relaxed">
+          真正的经方演变，
+          更接近程序架构中的：
+        </p>
+
+        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
+<pre class="text-sm md:text-base overflow-x-auto">
+BaseClass
+    ↓
+Inheritance
+    ↓
+Override
+    ↓
+NewBehavior
+</pre>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed">
+          也就是说，
+          每一次加减，
+          实际上都在改变系统动力学行为。
+        </p>
+
+      </section>
+
+      <!-- 第六部分 -->
+      <section class="bg-white rounded-3xl shadow-md p-8">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          六、当归四逆汤为什么仍然保留“桂枝—白芍”1:1结构？
+        </h2>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          最值得注意的是：
+        </p>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 rounded-2xl p-6 my-6">
+          <p class="text-yellow-800 text-lg font-semibold leading-relaxed">
+            即使增加了当归与细辛，
+            当归四逆汤依然严格保留桂枝与白芍等量结构。
+          </p>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          这意味着：
+          张仲景并没有推翻桂枝汤的底层平衡框架。
+        </p>
+
+        <p class="text-base text-gray-700 leading-relaxed">
+          因为无论病机如何变化，
+          外周循环系统仍然必须维持：
+        </p>
+
+        <div class="bg-indigo-50 rounded-2xl p-6 my-6 text-center">
+          <p class="text-2xl font-black text-indigo-800 tracking-wide">
+            “推动”与“制约”的动态平衡
+          </p>
+        </div>
+
+      </section>
+
+      <!-- 第七部分 -->
+      <section class="bg-white rounded-3xl shadow-md p-8">
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          七、用“模块化”理解《伤寒论》，为什么比背方更重要？
+        </h2>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          如果把《伤寒论》理解为：
+        </p>
+
+        <div class="bg-blue-50 rounded-2xl p-6 my-6">
+          <p class="text-blue-800 text-lg font-semibold text-center">
+            一套可复用的医学算法库
+          </p>
+        </div>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          那么很多复杂方剂，
+          就会突然变得清晰。
+        </p>
+
+        <p class="text-base text-gray-700 leading-relaxed mb-4">
+          例如：
+        </p>
+
+        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-6">
+          <li>桂枝加桂汤：增强动力输出</li>
+          <li>桂枝加芍药汤：增强收敛保护</li>
+          <li>小建中汤：增加中焦能量补偿</li>
+          <li>当归四逆汤：增加血供与深层温通</li>
+        </ul>
+
+        <p class="text-base text-gray-700 leading-relaxed">
+          本质上，
+          都是在同一个“桂枝系统”上进行功能扩展。
+        </p>
+
+      </section>
+
+      <!-- 结尾 -->
+      <section class="bg-gradient-to-br from-slate-950 to-indigo-950 rounded-3xl shadow-2xl p-10 text-white">
+
+        <h2 class="text-3xl font-bold mb-6">
+          八、结语：真正的经方思维，是“系统继承”而不是“死记药味”
+        </h2>
+
+        <p class="text-gray-300 text-base leading-relaxed mb-5">
+          《伤寒论》的真正伟大，
+          并不仅仅在于留下了多少名方，
+          更在于它建立了一套高度模块化、可复用的医学结构体系。
+        </p>
+
+        <p class="text-gray-300 text-base leading-relaxed mb-5">
+          当归四逆汤之所以经典，
+          并不是因为“多加了几味药”，
+          而是因为它在保留桂枝汤底层循环框架的前提下，
+          精准增加了养血与深层温通变量。
+        </p>
+
+        <div class="bg-white/10 rounded-2xl p-6 my-8 text-center">
+
+          <p class="text-2xl font-black tracking-wide">
+            桂枝汤是基础函数
+          </p>
+
+          <p class="text-2xl font-black tracking-wide mt-4">
+            当归四逆汤是继承扩展
+          </p>
+
+          <p class="text-2xl font-black tracking-wide mt-4">
+            方剂演变本质是系统重构
+          </p>
+
+        </div>
+
+        <p class="text-gray-300 text-base leading-relaxed">
+          因此，
+          真正理解经方，
+          不能停留在“背药味”的层面，
+          而必须进入结构学、比例学与系统动力学层面。
+          从程序员的角度重新阅读《伤寒论》，
+          或许反而更容易看见：
+          仲景从来不是在堆砌药物，
+          而是在编写一套关于人体运行逻辑的医学代码。
+        </p>
+
+      </section>
+
+      <!-- disclaimer -->
+      <footer class="text-center text-gray-500 text-sm py-8">
+
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm px-6 py-6">
+          本文及本站工具仅供学术探讨与文化研究，不构成任何临床处方建议。
+        </div>
+
+      </footer>
+
+    </article>
+
+  </main>
+<footer class="text-center py-6 text-xs text-gray-400 border-t border-gray-100 bg-white mt-12 w-full">
+  &copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.
+</footer>
+</body>
+</html>
