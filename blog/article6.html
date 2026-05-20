@@ -1,259 +1,188 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  
+  
   <title>桂枝汤的“黄金配比”：用现代数学比例拆解经典第一方 - 量化中医工具箱</title>
-  <meta name="description" content="从现代系统科学与数学比例角度，深度解构《伤寒论》群方之祖桂枝汤中桂枝与白芍1:1等量配伍的闭环控制模型。" />
+  <meta name="description" content="桂枝与白芍1：1不是巧合，是分子层面的推拉平衡。改变这个比例，方子就换了身份。" />
+
+  <!-- Tailwind CSS 核心样式 -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 页面气质微调：兼顾现代响应式与古籍考证的宣纸色调 -->
+  <style>
+    body {
+      background-color: #fcfaf5; /* 优雅的宣纸底色，适合深度阅读 */
+      font-family: 'Noto Serif SC', 'Times New Roman', '宋体', '仿宋', '华文楷体', Georgia, serif;
+    }
+  </style>
 </head>
+<body class="antialiased text-gray-800 bg-stone-50 min-h-screen flex flex-col">
 
-<body class="bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col justify-between">
-
-  <!-- 顶部面包屑导航（给爬虫留生路，提升用户体验） -->
+  <!-- 顶部面包屑导航（给爬虫留生路，提升全站内链权重） -->
   <div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
     <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-2 text-sm">
         <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
-          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
           返回量化中医首页
         </a>
         <span class="text-gray-300">/</span>
-        <span class="text-gray-500 truncate">桂枝汤黄金配比研究</span>
+        <span class="text-gray-500 truncate">中医深度考证系列</span>
       </div>
-      <span class="text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-md font-mono border border-emerald-100">Article #06</span>
     </div>
   </div>
 
-  <main class="max-w-5xl mx-auto px-6 py-10 flex-grow w-full">
-
-    <!-- Hero 头部大卡片 -->
-    <section class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-10">
-      <div class="bg-gradient-to-r from-amber-950 via-stone-900 to-emerald-950 px-8 py-12 text-center md:text-left">
-        <div class="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-emerald-200 text-sm tracking-wide mb-5 border border-white/5 font-mono">
-          伤寒论考证 · 经方比例学 · 闭环控制模型
-        </div>
-        <h1 class="text-3xl md:text-5xl font-black text-white leading-tight">
-          桂枝汤的“黄金配比”：<br class="hidden md:block" />
-          用现代数学比例拆解经典第一方
-        </h1>
-        <p class="text-gray-300 text-base md:text-lg leading-relaxed mt-6 max-w-4xl">
-          《伤寒论》中的桂枝汤，被后世称为“群方之祖”。但真正让桂枝汤成为经典的，并不仅仅是桂枝、白芍、生姜、大枣这些药物本身，而是其背后极其精密的剂量比例结构。尤其是桂枝与白芍“等量配伍”的 1:1 结构，本质上是一种高度稳定的药效平衡模型。一旦比例改变，方剂的整体药性方向便会发生根本偏移。
-        </p>
-      </div>
-    </section>
-
-    <!-- 文章主体 -->
-    <article class="space-y-10">
-
-      <!-- section 1 -->
-      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-          <span class="text-emerald-600 mr-3 font-mono">01/</span> 桂枝汤为何被称为“经方第一方”？
-        </h2>
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          桂枝汤出自张仲景《伤寒论》，原方剂量极其讲究：
-        </p>
+  <!-- 主体容器：控制文章最大宽度，手机端自动缩进 -->
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+    
+    <!-- 文章主标题区 -->
+    <header class="mb-12 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-amber-950 mb-4 leading-snug">
         
-        <!-- 优化后的古方剂排版（美观且完美适配手机端） -->
-        <div class="bg-stone-50 rounded-2xl p-6 my-6 border border-stone-200/60 max-w-md mx-auto md:mx-0">
-          <div class="grid grid-cols-2 gap-y-3 font-medium text-stone-800">
-            <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-amber-600 mr-2.5"></span>桂枝 <span class="text-stone-400 font-normal ml-1">三两</span></div>
-            <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-amber-600 mr-2.5"></span>芍药 <span class="text-stone-400 font-normal ml-1">三两</span></div>
-            <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-stone-500 mr-2.5"></span>甘草 <span class="text-stone-400 font-normal ml-1">二两 (炙)</span></div>
-            <div class="flex items-center"><span class="w-2 h-2 rounded-full bg-stone-500 mr-2.5"></span>生姜 <span class="text-stone-400 font-normal ml-1">三两</span></div>
-            <div class="col-span-2 flex items-center border-t border-stone-200 pt-2.5 mt-1 text-stone-600">
-              <span class="w-2 h-2 rounded-full bg-stone-400 mr-2.5"></span>大枣 <span class="text-stone-400 font-normal ml-1">十二枚</span>
-            </div>
-          </div>
-        </div>
+        桂枝汤的“黄金配比”：用现代数学比例拆解经典第一方
+      </h1>
+      <div class="w-20 h-0.5 bg-amber-300 mx-auto"></div>
+    </header>
 
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代教材往往把它简单描述为“解肌发表、调和营卫”。但如果真正深入研究经方结构，就会发现桂枝汤的伟大之处，并不只是能治疗太阳中风证，而是它第一次在中医历史上建立了一套高度稳定的动态平衡模型。
-        </p>
-        <p class="text-base text-gray-700 leading-relaxed">
-          从现代系统科学角度看，桂枝汤本质上并不是简单的草药组合，而是一个能够自动维持“发散”与“收敛”平衡的药效分布式网络。
-        </p>
-      </section>
+    <article id="article-content" class="space-y-2">
 
-      <!-- section 2 -->
-      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-          <span class="text-emerald-600 mr-3 font-mono">02/</span> 桂枝与白芍为什么必须保持 1:1？
-        </h2>
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          桂枝汤最核心的结构内核，就是：
-        </p>
-        <div class="bg-amber-50 rounded-2xl p-6 my-6 text-center border border-amber-100 max-w-sm mx-auto shadow-inner">
-          <p class="text-3xl font-black text-amber-900 tracking-wider font-mono">
-            桂枝 : 白芍 = 1 : 1
-          </p>
-        </div>
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这个完美的对称比例绝非偶然。桂枝属于典型“向外”的动力药物，而白芍则完全相反：
-        </p>
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">01/</span>群方之冠的数学骨架：桂枝汤不是五味药，是一个比值
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    桂枝汤被历代医家尊为“群方之冠”，《伤寒论》第一条方即是它，全书以桂枝汤及其加减方贯穿太阳病辨证的始终。然而，当我们审视桂枝汤的组方结构时，一个往往被忽略的数学事实浮现出来：桂枝汤的身份，不是由桂枝、芍药、甘草、生姜、大枣这五味药的简单集合所定义的，而是由它们之间精确的剂量比例——尤其是桂枝与芍药的1:1等量配比——所定义的。改变这一比例，即使药味组成完全相同，方剂的身份也将发生根本性的偏移。桂枝汤的“黄金配比”，是中医方剂学中关于比例决定身份的最经典、最深刻的范本。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    张仲景在桂枝汤原方中的剂量标注为：桂枝三两、芍药三两、甘草二两、生姜三两、大枣十二枚。从相对比例来看，桂枝:芍药:甘草:生姜等于3:3:2:3，即1:1:0.67:1。其中桂枝与芍药的1:1等量配伍，构成了全方药理作用的对称轴心。汉代三两按一两13.8克折算，桂枝与芍药各约41.4克，二者合计占全方总重量的约55%——这意味着桂枝汤超过一半的药力，被投入到了这一对等量配伍的君药组合之中。这一结构设计的意图在药性层面清晰可见：桂枝辛甘温，发散而升，主司卫气；芍药苦酸微寒，收敛而降，主司营血。一散一收，一开一阖，一升一降，二者的等量配置在全方中建立了一个动态平衡的力学对称中心。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【桂枝汤原方剂量比例矩阵】</p>
+    <p class="mb-1">桂枝 : 芍药 : 甘草 : 生姜 : 大枣</p>
+    <p class="mb-1">3 : 3 : 2 : 3 : （约2—3，按重量估算）</p>
+    <p class="mb-1">简化比例：桂:芍:草:姜 ≈ 1 : 1 : 0.67 : 1</p>
+    <p class="mb-0">核心对称轴：桂枝:芍药 = 1:1（绝对等量，不可偏移）</p>
+  </div>
+</section>
 
-        <div class="grid md:grid-cols-2 gap-5 my-6">
-          <div class="bg-red-50/60 rounded-2xl p-6 border border-red-100">
-            <h3 class="text-lg font-bold text-red-800 mb-3 flex items-center">
-              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-              桂枝的核心方向 (正反馈/发散)
-            </h3>
-            <ul class="list-disc list-inside text-red-700/90 leading-relaxed space-y-1.5 text-sm md:text-base">
-              <li>温通卫阳，为体表提供循环动力</li>
-              <li>推动外散，通达九窍关节</li>
-              <li>解肌发汗，驱逐肌表外邪</li>
-            </ul>
-          </div>
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">02/</span>1:1的药理学对称：桂皮醛与芍药苷的分子二重奏
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    桂枝与芍药1:1的等量配伍，在分子药理学层面展现出一幅精密的对称调控图景。桂枝的核心活性成分桂皮醛与芍药的代表性成分芍药苷，在药代动力学与药效学上构成了一对互补的分子搭档。桂皮醛通过激活瞬时受体电位通道TRPA1与TRPV3，扩张外周血管平滑肌，增加皮肤血流量，促进汗腺分泌——这是“解肌发汗”的分子基础。芍药苷则通过选择性抑制环氧合酶-2的活性，降低前列腺素E2的合成，同时拮抗电压门控钙通道，缓解平滑肌痉挛——这是“敛阴和营”的分子基础。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    当桂枝与芍药以等量投入时，桂皮醛与芍药苷在血药浓度-时间曲线上的达峰浓度比值也接近1:1。这一对称的血药浓度比例，使二者在靶器官层面形成一种动态的推拉平衡：桂皮醛推动血管舒张与汗液分泌，芍药苷则为此舒张设定上限，防止过度发散；芍药苷收敛营阴，桂皮醛则为此收敛提供温通的动力，防止敛而过滞。这种“相反相成”的分子协同机制，正是桂枝汤区别于单纯发汗剂（如麻黄汤）或单纯收敛剂的根本所在。一旦桂芍比例偏离1:1，这一分子层面的推拉平衡便被打破，全方的药理性质将从“调和”滑向“偏胜”。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【桂枝-芍药1:1配比的分子协同模型】</p>
+    <p class="mb-1">桂皮醛 → TRPA1/TRPV3激活 → 血管舒张、汗腺分泌↑</p>
+    <p class="mb-1">芍药苷 → COX-2抑制 + 钙通道拮抗 → 平滑肌松弛、分泌↓</p>
+    <p class="mb-1">1:1配比下：血管舒张与收敛呈动态平衡，既不汗出太过，亦不敛邪留寇</p>
+    <p class="mb-0">比例偏离后果：桂 > 芍 → 过汗伤卫；芍 > 桂 → 敛邪碍表</p>
+  </div>
+</section>
 
-          <div class="bg-blue-50/60 rounded-2xl p-6 border border-blue-100">
-            <h3 class="text-lg font-bold text-blue-800 mb-3 flex items-center">
-              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 112 0v7.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-              白芍的核心方向 (负反馈/收敛)
-            </h3>
-            <ul class="list-disc list-inside text-blue-700/90 leading-relaxed space-y-1.5 text-sm md:text-base">
-              <li>敛纯阴之汗，固护营阴不外泄</li>
-              <li>酸收营血，缓急止痛</li>
-              <li>制约桂枝过度发散的刚烈之性</li>
-            </ul>
-          </div>
-        </div>
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">03/</span>比例偏移的连锁反应：从桂枝汤到桂枝加桂汤的身份嬗变
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    张仲景本人在《伤寒论》中亲自演示了桂枝芍药比例偏移所带来的方剂身份改变。桂枝加桂汤，即在桂枝汤原方基础上将桂枝由三两增至五两，而芍药仍为三两。此时桂枝:芍药的比例从1:1变为5:3，桂枝的相对权重显著上升。这一剂量的改变并非微调，而是全方治疗重心的根本转移：桂枝汤主治“太阳中风，阳浮而阴弱”，以调和营卫为务；桂枝加桂汤则主治“气从少腹上冲心”的奔豚证，以平冲降逆为功。两方药味组成完全一致，唯一的区别仅在于桂枝的剂量从三两变成了五两。这一案例构成了经方剂量比例理论最有力的内在证据——张仲景本人即以剂量作为切换方剂身份的手段。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    同理，当芍药的剂量被调整，方剂身份同样发生嬗变。若在桂枝汤基础上将芍药从三两增至六两，即为桂枝加芍药汤，主治“太阴病，腹满时痛”。此时桂芍比例从1:1变为3:6，即1:2，芍药的收敛与缓急止痛之力占据绝对优势，全方的靶向从体表营卫下沉至太阴脾络。若继续将芍药增量至九两，并加入饴糖，则为小建中汤，桂芍比例变为3:9即1:3，芍药与饴糖的甘酸组合将全方转化为温中补虚之剂，发汗解表之力已完全让位于建中缓急之功。从桂枝汤到桂枝加桂汤、桂枝加芍药汤、小建中汤，这一系列衍化清晰地展示了一条规律：经方的身份由其内部剂量比例所定义，剂量比例的变化即为方剂身份的变化。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【桂芍比例系列变化与方剂身份的对应嬗变】</p>
+    <p class="mb-1">桂:芍 = 1:1 → 桂枝汤：调和营卫，解肌发表（太阳中风）</p>
+    <p class="mb-1">桂:芍 = 5:3 → 桂枝加桂汤：平冲降逆（奔豚）</p>
+    <p class="mb-1">桂:芍 = 3:6 → 桂枝加芍药汤：缓急止痛（太阴腹痛）</p>
+    <p class="mb-1">桂:芍 = 3:9 → 小建中汤：温中补虚（虚劳里急）</p>
+    <p class="mb-0">结论：药味未变，仅比例变化，方剂身份与适应证已截然不同</p>
+  </div>
+</section>
 
-        <p class="text-base text-gray-700 leading-relaxed">
-          从现代控制工程来看，桂枝与白芍实际上形成了一个极其精妙的“动态对冲系统”。桂枝负责向外推动，白芍负责限制失控。两者等量，方能达成<span class="font-semibold text-emerald-700">“能发汗以祛邪，又不伤阴液”</span>的工业级稳态控制。
-        </p>
-      </section>
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">04/</span>当代临床中的隐性比例偏移：当3克换算悄然打破1:1
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    在当代中医临床中，桂枝汤的桂枝与芍药通常均被标注为9克——从数字表面上看，1:1的比例似乎得到了完整的保留。然而，这一表面的等量之下隐藏着三个可能导致实际比例偏移的因素。其一，饮片质量差异导致的活性成分含量不均。不同产地、不同采收年份的桂枝与芍药饮片，桂皮醛与芍药苷的含量可能相差数倍。标示为“各9克”的饮片，其实际摄入的活性成分量可能并不相等，1:1的配比在药效层面已经发生了偏移。其二，煎煮过程中两种成分的溶出率差异。桂皮醛为挥发油类，沸水下易挥发散失；芍药苷为水溶性苷类，在煎液中相对稳定。在相同的煎煮时间内，桂皮醛的实际保留率可能显著低于芍药苷的溶出率，使得煎出液中的有效成分比例偏离了饮片投料时的1:1。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    其三，度量衡换算的累积效应可能在某些情况下造成桂芍的不对等压缩。当医者在桂枝汤基础上进行加减时，若对桂枝和芍药采用了不同的增减幅度，1:1的基准比例便可能被无意中打破。例如，在桂枝汤中加入白术、防风等药味以治疗表虚挟湿之证时，若医者因桂枝辛温助湿而将其减为6克，却保留芍药在9克不变，则桂芍比例已变为2:3，全方的性质已偏向桂枝加芍药汤的方向。这种在加减化裁中不经意间造成的比例漂移，是当代经方临床中最为常见、却也最容易被忽视的剂量偏误。它提醒每一位中医师：在经方加减时，必须时刻意识到桂芍1:1这一基准比例的存在，任何一方的单方面增减，都是对全方身份的重新定义。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【当代临床中桂芍1:1比例的三重隐形破坏因素】</p>
+    <p class="mb-1">① 饮片活性成分含量不均：同重不同效，表面1:1 ≠ 实际1:1</p>
+    <p class="mb-1">② 煎煮溶出率差异：桂皮醛挥发损失 vs 芍药苷稳定溶出</p>
+    <p class="mb-1">③ 加减化裁中的无意识偏斜：单方面增减桂或芍而忽略比例</p>
+    <p class="mb-0">应对：保持1:1比例意识，任何加减均同时调整桂芍以维持基准比例</p>
+  </div>
+</section>
 
-      <!-- section 3 -->
-      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-          <span class="text-emerald-600 mr-3 font-mono">03/</span> 现代数学如何理解桂枝汤的平衡结构？
-        </h2>
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          如果将桂枝汤放到系统工程模型中分析，它完全符合一个标准的“闭环反馈调节器”架构：
-        </p>
-
-        <div class="overflow-x-auto my-6 border border-gray-100 rounded-2xl shadow-sm">
-          <table class="min-w-full bg-white">
-            <thead class="bg-gray-50 text-stone-600 text-left text-sm font-semibold border-b border-gray-100">
-              <tr>
-                <th class="px-6 py-4">要素药物</th>
-                <th class="px-6 py-4">系统控制方向</th>
-                <th class="px-6 py-4">底层功能属性</th>
-              </tr>
-            </thead>
-            <tbody class="text-sm md:text-base text-gray-700 divide-y divide-gray-100">
-              <tr>
-                <td class="px-6 py-4 font-medium text-gray-950">桂枝</td>
-                <td class="px-6 py-4 text-red-600">正向控制输出 (Input)</td>
-                <td class="px-6 py-4">提升外散能量流，开放毛细血管网络</td>
-              </tr>
-              <tr class="bg-gray-50/50">
-                <td class="px-6 py-4 font-medium text-gray-950">白芍</td>
-                <td class="px-6 py-4 text-blue-600">负反馈调节 (Feedback)</td>
-                <td class="px-6 py-4">抑制系统失控过载，阻断津液无度外泄</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-medium text-gray-950">甘草</td>
-                <td class="px-6 py-4 text-stone-600">系统阻尼缓冲 (Buffer)</td>
-                <td class="px-6 py-4">调和诸药，延长药效半衰期，降低阻抗震荡</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          这种等量关系如果打破，比如桂枝权重过高，系统将陷入正反馈死循环导致大汗亡阳；反之如果白芍权重过高，负反馈过载，则体表闭塞，外邪彻底被冰封滞留体内。
-        </p>
-      </section>
-
-      <!-- section 4 -->
-      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-          <span class="text-emerald-600 mr-3 font-mono">04/</span> 为什么桂枝减少后，桂枝汤就“失魂”了？
-        </h2>
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代临床中，很多医生出于对温热药发汗的谨慎，往往会机械地套用现代习惯，主动调低桂枝的用量。常见的门诊处方常常出现类似结构：
-        </p>
-        <div class="bg-red-50/50 rounded-2xl p-4 my-4 max-w-xs mx-auto text-center border border-red-100 font-mono text-red-700 font-bold">
-          桂枝 6克 &nbsp;:&nbsp; 白芍 15克
-        </div>
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          表面上，药味名称全中，仍然叫“桂枝汤”。但在系统参数上，这无异于将动力源砍掉大半，同时锁死了刹车装置。
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-5 mt-6">
-          <div class="bg-stone-50 rounded-2xl p-5 border border-stone-200/60">
-            <h3 class="font-bold text-gray-900 mb-2">原方张仲景 1:1 动态配比</h3>
-            <p class="text-sm text-gray-600 leading-relaxed">开放体表微循环，汗出热解，营卫双向自我修复，属于主动型的开放式网络。</p>
-          </div>
-          <div class="bg-stone-50 rounded-2xl p-5 border border-stone-200/60">
-            <h3 class="font-bold text-gray-900 mb-2">现代偏倚型小剂量配比</h3>
-            <p class="text-sm text-gray-600 leading-relaxed">方剂趋于严重的静止酸收状态，丧失驱邪外出的穿透力，沦为纯粹的缓急滋阴药。</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- section 5 -->
-      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-          <span class="text-emerald-600 mr-3 font-mono">05/</span> 比例微调带来的“路由级”功能变向
-        </h2>
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          张仲景本人就是最顶级的“剂量工程师”。在《伤寒论》中，药物不增不减、仅改变比例从而改变药效流向的范例屡见不鲜：
-        </p>
-        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2 text-sm md:text-base">
-          <li><span class="font-semibold text-gray-900">桂枝加芍药汤：</span>当白芍剂量增加到六两（比例变为 桂枝1:芍药2），整个方剂的主战场瞬间从“体表营卫”被路由重定向到“腹中”，功能变成了治疗腹中急痛。</li>
-          <li><span class="font-semibold text-gray-900">桂枝加桂汤：</span>当桂枝剂量加大到五两（比例变为 桂枝1.6:芍药1），正向推动能量出现压倒性优势，专门用于压制并平冲奔豚气从少腹上冲心胸的危急状态。</li>
-        </ul>
-        <p class="text-base text-gray-700 leading-relaxed mt-4">
-          代码仅仅改动了一个变量参数，底层的业务逻辑和数据走向就彻底变了。这，就是经方比例学的震撼之处。
-        </p>
-      </section>
-
-      <!-- section 6 -->
-      <section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
-          <span class="text-emerald-600 mr-3 font-mono">06/</span> 经方现代研究为何必须重构“比例学”？
-        </h2>
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          长久以来，业界在整理传统医学时往往陷入“重药味、轻比例”的盲区。许多研究堆砌了大量的化学成分分析，却忽略了复方在特定物理重量比例下才能涌现出来的“系统级效应”。
-        </p>
-        <p class="text-base text-gray-700 leading-relaxed">
-          如果我们用现代计算机视角重新对经方建模，药味就像是基础函数库，而剂量比例才是串联整个控制系统的核心算法。保护并复原古代经典的1:1等量核心，是现代精准医学与传统文化交叉研究不可逾越的护城河。
-        </p>
-      </section>
-
-      <!-- conclusion 结语 -->
-      <section class="bg-gradient-to-br from-stone-900 via-stone-950 to-emerald-950 rounded-3xl shadow-2xl p-8 md:p-10 text-white">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6">结语：把握结构，才是对经典最高级的量化传承</h2>
-        <p class="text-stone-300 text-base leading-relaxed mb-6">
-          《伤寒论》的伟大，在于它是一套精密的控制论体系。桂枝汤真正的秘密，隐藏在桂枝与白芍那看似简单的等量天平中。
-        </p>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 my-6 max-w-xl mx-auto space-y-3 font-medium tracking-wide">
-          <p class="text-center text-lg text-amber-200">桂枝过强，正反馈过载，则伤阴大汗</p>
-          <p class="text-center text-lg text-blue-200">白芍过强，负反馈过载，则冰封留邪</p>
-          <p class="text-center text-lg text-emerald-200">唯有 1 : 1 闭环平衡，方能调和营卫</p>
-        </div>
-        <p class="text-stone-400 text-sm leading-relaxed text-center mt-6">
-          理解其背后的数学比例与系统结构。一旦比例失调，即使药名未换，药效本质也早已差之千里。
-        </p>
-      </section>
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">05/</span>黄金配比的临床自觉：以1:1为锚点驾驭桂枝汤类方的全部衍化
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    掌握桂枝汤桂芍1:1这一黄金配比的内涵，其临床意义远不止于正确地开出桂枝汤原方。更为重要的是，这一黄金配比构成了驾驭桂枝汤全部类方衍化的基准坐标系。在桂枝汤的类方家族中——桂枝加桂汤、桂枝加芍药汤、桂枝去芍药汤、小建中汤、黄芪桂枝五物汤等二十余首方剂——每一首方剂的桂芍比例都是对1:1基准的有意偏离，而每一次偏离都精确地对应着一个特定的治疗方向。理解了1:1是“调和营卫”的数学表达，就能理解5:3是“平冲降逆”的数学表达，3:6是“缓急止痛”的数学表达，3:9是“建中补虚”的数学表达。这一比例坐标系的建立，使经方医师在面对复杂临床情境时，能够有意识地在1:1基准点上下游走，根据病证的偏倾方向精确调整桂芍比例，而非模糊地“桂枝加点量”或“芍药减点量”。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    本站的剂量比例分析工具，正是为辅助这一临床自觉而设计。当用户输入桂枝汤或其类方的处方克重时，系统自动计算桂芍比值并与1:1基准线进行对比，以可视化方式标示出比例偏离的方向与幅度，并提示该偏离所对应的类方身份与适应证变化。这不是在限制医师的处方自由，而是在为每一次剂量的调整提供一份清晰的学术地图——它告诉你，当你将桂枝从9克调至15克而芍药不变时，你正在从桂枝汤的领域迈入桂枝加桂汤的领域，你的治疗靶向正在从营卫体表向冲脉与心胸转移。带着这份地图去驾驭经方的剂量比例，方证对应才能从模糊的经验匹配升级为精确的数学对应。桂枝汤的1:1，不只是一个需要被记住的比例数字，而是一种需要被内化为临床直觉的、关于平衡与偏倾的经方思维方式。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【桂枝汤类方的桂芍比例导航图】</p>
+    <p class="mb-1">桂:芍 = 1:0 → 桂枝去芍药汤：胸满，心阳不振</p>
+    <p class="mb-1">桂:芍 = 5:3 → 桂枝加桂汤：奔豚，冲气上逆</p>
+    <p class="mb-1">桂:芍 = 1:1 → 桂枝汤（基准锚点）：营卫不和，太阳中风</p>
+    <p class="mb-1">桂:芍 = 1:2 → 桂枝加芍药汤：腹满时痛，太阴脾络不和</p>
+    <p class="mb-1">桂:芍 = 1:3 → 小建中汤：虚劳里急，腹中痛</p>
+    <p class="mb-0">操作原则：以1:1为锚点，向右偏倾则药力趋里趋下，向左偏倾则药力趋表趋上</p>
+  </div>
+</section>
 
     </article>
-
-    <!-- disclaimer 免责声明 -->
-    <footer class="mt-12 text-center text-gray-500 text-sm">
-      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm px-6 py-4 max-w-2xl mx-auto leading-relaxed">
-        本文及本站工具仅供学术探讨与文化研究，不构成任何临床处方与医疗诊断建议。
+<div class="mt-8 border-t border-b border-stone-200/60 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div class="w-full sm:w-1/2 text-left">
+        <span class="text-stone-400 block mb-1 text-xs tracking-wider">▲ 上一篇考证</span>
+        <a href="article5.html" class="text-stone-700 hover:text-emerald-700 font-medium transition line-clamp-1">
+          ← 为什么说经方“方证对应”的前提是“剂量不走样”？
+        </a>
       </div>
-    </footer>
+      
+      <div class="hidden sm:block w-px h-8 bg-stone-200"></div>
+
+      <div class="w-full sm:w-1/2 text-left sm:text-right">
+        <span class="text-stone-400 block mb-1 text-xs tracking-wider">▼ 下一篇考证 </span>
+        <a href="article7.html" class="text-stone-700 hover:text-emerald-700 font-medium transition line-clamp-1">
+          小柴胡汤中柴胡与黄芩的“剂量辩证”：从 8 两到 3 两的玄机 →
+        </a>
+      </div>
+    </div>
+    <div class="mt-12 bg-amber-50/50 border-l-4 border-amber-600 p-6 rounded-r-2xl text-sm text-stone-600 leading-relaxed shadow-sm">
+      <p class="font-semibold text-stone-800 mb-2 flex items-center text-base">
+        <svg class="w-5 h-5 text-amber-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        学术免责声明
+      </p>
+      <p>本文及本站相关数字化工具仅供学术探讨、文献考证与传统文化研究之目的，旨在梳理中医剂量演变的历史脉络。所有内容不构成任何临床处方建议，亦不可作为自行用药的依据。具体疾病的诊断与治疗，请务必前往正规医疗机构，遵从执业中医师的当面辨证指导。药物剂量须结合患者个体情况审慎确定，严禁直接套用文中历史换算数值进行临床调剂。</p>
+    </div>
 
   </main>
 
-  <!-- 底部纯净版权栏 -->
-  <footer class="text-center py-6 text-xs text-gray-400 border-t border-gray-100 bg-white mt-12 w-full">
-    &copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.
+  <!-- 底部统一版权栏 -->
+  <footer class="w-full text-center py-6 text-xs text-stone-400 border-t border-stone-100 bg-white mt-16">
+    <p class="mb-1">&copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.</p>
+    <p>参考核心文献：《伤寒论》桂枝汤及其类方条文、桂皮醛与芍药苷的药理协同研究</p>
   </footer>
 
 </body>

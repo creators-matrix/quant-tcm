@@ -1,508 +1,185 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>小柴胡汤中柴胡与黄芩的“剂量辩证”：从8两到3两的玄机</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  
+  
+  <title>小柴胡汤中柴胡与黄芩的“剂量辩证”：从 8 两到 3 两的玄机 - 量化中医工具箱</title>
+  <meta name="description" content="汉代小柴胡汤里柴胡是黄芩的2.67倍，现代教材却是1：1——这削掉的不只是剂量，是转枢的优先级。" />
 
-<body class="bg-gray-100 text-gray-800 antialiased">
-<!-- 顶部面包屑导航（给爬虫留生路） -->
-<div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-  <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-    <div class="flex items-center space-x-2 text-sm">
-      <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
-        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-        返回量化中医首页
-      </a>
-      <span class="text-gray-300">/</span>
-      <span class="text-gray-500 truncate">中医深度考证</span>
+  <!-- Tailwind CSS 核心样式 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 页面气质微调：兼顾现代响应式与古籍考证的宣纸色调 -->
+  <style>
+    body {
+      background-color: #fcfaf5; /* 优雅的宣纸底色，适合深度阅读 */
+      font-family: 'Noto Serif SC', 'Times New Roman', '宋体', '仿宋', '华文楷体', Georgia, serif;
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-stone-50 min-h-screen flex flex-col">
+
+  <!-- 顶部面包屑导航（给爬虫留生路，提升全站内链权重） -->
+  <div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2 text-sm">
+        <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          返回量化中医首页
+        </a>
+        <span class="text-gray-300">/</span>
+        <span class="text-gray-500 truncate">中医深度考证系列</span>
+      </div>
     </div>
   </div>
-</div>
-  <main class="max-w-5xl mx-auto px-6 py-10">
 
-    <!-- Hero -->
-    <section class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-10">
-
-      <div class="bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 px-8 py-10">
-
-        <div class="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-gray-200 text-sm tracking-wide mb-5">
-          伤寒论剂量考证 · 少阳病机 · 经方比例结构研究
-        </div>
-
-        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">
-          小柴胡汤中柴胡与黄芩的“剂量辩证”：<br class="hidden md:block" />
-          从 8 两到 3 两的玄机
-        </h1>
-
-        <p class="text-gray-300 text-lg leading-relaxed mt-6">
-          小柴胡汤被誉为“和解少阳第一方”，
-          其核心并不只是“柴胡配黄芩”，
-          更关键的是两者之间极其精密的剂量比例。
-          《伤寒论》原方中柴胡用“半斤”，黄芩仅“三两”，
-          这种近乎压倒性的比例差，
-          并非偶然书写，
-          而是张仲景针对少阳病机建立的一套动态能量调控模型。
-          一旦柴胡被削弱、黄芩被平均化，
-          方剂的“和解少阳”能力便会发生根本性偏移。
-        </p>
-
-      </div>
-
-    </section>
-
-    <article class="space-y-10">
-
-      <!-- 第一部分 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          一、小柴胡汤真正的核心：不是“清热”，而是“开枢”
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代教材往往把小柴胡汤概括为：
-        </p>
-
-        <div class="bg-green-50 rounded-2xl p-6 my-6">
-          <p class="text-green-800 text-lg font-semibold text-center">
-            “和解少阳，疏肝清热。”
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          但如果真正回到《伤寒论》的原始病机，
-          就会发现：
-          少阳并不是单纯“有热”，
-          而是“气机被卡在半表半里”。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          所谓：
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 my-6 overflow-x-auto">
-<pre class="text-gray-800">
-往来寒热
-胸胁苦满
-默默不欲饮食
-心烦喜呕
-</pre>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          本质上都指向一个问题：
-        </p>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
-          <p class="text-2xl font-black tracking-wide text-center">
-            少阳“枢机”失去开合能力。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          因此，
-          小柴胡汤真正的任务，
-          不是单纯“灭火”，
-          而是重新恢复少阳气机的旋转能力。
-        </p>
-
-      </section>
-
-      <!-- 第二部分 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          二、为什么柴胡是“半斤”，而黄芩只有“三两”？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          《伤寒论》小柴胡汤原文：
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
-<pre class="text-gray-800">
-柴胡半斤
-黄芩三两
-人参三两
-半夏半升
-生姜三两
-甘草三两
-大枣十二枚
-</pre>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          按汉代剂量体系推算，
-          柴胡“半斤”远远超过黄芩“三两”。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          换句话说：
-        </p>
-
-        <div class="bg-emerald-50 rounded-2xl p-6 my-6 text-center">
-          <p class="text-3xl font-black text-emerald-800 tracking-wide">
-            柴胡 ≫ 黄芩
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这意味着，
-          小柴胡汤并不是“柴胡+黄芩共同清热”。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          真正主导整个方剂方向的，
-          是柴胡的大剂量开枢力量。
-          黄芩则承担“制约少阳相火上逆”的辅助角色。
-        </p>
-
-      </section>
-
-      <!-- 第三部分 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          三、从现代系统科学看：柴胡负责“打开通道”，黄芩负责“降低噪声”
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          如果用现代系统模型解释，
-          小柴胡汤实际上是一个“动态流量调控系统”。
-        </p>
-
-        <div class="overflow-x-auto mt-6">
-          <table class="min-w-full bg-white border border-gray-200 rounded-2xl overflow-hidden">
-
-            <thead class="bg-gray-50">
-              <tr>
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  药物
-                </th>
-
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  系统作用
-                </th>
-
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  方向
-                </th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr class="border-b">
-                <td class="px-6 py-4">
-                  柴胡
-                </td>
-
-                <td class="px-6 py-4">
-                  打开少阳枢机
-                </td>
-
-                <td class="px-6 py-4">
-                  向外疏解
-                </td>
-              </tr>
-
-              <tr class="bg-gray-50 border-b">
-                <td class="px-6 py-4">
-                  黄芩
-                </td>
-
-                <td class="px-6 py-4">
-                  抑制上逆火热
-                </td>
-
-                <td class="px-6 py-4">
-                  向下制约
-                </td>
-              </tr>
-
-              <tr>
-                <td class="px-6 py-4">
-                  半夏
-                </td>
-
-                <td class="px-6 py-4">
-                  降逆化痰
-                </td>
-
-                <td class="px-6 py-4">
-                  稳定中焦
-                </td>
-              </tr>
-
-            </tbody>
-
-          </table>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6 mb-4">
-          柴胡的大剂量，
-          意味着整个系统的核心任务是：
-        </p>
-
-        <div class="bg-teal-50 border-l-4 border-teal-500 rounded-2xl p-6 my-6">
-          <p class="text-teal-800 text-lg font-semibold leading-relaxed">
-            强行恢复少阳气机的“旋转能力”。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          而黄芩只是负责避免“开枢过程中火热过冲”。
-        </p>
-
-      </section>
-
-      <!-- 第四部分 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          四、为什么柴胡剂量下降后，小柴胡汤会“失去少阳感”？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代临床中，
-          小柴胡汤经常被改造成：
-        </p>
-
-        <div class="bg-red-50 rounded-2xl p-6 my-6">
-          <p class="text-red-700 text-lg font-semibold text-center">
-            柴胡 10g + 黄芩 10g
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          从比例角度看，
-          这已经与《伤寒论》原方完全不同。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          原方中，
-          柴胡明显处于绝对主导地位；
-          而现代平均化之后，
-          方剂会逐渐偏向“苦寒清热”。
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-5 mt-8">
-
-          <div class="bg-emerald-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-emerald-700 mb-3">
-              原始结构
-            </h3>
-
-            <ul class="list-disc list-inside text-emerald-700 leading-relaxed space-y-2">
-              <li>柴胡主导开枢</li>
-              <li>气机动态疏解</li>
-              <li>少阳旋转恢复</li>
-              <li>相火自然下降</li>
-            </ul>
-          </div>
-
-          <div class="bg-orange-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-orange-700 mb-3">
-              现代平均化
-            </h3>
-
-            <ul class="list-disc list-inside text-orange-700 leading-relaxed space-y-2">
-              <li>苦寒比例上升</li>
-              <li>疏解力量下降</li>
-              <li>少阳转动不足</li>
-              <li>更偏“清热方”</li>
-            </ul>
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- 第五部分 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          五、黄芩为什么不能太重？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          黄芩属于典型苦寒药。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          在小柴胡汤中，
-          它的任务并不是主导病机，
-          而是：
-        </p>
-
-        <div class="bg-blue-50 rounded-2xl p-6 my-6">
-          <p class="text-blue-800 text-lg font-semibold text-center">
-            防止少阳相火上逆失控。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          如果黄芩比例过高，
-          会出现一个问题：
-        </p>
-
-        <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-6 my-6">
-          <p class="text-indigo-800 leading-relaxed font-semibold">
-            “火被压住了，
-            但少阳枢机并没有真正打开。”
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          这种状态下，
-          患者可能短期烦躁减轻，
-          但胸胁苦满、往来寒热、气机郁滞仍然存在。
-        </p>
-
-      </section>
-
-      <!-- 第六部分 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          六、少阳病真正危险的不是“热”，而是“卡住”
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          很多人理解少阳病时，
-          容易把重点放在“热象”上。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          但《伤寒论》真正强调的，
-          是“半表半里”的动态停滞。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          所谓：
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 my-6">
-          <p class="text-gray-800 text-lg text-center leading-relaxed">
-            邪不在表，
-            又未入里。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          这种状态最怕的，
-          就是气机无法继续流动。
-          因此柴胡必须维持足够比例，
-          才能真正“截断少阳”。
-        </p>
-
-      </section>
-
-      <!-- 第七部分 -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          七、从“8两到3两”看经方比例学的真正价值
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          小柴胡汤最值得研究的，
-          并不仅仅是“柴胡配黄芩”，
-          而是：
-        </p>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
-          <p class="text-2xl font-black text-center tracking-wide">
-            为什么柴胡必须远大于黄芩？
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这实际上揭示了经方医学一个重要原则：
-        </p>
-
-        <div class="bg-amber-50 border-l-4 border-amber-500 rounded-2xl p-6 my-6">
-          <p class="text-amber-800 text-lg font-semibold leading-relaxed">
-            真正的治疗核心，
-            不一定是“压制病理”，
-            而是“恢复系统流动能力”。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          柴胡的大剂量，
-          本质上是在重新激活少阳气机；
-          黄芩则只是辅助控制火热副作用。
-        </p>
-
-      </section>
-
-      <!-- 结尾 -->
-      <section class="bg-gradient-to-br from-slate-900 to-gray-900 rounded-3xl shadow-2xl p-10 text-white">
-
-        <h2 class="text-3xl font-bold mb-6">
-          八、结语：小柴胡汤真正的秘密，在于“开大于压”
-        </h2>
-
-        <p class="text-gray-300 text-base leading-relaxed mb-5">
-          《伤寒论》的伟大，
-          并不仅仅在于记录了药方，
-          更在于它建立了一整套极其精密的比例结构体系。
-        </p>
-
-        <p class="text-gray-300 text-base leading-relaxed mb-5">
-          小柴胡汤中，
-          柴胡“半斤”、
-          黄芩“三两”的结构，
-          并不是古人随意书写，
-          而是经过长期临床验证形成的动态平衡模型。
-        </p>
-
-        <div class="bg-white/10 rounded-2xl p-6 my-8 text-center">
-
-          <p class="text-2xl font-black tracking-wide">
-            柴胡负责打开少阳
-          </p>
-
-          <p class="text-2xl font-black tracking-wide mt-4">
-            黄芩负责制约相火
-          </p>
-
-          <p class="text-2xl font-black tracking-wide mt-4">
-            开枢，才是真正的核心
-          </p>
-
-        </div>
-
-        <p class="text-gray-300 text-base leading-relaxed">
-          因此，
-          当现代经方研究只关注“有没有黄芩清热”，
-          却忽略柴胡的大比例结构时，
-          实际上已经偏离了《伤寒论》的原始设计逻辑。
-          少阳病的真正关键，
-          从来不是单纯“灭火”，
-          而是恢复气机的旋转与流动。
-        </p>
-
-      </section>
-
-      <!-- disclaimer -->
-      <footer class="text-center text-gray-500 text-sm py-8">
-
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm px-6 py-6">
-          本文及本站工具仅供学术探讨与文化研究，不构成任何临床处方建议。
-        </div>
-
-      </footer>
+  <!-- 主体容器：控制文章最大宽度，手机端自动缩进 -->
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+    
+    <!-- 文章主标题区 -->
+    <header class="mb-12 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-amber-950 mb-4 leading-snug">   
+        小柴胡汤中柴胡与黄芩的“剂量辩证”：从 8 两到 3 两的玄机
+      </h1>
+      <div class="w-20 h-0.5 bg-amber-300 mx-auto"></div>
+    </header>
+
+    <article id="article-content" class="space-y-2">
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">01/</span>小柴胡汤的剂量之谜：柴胡八两与黄芩三两的悬殊比例
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    小柴胡汤是《伤寒论》中使用范围最广、加减化裁最丰富的方剂之一。在少阳病提纲证“口苦、咽干、目眩”以及四大主证“往来寒热、胸胁苦满、默默不欲饮食、心烦喜呕”的治疗中，小柴胡汤居于不可撼动的核心地位。然而，当我们将目光从方证对应转向剂量比例时，一个令人深思的数字跃然纸上：原方中柴胡用量为八两，黄芩用量为三两，二者之比为8:3。若按汉代一两约13.8克折算，柴胡约110克，黄芩约41克，柴胡的单味用量在整部《伤寒论》中位居前列。这一悬殊的比例——柴胡超过黄芩两倍有余——绝非随意为之，而是张仲景针对少阳病枢机不利、相火被郁的核心病机所设计的精密药物权重分配。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    为何柴胡必须是八两，而黄芩仅需三两？这一问题在当代教材的剂量简化中往往被模糊处理——当柴胡与黄芩均被标注为9克时，8:3的原始比例已被悄然改写为1:1。从汉代原量到当代教材，柴胡从八两（约110克）被压缩至9克，黄芩从三两（约41克）被压缩至9克，柴胡的压缩比约为12倍，黄芩的压缩比约为4.5倍，二者经历了不对等的剂量削减。这意味着，当代小柴胡汤中柴胡与黄芩的实际比例已从汉代的8:3变为1:1，柴胡的相对权重被大幅削弱。这一变化是否影响了小柴胡汤和解少阳的药理效应？这正是本文试图以度量衡考证与药理学数据双重回答的核心问题。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【小柴胡汤中柴胡与黄芩的古今剂量对比】</p>
+    <p class="mb-1">汉代原方：柴胡八两（≈110g），黄芩三两（≈41g）→ 柴:芩 = 8:3 ≈ 2.67:1</p>
+    <p class="mb-1">当代教材：柴胡9克，黄芩9克 → 柴:芩 = 1:1</p>
+    <p class="mb-1">柴胡压缩比：110g → 9g（约12倍），黄芩压缩比：41g → 9g（约4.5倍）</p>
+    <p class="mb-0">核心问题：从8:3到1:1的比例改变，是否改变了小柴胡汤的药理重心？</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">02/</span>少阳枢机的力学模型：柴胡“推陈致新”与黄芩“清泄相火”的协同比
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    要理解柴胡与黄芩8:3比例的药理逻辑，必须先理解少阳病的病机本质。少阳位于半表半里，是表里之气升降出入的枢机通道。当邪气客于少阳，枢机运转受阻，气机郁而化火，这便是“少阳相火被郁”的病机核心。张仲景在《伤寒论》中以“口苦、咽干、目眩”六个字概括少阳病的火郁之象——苦为火味，干为火灼津液，眩为火性炎上扰及清窍。治疗这一病机，单清其火则枢机不解，单转其枢则火邪不泄，必须同时完成“疏转枢机”与“清泄相火”两个动作，且二者之间的力度配比决定了全方的治疗重心是否准确落于少阳这一特定层面。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    柴胡在其中的角色，是“推陈致新”——《神农本草经》以此四字描述柴胡之功，实为对枢机转枢作用的最精炼概括。柴胡皂苷a与d是其核心活性成分，现代药理研究证实二者可通过调节肝细胞膜上的转运体蛋白表达，促进胆汁分泌与排泄，从物理层面实现“枢机通利”。黄芩的角色则是“清泄相火”——黄芩苷与黄芩素通过抑制NF-κB信号通路，降低TNF-α与IL-6等促炎因子的表达，从分子层面实现“清热泻火”。柴胡的转枢之力必须大于黄芩的清火之力，因为少阳病的根本矛盾在于枢机郁滞而非单纯的火热亢盛。若清火之力大于转枢之力，则火虽暂清而枢机愈滞，气机郁而火复生。8:3这一比例的精义，正在于确保转枢的主导性与清火的辅助性——柴胡之力约为黄芩的2.67倍，恰好使得枢机得转、相火随之而泄，而非黄芩清火之力抢先占据了治疗的主导位置。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【柴胡与黄芩8:3比例的药理学分工模型】</p>
+    <p class="mb-1">柴胡（八两）→ 转枢为主：柴胡皂苷促进胆汁分泌，物理性通利枢机</p>
+    <p class="mb-1">黄芩（三两）→ 清火为辅：黄芩苷抑制NF-κB，分子性清泄相火</p>
+    <p class="mb-1">8:3比例逻辑：转枢之力必须占优（约2.67:1），以确保枢机先通而后火随之下泄</p>
+    <p class="mb-0">比例颠倒的后果：若芩重于柴，则相火暂清而枢机不转，气郁必复生火</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">03/</span>剂量辩证的临床剖面：当柴芩比例随证偏移
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    张仲景在小柴胡汤的加减法中，亲自演示了柴胡与黄芩比例的动态调整策略。原方之后所附的七条加减法，虽未直接改动柴胡与黄芩的比例，但在小柴胡汤的类方衍化中，柴芩比例的偏移清晰地反映着治疗重心的调整。大柴胡汤中，柴胡用量仍为八两，黄芩用量则从三两增至四两（一说仍为三两，但加入了枳实、大黄等清泄药），全方重心从小柴胡汤的“转枢为主”向“清泄为主”偏移，主治也从少阳枢机不利转向少阳阳明合病之热结在里。柴胡桂枝干姜汤中，柴胡八两不变，但黄芩减至二两，且加入桂枝、干姜等温通药，柴芩比例从8:3变为8:2，全方重心从清泄相火向温通阳气转移，主治也从典型的少阳火郁转向了少阳兼水饮内结的复杂证候。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    这一“剂量辩证”的逻辑在当代临床中具有重要的指导意义。当一位患者呈现典型的少阳病口苦、咽干、往来寒热时，柴芩比例应严格维持在8:3（当代可按比例缩放为16克:6克或24克:9克）以确保转枢为主导。当患者少阳证兼有明显的热象——舌红苔黄、脉弦数有力、心烦明显——可将黄芩增量至与柴胡等量甚至稍重，使柴芩比例从8:3调整为1:1或3:4，以增强清泄相火之力。当患者少阳证兼有寒象——舌淡苔白、脉弦细、畏寒——可减黄芩至原量的一半，使柴芩比例变为8:1.5，以避免苦寒伤及初生之阳气。这种以8:3为基准、随证调整柴芩比例的用药策略，正是“剂量辩证”在小柴胡汤中的具体实践——比例不是僵化的教条，而是临床决策的精密罗盘。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【小柴胡汤类方的柴芩比例与治疗重心迁移】</p>
+    <p class="mb-1">柴:芩 = 8:3 → 小柴胡汤：转枢为主，清火为辅（少阳枢机不利）</p>
+    <p class="mb-1">柴:芩 = 8:4 → 大柴胡汤方向：清泄力增强（少阳阳明合病）</p>
+    <p class="mb-1">柴:芩 = 8:2 → 柴胡桂枝干姜汤方向：温通力增强（少阳兼水饮）</p>
+    <p class="mb-0">临床操作：以8:3为基准，热重则芩加，寒重则芩减，枢机不利则柴加</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">04/</span>当代教材1:1的利与弊：教学便利性与药理忠实度的两难
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    当代《方剂学》教材将小柴胡汤中的柴胡与黄芩均标注为9克，二者比例变为1:1。这一调整有着明确的现实考量。从教学角度，等量配对极大简化了学生的记忆负担——柴胡9克、黄芩9克、半夏9克、党参9克、甘草6克、生姜9克、大枣4枚，全方七味药中有五味均为9克，形成了一种高度规整的数字结构，便于批量记忆与考试应答。从安全性角度，柴胡用量的大幅压缩（从110克降至9克）显著降低了柴胡皂苷潜在的肝细胞膜扰动风险，使得小柴胡汤在未经严格辨证的情况下使用也较少出现急性不良反应。这两项优势——教学便利与安全冗余——是当代教材剂量体系得以稳定运行数十年的合理基础。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    然而，这一调整为小柴胡汤的药理忠实度付出的代价也不应被忽视。当柴胡与黄芩从8:3变为1:1，柴胡的相对权重下降至原方的不到四成，全方的治疗重心已从“转枢为主”悄悄移至“转枢与清火等量齐观”。对于少阳火郁不重而枢机不利明显的患者——这部分患者恰恰是小柴胡汤最核心的适应证群体——1:1的柴芩比例可能导致转枢之力相对不足，临床表现为服用小柴胡汤后口苦咽干改善而胸胁苦满与往来寒热迁延不解。这正是部分经方临床家对当代小柴胡汤剂量提出质疑的药理依据：不是药味错了，也不是辨证错了，而是方中最重要的药物比例在教材简化中被改写了，转枢的主导性被削弱了。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【小柴胡汤当代1:1与原方8:3的药理效应对比】</p>
+    <p class="mb-1">当代1:1：转枢力与清火力持平 → 口苦咽干可缓解，胸胁苦满可能迁延</p>
+    <p class="mb-1">原方8:3：转枢力显著大于清火力 → 枢机先通，相火随之下泄，诸证并解</p>
+    <p class="mb-1">教学优势：数字规整，记忆便捷，安全冗余充足</p>
+    <p class="mb-0">临床代价：柴胡相对权重被压缩至原方的37.5%，转枢主导性可能不足</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">05/</span>在安全与忠实之间：本站对小柴胡汤剂量比例的学术立场
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    面对小柴胡汤从汉代8:3到当代1:1的比例变迁，本站的量化计算器采取的是一种既尊重当代安全规范、又忠实呈现历史原貌的分层策略。在默认模式下，所有经方的剂量换算均按当代教材标准执行——小柴胡汤中柴胡与黄芩均显示为9克，比例为1:1，以满足基础教学与临床安全的合规要求。在高级模式下，用户可切换至汉代原方比例视图，此时小柴胡汤的柴胡与黄芩将按8:3的比例显示，并可依据用户选择的度量衡换算基准——1两=13.8克或1两=3克——自动计算各药的绝对克重与相对比值。比例偏离度超过±15%的药对将被系统自动高亮，并弹出提示说明该偏离可能导致的全方治疗重心偏移方向。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    这一设计的学术立场可以概括为：我们并不主张所有临床医师立即将小柴胡汤中的柴胡与黄芩从1:1改回8:3。当代教材的剂量体系经过了数十年的临床检验，其安全性在常规辨证使用中已得到广泛验证。但我们同时认为，每一位使用小柴胡汤的中医师都应当知晓，在张仲景的原方中柴胡与黄芩的比例是8:3而非1:1，这一比例的精义在于确保转枢之力清火之力保持约2.67:1的优势，以实现“枢机先通而相火随泄”的治疗程序。知晓这一历史真实，并不自动意味着必须在处方中执行原量，但它构成了剂量调整意识的基础——当你在临床中发现小柴胡汤效果不如预期时，除了反思辨证是否准确，或许还可以问自己一个问题：我的柴胡与黄芩，是否在不经意间失去了那2.67:1的古老比例中隐含的枢转优先权。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【本站对小柴胡汤柴芩比例的分层处理】</p>
+    <p class="mb-1">默认模式：柴:芩=1:1（各9克），符合当代教材标准，安全基线</p>
+    <p class="mb-1">高级模式：柴:芩=8:3（可选汉代原量或等比例缩放），忠实于原方</p>
+    <p class="mb-1">比例预警：偏离8:3超过±15%时自动提示治疗重心偏移方向</p>
+    <p class="mb-0">学术底线：所有高级模式数据仅供学术参考，不构成临床处方建议</p>
+  </div>
+</section>
 
     </article>
+<div class="mt-8 border-t border-b border-stone-200/60 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div class="w-full sm:w-1/2 text-left">
+        <span class="text-stone-400 block mb-1 text-xs tracking-wider">▲ 上一篇考证</span>
+        <a href="article6.html" class="text-stone-700 hover:text-emerald-700 font-medium transition line-clamp-1">
+          ← 桂枝汤的“黄金配比”：用现代数学比例拆解经典第一方
+        </a>
+      </div>
+      
+      <div class="hidden sm:block w-px h-8 bg-stone-200"></div>
+
+      <div class="w-full sm:w-1/2 text-left sm:text-right">
+        <span class="text-stone-400 block mb-1 text-xs tracking-wider">▼ 下一篇考证 </span>
+        <a href="article8.html" class="text-stone-700 hover:text-emerald-700 font-medium transition line-clamp-1">
+          四逆汤里附子与干姜的配比：如何量化“回阳救逆”的猛烈度 →
+        </a>
+      </div>
+    </div>
+    <div class="mt-12 bg-amber-50/50 border-l-4 border-amber-600 p-6 rounded-r-2xl text-sm text-stone-600 leading-relaxed shadow-sm">
+      <p class="font-semibold text-stone-800 mb-2 flex items-center text-base">
+        <svg class="w-5 h-5 text-amber-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        学术免责声明
+      </p>
+      <p>本文及本站相关数字化工具仅供学术探讨、文献考证与传统文化研究之目的，旨在梳理中医剂量演变的历史脉络。所有内容不构成任何临床处方建议，亦不可作为自行用药的依据。具体疾病的诊断与治疗，请务必前往正规医疗机构，遵从执业中医师的当面辨证指导。药物剂量须结合患者个体情况审慎确定，严禁直接套用文中历史换算数值进行临床调剂。</p>
+    </div>
 
   </main>
-<footer class="text-center py-6 text-xs text-gray-400 border-t border-gray-100 bg-white mt-12 w-full">
-  &copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.
-</footer>
+
+  <!-- 底部统一版权栏 -->
+  <footer class="w-full text-center py-6 text-xs text-stone-400 border-t border-stone-100 bg-white mt-16">
+    <p class="mb-1">&copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.</p>
+    <p>参考核心文献：《伤寒论》小柴胡汤原方、大柴胡汤与柴胡桂枝干姜汤类方、柴胡皂苷与黄芩苷药理学研究</p>
+  </footer>
+
 </body>
 </html>

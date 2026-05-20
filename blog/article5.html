@@ -1,630 +1,187 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>为什么说经方“方证对应”的前提是“剂量不走样”？</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  
+  
+  <title>为什么说经方“方证对应”的前提是“剂量不走样”？ - 量化中医工具箱</title>
+  <meta name="description" content="证辨对了，量用错了，你开的桂枝汤其实已经变成了桂枝加桂汤——剂量比例才是方剂的身份证。" />
 
-<body class="bg-gray-100 text-gray-800 antialiased">
-<!-- 顶部面包屑导航（给爬虫留生路） -->
-<div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-  <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-    <div class="flex items-center space-x-2 text-sm">
-      <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
-        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-        返回量化中医首页
-      </a>
-      <span class="text-gray-300">/</span>
-      <span class="text-gray-500 truncate">中医深度考证</span>
+  <!-- Tailwind CSS 核心样式 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 页面气质微调：兼顾现代响应式与古籍考证的宣纸色调 -->
+  <style>
+    body {
+      background-color: #fcfaf5; /* 优雅的宣纸底色，适合深度阅读 */
+      font-family: 'Noto Serif SC', 'Times New Roman', '宋体', '仿宋', '华文楷体', Georgia, serif;
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-stone-50 min-h-screen flex flex-col">
+
+  <!-- 顶部面包屑导航（给爬虫留生路，提升全站内链权重） -->
+  <div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2 text-sm">
+        <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          返回量化中医首页
+        </a>
+        <span class="text-gray-300">/</span>
+        <span class="text-gray-500 truncate">中医深度考证系列</span>
+      </div>
     </div>
   </div>
-</div>
-  <main class="max-w-5xl mx-auto px-6 py-10">
 
-    <!-- Hero -->
-    <section class="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden mb-10">
-      <div class="bg-gradient-to-r from-slate-900 via-gray-900 to-zinc-800 px-8 py-10">
-
-        <div class="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-gray-200 text-sm tracking-wide mb-5">
-          伤寒论考证 · 经方剂量学 · 方证对应研究
-        </div>
-
-        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">
-          为什么说经方“方证对应”的前提是“剂量不走样”？
-        </h1>
-
-        <p class="text-gray-300 text-lg leading-relaxed mt-6">
-          《伤寒论》的核心思想之一，
-          被后世总结为“方证对应”。
-          但很多现代研究忽略了一个关键前提：
-          张仲景时代的“方”，从来不仅仅是药味组合，
-          更包括严格的剂量比例结构。
-          一旦剂量比例发生偏移，
-          方剂的药效方向、作用层次甚至靶向系统，
-          都可能出现根本性改变。
-        </p>
-
-      </div>
-    </section>
-
-    <article class="space-y-10">
-
-      <!-- intro -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          一、“方证对应”真正对应的到底是什么？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代中医界经常提到：
-          “有是证，用是方。”
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这被视为经方医学最核心的原则之一。
-          许多人因此认为，
-          所谓“方证对应”，
-          本质上只是：
-        </p>
-
-        <div class="bg-blue-50 rounded-2xl p-6 my-6">
-          <p class="text-blue-800 text-lg font-semibold leading-relaxed text-center">
-            某种症状组合，对应某个固定药方。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          但真正深入研究《伤寒论》后会发现，
-          张仲景所说的“方”，
-          从来不是简单药物名单。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          在经方体系中，
-          “方”至少包含四个不可分割的层面：
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-5 mt-8">
-
-          <div class="bg-gray-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              药物组成
-            </h3>
-
-            <p class="text-gray-600 leading-relaxed">
-              使用哪些药材。
-            </p>
-          </div>
-
-          <div class="bg-gray-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              剂量比例
-            </h3>
-
-            <p class="text-gray-600 leading-relaxed">
-              每味药之间的权重关系。
-            </p>
-          </div>
-
-          <div class="bg-gray-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              煎煮方法
-            </h3>
-
-            <p class="text-gray-600 leading-relaxed">
-              去滓、先煎、后下等工艺。
-            </p>
-          </div>
-
-          <div class="bg-gray-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">
-              服用节律
-            </h3>
-
-            <p class="text-gray-600 leading-relaxed">
-              温服、顿服、频服等。
-            </p>
-          </div>
-
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6">
-          因此，
-          真正的“方证对应”，
-          实际上是完整药效结构与病机结构之间的对应。
-        </p>
-
-      </section>
-
-      <!-- dosage -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          二、为什么剂量比例比“有没有这味药”更重要？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代药理学有一个基本概念：
-        </p>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
-          <p class="text-2xl font-black tracking-wide text-center">
-            剂量决定药理方向。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          同一种药物，
-          在不同剂量下，
-          可能表现出完全不同的生理作用。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          经方实际上也遵循同样规律。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          当某味药剂量被削弱、
-          放大或者比例失衡时，
-          整个方剂的“力学结构”就会发生改变。
-        </p>
-
-      </section>
-
-      <!-- guizhi -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          三、桂枝汤为什么不是“随便放点桂枝”？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          桂枝汤是《伤寒论》最经典的基础方之一：
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
-<pre class="text-gray-800">
-桂枝三两
-芍药三两
-生姜三两
-甘草二两
-大枣十二枚
-</pre>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代很多教材会把它理解成：
-        </p>
-
-        <div class="bg-blue-50 rounded-2xl p-5 my-6">
-          <p class="text-blue-800 leading-relaxed font-medium text-center">
-            “一个调和营卫的轻度感冒方。”
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          但如果按照汉代剂量复原，
-          桂枝与芍药都可能接近40~45克级别，
-          生姜也属于高剂量使用。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          这意味着：
-          桂枝汤本质上并不是“温和茶饮”，
-          而是具有明确发汗驱邪力量的动态调节方。
-        </p>
-
-        <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4">
-          1. 如果削弱桂枝比例，会发生什么？
-        </h3>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          若现代临床将桂枝减至6克、
-          芍药维持15克，
-          方剂结构就会发生明显偏移：
-        </p>
-
-        <div class="overflow-x-auto mt-6">
-          <table class="min-w-full bg-white border border-gray-200 rounded-2xl overflow-hidden">
-            <thead class="bg-gray-50">
-              <tr>
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  原始结构
-                </th>
-
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  削弱后结构
-                </th>
-
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">
-                  药效变化
-                </th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr class="border-b">
-                <td class="px-6 py-4">
-                  桂枝 = 芍药
-                </td>
-
-                <td class="px-6 py-4">
-                  桂枝 &lt; 芍药
-                </td>
-
-                <td class="px-6 py-4">
-                  发汗力量下降
-                </td>
-              </tr>
-
-              <tr class="border-b bg-gray-50">
-                <td class="px-6 py-4">
-                  温通营卫
-                </td>
-
-                <td class="px-6 py-4">
-                  偏酸收敛
-                </td>
-
-                <td class="px-6 py-4">
-                  外邪难解
-                </td>
-              </tr>
-
-              <tr>
-                <td class="px-6 py-4">
-                  动态调和
-                </td>
-
-                <td class="px-6 py-4">
-                  静态缓和
-                </td>
-
-                <td class="px-6 py-4">
-                  方证开始偏离
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6">
-          此时，
-          虽然药名仍然叫“桂枝汤”，
-          但其真实药效已经与原方出现本质差异。
-        </p>
-
-      </section>
-
-      <!-- mahuang -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          四、麻黄汤为什么极度依赖剂量平衡？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          麻黄汤更能体现“剂量决定靶向”这一规律。
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
-<pre class="text-gray-800">
-麻黄三两
-桂枝二两
-杏仁七十枚
-甘草一两
-</pre>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          在原始结构中，
-          麻黄明显占主导地位。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          其作用核心是：
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-5 mt-6">
-
-          <div class="bg-red-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-red-700 mb-2">
-              强力宣肺
-            </h3>
-
-            <p class="text-red-700 leading-relaxed">
-              打开肺气闭塞。
-            </p>
-          </div>
-
-          <div class="bg-orange-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-orange-700 mb-2">
-              快速发汗
-            </h3>
-
-            <p class="text-orange-700 leading-relaxed">
-              驱散寒邪。
-            </p>
-          </div>
-
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6 mb-4">
-          但如果现代人为降低风险，
-          将麻黄压缩到3克以下，
-          整个方剂就会出现根本变化。
-        </p>
-
-        <div class="bg-red-50 border border-red-200 rounded-2xl p-6 my-6">
-          <p class="text-red-700 leading-relaxed font-semibold">
-            原本“打开闭塞”的力量不足，
-            方剂会从“强力解表”退化为“轻度宣肺”。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          此时再用原来的“麻黄汤证”解释疗效，
-          就会产生严重偏差。
-        </p>
-
-      </section>
-
-      <!-- ratio -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          五、经方真正稳定的不是绝对剂量，而是比例结构
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          很多人误以为，
-          经方研究就是机械恢复“大剂量”。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          实际上，
-          真正重要的并不是某味药一定是多少克，
-          而是：
-        </p>
-
-        <div class="bg-green-50 border-l-4 border-green-500 rounded-2xl p-6 my-6">
-          <p class="text-green-800 text-lg font-semibold leading-relaxed">
-            药物之间的比例关系是否保持稳定。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          例如小柴胡汤：
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
-<pre class="text-gray-800">
-柴胡半斤
-黄芩三两
-半夏半升
-生姜三两
-人参三两
-甘草三两
-大枣十二枚
-</pre>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这里柴胡明显占据核心主导地位。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          若现代临床把柴胡减至10克，
-          而黄芩、人参仍维持常规量，
-          整个方剂就会从：
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-5 mt-6">
-
-          <div class="bg-blue-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-blue-700 mb-2">
-              少阳枢机调节
-            </h3>
-
-            <p class="text-blue-700 leading-relaxed">
-              以“疏”为主。
-            </p>
-          </div>
-
-          <div class="bg-amber-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-amber-700 mb-2">
-              中焦调理
-            </h3>
-
-            <p class="text-amber-700 leading-relaxed">
-              偏向“补与和”。
-            </p>
-          </div>
-
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6">
-          这实际上已经不是原始的小柴胡汤药效结构。
-        </p>
-
-      </section>
-
-      <!-- modern -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          六、为什么现代中医容易出现“有方无效”？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代很多医生会发现：
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 my-6">
-          <p class="text-gray-800 text-lg leading-relaxed text-center">
-            “辨证似乎完全正确，
-            但经方效果却远弱于古籍描述。”
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          其中一个重要原因，
-          就是剂量结构已经发生系统性改变。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          尤其在现代教材体系下，
-          许多经方长期存在：
-        </p>
-
-        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-6">
-          <li>整体剂量缩小</li>
-          <li>主药比例下降</li>
-          <li>药味平均化</li>
-          <li>强攻性药物被削弱</li>
-          <li>高风险药物被过度限制</li>
-        </ul>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          结果就是：
-          原本具有明确方向性的经方，
-          被逐渐改造成“温和调理方”。
-        </p>
-
-      </section>
-
-      <!-- physics -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          七、经方本质上是一种“药效动力学结构”
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          从现代系统科学角度看，
-          经方更像一种动态药效网络。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          每味药不仅提供单独药性，
-          更通过比例关系形成整体方向。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          因此：
-        </p>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
-          <p class="text-lg font-semibold text-center leading-relaxed">
-            剂量比例改变，
-            等于整个药效网络重新编程。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这也是为什么：
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-5 mt-6">
-
-          <div class="bg-red-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-red-700 mb-2">
-              柴胡过低
-            </h3>
-
-            <p class="text-red-700 leading-relaxed">
-              少阳枢机打不开。
-            </p>
-          </div>
-
-          <div class="bg-blue-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-blue-700 mb-2">
-              麻黄过低
-            </h3>
-
-            <p class="text-blue-700 leading-relaxed">
-              宣肺发汗力量不足。
-            </p>
-          </div>
-
-          <div class="bg-green-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-green-700 mb-2">
-              桂枝过低
-            </h3>
-
-            <p class="text-green-700 leading-relaxed">
-              营卫无法动态协调。
-            </p>
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- conclusion -->
-      <section class="bg-gradient-to-br from-gray-900 to-slate-800 rounded-3xl shadow-2xl p-10 text-white">
-
-        <h2 class="text-3xl font-bold mb-6">
-          八、结语：真正的“方证对应”，必须建立在“剂量结构对应”之上
-        </h2>
-
-        <p class="text-gray-300 text-base leading-relaxed mb-5">
-          《伤寒论》的伟大之处，
-          并不仅仅在于药物组合，
-          更在于它建立了一整套高度精密的剂量结构体系。
-        </p>
-
-        <p class="text-gray-300 text-base leading-relaxed mb-5">
-          张仲景时代的“方”，
-          从来不是简单药名堆砌，
-          而是经过长期临床验证形成的动态比例模型。
-        </p>
-
-        <div class="bg-white/10 rounded-2xl p-6 my-8 text-center">
-
-          <p class="text-2xl font-black tracking-wide">
-            药味决定方向
-          </p>
-
-          <p class="text-2xl font-black tracking-wide mt-4">
-            剂量决定强度
-          </p>
-
-          <p class="text-2xl font-black tracking-wide mt-4">
-            比例决定靶向
-          </p>
-
-        </div>
-
-        <p class="text-gray-300 text-base leading-relaxed">
-          因此，
-          所谓“方证对应”的真正前提，
-          并不是“药名不变”，
-          而是整个剂量结构不能走样。
-          一旦比例崩塌，
-          即使药物名称完全相同，
-          也可能已经不是原来的经方。
-        </p>
-
-      </section>
-
-      <!-- disclaimer -->
-      <footer class="text-center text-gray-500 text-sm py-8">
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm px-6 py-6">
-          本文及本站工具仅供学术探讨与文化研究，不构成任何临床处方建议。
-        </div>
-      </footer>
+  <!-- 主体容器：控制文章最大宽度，手机端自动缩进 -->
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+    
+    <!-- 文章主标题区 -->
+    <header class="mb-12 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-amber-950 mb-4 leading-snug">
+        为什么说经方“方证对应”的前提是“剂量不走样”？
+      </h1>
+      <div class="w-20 h-0.5 bg-amber-300 mx-auto"></div>
+    </header>
+
+    <article id="article-content" class="space-y-2">
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">01/</span>方证对应的致命软肋：当“证”对了，“量”却偏了
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    “方证对应”是经方医学的临床核心方法论。张仲景在《伤寒论》中反复示训：“病皆与方相应者，乃服之。”这一原则要求医者将患者的症状集合与某首经方的适应病证进行精准匹配。然而，在当代中医教育与临床实践中，方证对应的讨论几乎完全聚焦于“证”的辨识——恶寒发热、汗出恶风、脉浮缓是否等于桂枝汤证？往来寒热、胸胁苦满、默默不欲饮食是否等于小柴胡汤证？在这场关于病证识别的热烈讨论中，一个同等重要却长期被边缘化的变量遭到了系统性的忽视：方剂内部各药味之间的剂量比例。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    桂枝汤由桂枝三两、芍药三两、甘草二两、生姜三两、大枣十二枚组成。若一位医者辨证为桂枝汤证，但在处方时将芍药从三两减为二两，将桂枝从三两增为四两，那么他开出的实际上已不是桂枝汤，而是桂枝去芍药加桂汤的某种变体。尽管“证”辨得准确，但方剂内部的剂量比例已发生根本性偏移，药效的靶向随之偏离了原方设计的治疗重心。桂枝汤本以桂枝与芍药1:1的等量配伍为核心架构，二者一散一收、一开一阖，共同调节营卫之间的动态平衡。一旦这一比例被打破，全方便从“调和营卫”滑向“平冲降逆”或“温通心阳”——治疗的靶向从体表营卫转移至心胸阳气。这不是同一张方子的剂量微调，而是从一张方子变成了另一张方子。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【桂枝汤剂量比例偏移的方向性后果】</p>
+    <p class="mb-1">桂枝:芍药 = 1:1 → 桂枝汤：调和营卫，解肌发表</p>
+    <p class="mb-1">桂枝:芍药 = 1:0（去芍药）→ 桂枝去芍药汤：温通心阳，治胸满</p>
+    <p class="mb-1">桂枝:芍药 = 5:3（加桂）→ 桂枝加桂汤：平冲降逆，治奔豚</p>
+    <p class="mb-0">核心启示：经方的身份由其内部剂量比例定义，而非仅由药味组成定义</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">02/</span>君臣佐使的数学本质：经方是一个比例锁定的化学计量系统
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    中医方剂学中的“君臣佐使”配伍法则，在系统科学的视角下并非模糊的哲学比喻，而是一套精确的药理权重分配方案。君药定义方剂的主攻方向，其剂量必须足够大以确保药理效应的主导性；臣药辅助君药并处理次要症状，其剂量必须与君药维持固定比例才能形成协同而非竞争关系；佐药制衡君臣的偏性并处理兼证，其剂量必须恰好处于能够发挥制约作用、又不至于喧宾夺主的平衡点；使药调和全方并引经报使，其剂量通常最小，仅需达到启动信号传导的阈值即可。这一架构的稳定性，依赖于各角色之间剂量比例的严格维持。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    以麻黄汤为例进行君臣剂量关系的量化解析。麻黄汤由麻黄三两（君）、桂枝二两（臣）、杏仁七十个（佐）、甘草一两（使）组成。君药麻黄与臣药桂枝的比例为3:2，这一比例在药理学层面决定了全方对β受体的激动强度与对血管平滑肌的舒张程度之间的平衡。若麻黄减至二两而桂枝增至三两，麻黄与桂枝的比例变为2:3，麻黄的发汗之力被桂枝的温通之力超越，全方的药效重心从“开表发汗”滑向“温经通脉”，麻黄汤的身份已悄然转变为桂枝麻黄各半汤的方向。佐药杏仁与君药麻黄的配伍比例同样关键：麻黄宣肺平喘，杏仁降气止咳，一宣一降构成呼吸通气的协同调节。若杏仁用量不足，麻黄的宣散之力便失去了沉降的制衡，可能出现汗出而喘不止的疗效偏差。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【麻黄汤君臣佐使的剂量比例与药理权重】</p>
+    <p class="mb-1">君：麻黄三两 ≈ 41.4克（汉制）→ 发汗解表，β受体激动</p>
+    <p class="mb-1">臣：桂枝二两 ≈ 27.6克 → 温经通脉，辅助发汗</p>
+    <p class="mb-1">麻黄:桂枝 = 3:2 → 发汗力与温通力的最优配比</p>
+    <p class="mb-1">佐：杏仁七十个 ≈ 25克 → 降气止咳，制衡麻黄宣散</p>
+    <p class="mb-0">使：甘草一两 ≈ 13.8克 → 调和药性，缓麻黄桂枝之峻烈</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">03/</span>剂量偏移的药理学代价：从分子靶点到临床疗效的偏差链
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    经方剂量比例的偏移，并非仅仅是一个传统药学理论层面的抽象问题，它在分子药理学层面会产生具体的、可测量的效应偏差。以桂枝汤为例，桂枝中的桂皮醛与芍药中的芍药苷是两味君药的代表性活性成分。桂皮醛通过激活TRPA1通道扩张外周血管，促进汗腺分泌；芍药苷则通过抑制COX-2介导的前列腺素合成来收敛营阴、缓解平滑肌痉挛。当桂枝与芍药维持1:1的等量配比时，桂皮醛与芍药苷在血药浓度-时间曲线上的峰值比值也接近1:1，二者在靶点层面形成扩张与收敛的动态平衡。若桂枝用量增至芍药的两倍，桂皮醛的血药浓度峰值将显著高于芍药苷，血管扩张效应过度占优，可能导致汗出过多、卫气不固的副作用。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    更为隐蔽的剂量偏差效应发生在方剂的“次要”药味上。甘草在大多数经方中为使药，用量最小，但其在药代动力学层面的作用却不可小觑。甘草酸已被证实可抑制11β-羟基类固醇脱氢酶2型（11β-HSD2），从而延长内源性皮质醇的半衰期，为全方的抗炎与抗应激效应提供基础支持。若甘草用量被随意削减——如从原方的一两减至半两——这一酶抑制效应将不足以产生临床意义的皮质醇水平变化，全方的抗炎基础将被削弱。反之，若甘草用量被随意增加，则可能导致假性醛固酮增多症的副作用风险。甘草剂量的这种狭窄有效窗口，正是使药“小剂量、大作用”特性的药理基础——它的剂量不是可有可无的微调变量，而是经过精密计算的阈值开关。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【经方剂量偏移的药理学后果链】</p>
+    <p class="mb-1">君药比例偏移 → 主靶点激动/抑制失衡 → 治疗主方向偏离</p>
+    <p class="mb-1">臣药比例偏移 → 协同效应减弱或竞争效应增强 → 增效变减效</p>
+    <p class="mb-1">佐药比例偏移 → 制衡失效 → 君药副作用暴露</p>
+    <p class="mb-0">使药比例偏移 → 阈值开关失效 → 全方协同基础削弱或毒性风险增加</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">04/</span>度量衡漂移制造的比例失真：经方在历史中悄然发生的身份篡改
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    经方剂量比例的失真，不仅发生在某一位医师的处方瞬间，更在一个长达两千年的宏观历史尺度上持续发生。如前所述，汉代一两的真实重量约为13.8克，而当代教材中一两被折算为3克。这一折算并非等比例压缩——如果所有药味都同样从13.8克/两压缩至3克/两，那么经方内部各药味之间的相对比例至少可以被完整保留。问题在于，以“枚”“升”“尺”等非重量单位计量的药物，在换算为克重的过程中并未与重量单位的药物同步缩放，由此造成了方剂内部重量药与数量药之间的比例扭曲。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    以桂枝汤为例进行历史比例漂移的量化追踪。汉代原方中，桂枝三两（约41.4克）与大枣十二枚（约36—60克）的重量比约为1:0.87至1:1.45之间。当代教材中，桂枝被压缩至9克，而大枣十二枚仍按当代大枣的实际重量标注为30—60克，重量比变为1:3.3至1:6.7。大枣在方中的相对权重因桂枝的压缩而急剧膨胀，从汉代原方的与桂枝大致相仿的权重，上升为当代教材中桂枝重量的三至七倍。这一比例畸变足以改变大枣在全方中的作用——从调和营卫的佐使角色膨胀为占据绝对重量优势的味甜赋形剂，其甘缓之性可能过度抑制桂枝与芍药的药效表达。这并非任何一位医家的个人过错，而是历代度量衡演变与药物剂量单位不统一所共同制造的历史遗留问题。经方的身份，就在这一次次的无声折算中被悄然篡改。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【桂枝汤内部比例的历史漂移】</p>
+    <p class="mb-1">汉代原方：桂枝41.4g : 大枣36—60g ≈ 1:0.9至1:1.5</p>
+    <p class="mb-1">当代教材：桂枝9g : 大枣30—60g ≈ 1:3.3至1:6.7</p>
+    <p class="mb-1">大枣相对权重膨胀：从与桂枝等量级 → 桂枝的3—7倍</p>
+    <p class="mb-0">后果：大枣甘缓之性过度表达，可能抑制桂芍药效的正常发挥</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">05/</span>方证对应的完整性重建：将剂量比例纳入辨证论治的核心维度
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    重建方证对应的完整性，要求在当前的“证候辨识→方剂选择”两步流程中，插入一个被长期忽略的第三步骤：“剂量比例核查”。这一步骤的内涵是：在确定某方适用于某证之后，必须进一步核查该方的内部剂量比例是否忠实于原方设计，若比例已发生偏移，则必须意识到所使用之方已非原方，其适应证亦可能随之改变。这一核查的参考基准，不应是当代教材中的简化克重标注，而应回溯至汉代原方的相对比例——以桂枝汤为例，无论按汉代一两13.8克换算还是按教材一钱3克换算，桂枝与芍药必须维持1:1的比例，这一比例才是桂枝汤作为“调和营卫剂”的根本身份标识。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    对于当代中医临床而言，实践这一剂量比例自觉的第一步，并非是将所有经方恢复至汉代原量，而是在当前使用的剂量框架内，优先确保各方内部各药味之间的相对比例与原方一致。这是一项在安全性与历史忠实性之间可以兼得的可行策略。本站的量化中医计算器，正是为辅助这一剂量比例核查而设计的工具——它允许用户输入任意剂量换算基准，并自动计算各方中药味的相对比例，以可视化方式标示出与汉代原方比例发生显著偏离的药味。在这个意义上，计算器所做的不是给出一个唯一正确的剂量答案，而是帮助每一位使用者意识到：你笔下的每一个克重数字，都在参与着对一首古老方剂身份的持续定义。当方证对应真正包含了剂量比例的维度，当每一位中医师在写下处方时都能意识到剂量的比例含义，经方医学才有望在当代临床中实现其“方证对应”的全部承诺——不是打折的承诺，而是剂量不走样的、完整的承诺。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【本站剂量比例核查工具的设计原则】</p>
+    <p class="mb-1">① 以汉代原方内部比例为黄金基准，不可变更</p>
+    <p class="mb-1">② 用户输入实际处方克重后，自动计算各药比例并与基准比对</p>
+    <p class="mb-1">③ 比例偏离超过±15%的药味自动高亮警示</p>
+    <p class="mb-1">④ 偏离提示附带该方因比例变化可能发生的药效方向偏移说明</p>
+    <p class="mb-0">⑤ 所有分析仅供学术参考，不构成临床处方建议</p>
+  </div>
+</section>
 
     </article>
+<div class="mt-8 border-t border-b border-stone-200/60 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div class="w-full sm:w-1/2 text-left">
+        <span class="text-stone-400 block mb-1 text-xs tracking-wider">▲ 上一篇考证</span>
+        <a href="article4.html" class="text-stone-700 hover:text-emerald-700 font-medium transition line-clamp-1">
+          ← 古籍中的“升、合、枚、挺”：如何用现代物理容积精准复原？
+        </a>
+      </div>
+      
+      <div class="hidden sm:block w-px h-8 bg-stone-200"></div>
+
+      <div class="w-full sm:w-1/2 text-left sm:text-right">
+        <span class="text-stone-400 block mb-1 text-xs tracking-wider">▼ 下一篇考证 </span>
+        <a href="article6.html" class="text-stone-700 hover:text-emerald-700 font-medium transition line-clamp-1">
+          桂枝汤的“黄金配比”：用现代数学比例拆解经典第一方 →
+        </a>
+      </div>
+    </div>
+    <div class="mt-12 bg-amber-50/50 border-l-4 border-amber-600 p-6 rounded-r-2xl text-sm text-stone-600 leading-relaxed shadow-sm">
+      <p class="font-semibold text-stone-800 mb-2 flex items-center text-base">
+        <svg class="w-5 h-5 text-amber-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        学术免责声明
+      </p>
+      <p>本文及本站相关数字化工具仅供学术探讨、文献考证与传统文化研究之目的，旨在梳理中医剂量演变的历史脉络。所有内容不构成任何临床处方建议，亦不可作为自行用药的依据。具体疾病的诊断与治疗，请务必前往正规医疗机构，遵从执业中医师的当面辨证指导。药物剂量须结合患者个体情况审慎确定，严禁直接套用文中历史换算数值进行临床调剂。</p>
+    </div>
 
   </main>
-<footer class="text-center py-6 text-xs text-gray-400 border-t border-gray-100 bg-white mt-12 w-full">
-  &copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.
-</footer>
+
+  <!-- 底部统一版权栏 -->
+  <footer class="w-full text-center py-6 text-xs text-stone-400 border-t border-stone-100 bg-white mt-16">
+    <p class="mb-1">&copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.</p>
+    <p>参考核心文献：《伤寒论》方剂加减法、麻黄汤与桂枝汤类方比例对比</p>
+  </footer>
+
 </body>
 </html>

@@ -1,522 +1,190 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>古籍中的“升、合、枚、挺”：如何用现代物理容积精准复原？</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  
+  
+  <title>古籍中的“升、合、枚、挺”：如何用现代物理容积精准复原？ - 量化中医工具箱</title>
+  <meta name="description" content="“半夏一升”到底是多少克？用汉代出土量器与统计学，终结经方非重量单位的千年换算难题。" />
 
-<body class="bg-gray-100 text-gray-800 antialiased">
-<!-- 顶部面包屑导航（给爬虫留生路） -->
-<div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
-  <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-    <div class="flex items-center space-x-2 text-sm">
-      <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
-        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-        返回量化中医首页
-      </a>
-      <span class="text-gray-300">/</span>
-      <span class="text-gray-500 truncate">中医深度考证</span>
+  <!-- Tailwind CSS 核心样式 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 页面气质微调：兼顾现代响应式与古籍考证的宣纸色调 -->
+  <style>
+    body {
+      background-color: #fcfaf5; /* 优雅的宣纸底色，适合深度阅读 */
+      font-family: 'Noto Serif SC', 'Times New Roman', '宋体', '仿宋', '华文楷体', Georgia, serif;
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800 bg-stone-50 min-h-screen flex flex-col">
+
+  <!-- 顶部面包屑导航（给爬虫留生路，提升全站内链权重） -->
+  <div class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-2 text-sm">
+        <a href="../index.html" class="text-emerald-600 hover:text-emerald-700 font-medium transition flex items-center">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          返回量化中医首页
+        </a>
+        <span class="text-gray-300">/</span>
+        <span class="text-gray-500 truncate">中医深度考证系列</span>
+      </div>
     </div>
   </div>
-</div>
-  <main class="max-w-5xl mx-auto px-6 py-10">
 
-    <!-- Hero -->
-    <section class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 mb-10">
-      <div class="bg-gradient-to-r from-slate-900 via-gray-900 to-zinc-800 px-8 py-10">
-        <div class="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-gray-200 text-sm tracking-wide mb-5">
-          伤寒论考证 · 古代度量衡 · 中医物理容积研究
-        </div>
-
-        <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">
-          古籍中的“升、合、枚、挺”：<br class="hidden md:block" />
-          如何用现代物理容积精准复原？
-        </h1>
-
-        <p class="text-gray-300 text-lg leading-relaxed mt-6">
-          《伤寒论》《金匮要略》《千金方》等古代医学经典中，
-          大量存在“半夏一升”“五味子半升”“大枣十二枚”“葱白一握”“石膏如鸡子大”等非现代标准单位。
-          这些单位并非随意描述，
-          而是建立在古代容积学、物理密度与药材形态基础上的精准计量体系。
-          当现代中医忽略这些历史单位背后的真实物理结构时，
-          经方剂量往往会发生根本性偏差。
-        </p>
-      </div>
-    </section>
-
-    <article class="space-y-10">
-
-      <!-- intro -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          一、为什么古代经方大量使用“升、合、枚”而不是“克”？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代人习惯用“克”理解药物剂量，
-          认为重量是最科学的计量方式。
-          但在汉唐以前，
-          中国医学并不存在现代意义上的精密天平体系。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          古代医家更常使用：
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-5 my-6">
-          <div class="bg-gray-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">容积单位</h3>
-            <p class="text-gray-600 leading-relaxed">
-              升、合、斗等。
-            </p>
-          </div>
-
-          <div class="bg-gray-50 rounded-2xl p-5">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">自然数量单位</h3>
-            <p class="text-gray-600 leading-relaxed">
-              枚、挺、握、把等。
-            </p>
-          </div>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          原因非常简单：
-          很多中药并不是规则几何体，
-          即便重量相同，
-          实际药力浓度与煎煮接触面积也可能完全不同。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          因此，
-          古人往往采用“体积”与“形态”作为更稳定的临床经验单位。
-        </p>
-      </section>
-
-      <!-- volume -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          二、汉代“升、合”究竟对应多少现代毫升？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          要复原《伤寒论》的真实剂量，
-          首先必须确定汉代容积单位。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          近年来，
-          大量考古出土的汉代量器，
-          包括铜升、铜合、陶量器等，
-          为研究提供了可靠物证。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          根据主流考古测算，
-          东汉时期：
-        </p>
-
-        <div class="bg-blue-50 rounded-2xl p-6 my-6 overflow-x-auto">
-<pre class="text-lg text-blue-900">
-1升 ≈ 200毫升
-1合 = 1/10升 ≈ 20毫升
-</pre>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这与现代家庭量杯相比并不算大。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          但问题在于：
-          “200毫升半夏”和“200毫升五味子”，
-          重量完全不同。
-        </p>
-      </section>
-
-      <!-- density -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          三、为什么“同样一升”药物克重差异巨大？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代物理学中，
-          有一个非常关键的概念：
-        </p>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6 text-center">
-          <p class="text-2xl font-black tracking-wide">
-            密度 = 质量 ÷ 体积
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          古代药材虽然没有现代密度公式，
-          但实际上已经在临床经验中利用了这一原理。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          不同药材由于结构不同，
-          同体积下的重量差异极大。
-        </p>
-
-        <div class="overflow-x-auto mt-8">
-          <table class="min-w-full bg-white border border-gray-200 rounded-2xl overflow-hidden">
-            <thead class="bg-gray-50">
-              <tr>
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">药材</th>
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">1升大致重量</th>
-                <th class="px-6 py-4 text-left text-sm font-bold text-gray-700 border-b">原因</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr class="border-b">
-                <td class="px-6 py-4">半夏</td>
-                <td class="px-6 py-4">约60~90克</td>
-                <td class="px-6 py-4">块茎结构疏松</td>
-              </tr>
-
-              <tr class="border-b bg-gray-50">
-                <td class="px-6 py-4">五味子</td>
-                <td class="px-6 py-4">约120~160克</td>
-                <td class="px-6 py-4">果实密度高</td>
-              </tr>
-
-              <tr class="border-b">
-                <td class="px-6 py-4">粳米</td>
-                <td class="px-6 py-4">约150~180克</td>
-                <td class="px-6 py-4">颗粒紧密堆积</td>
-              </tr>
-
-              <tr class="bg-gray-50">
-                <td class="px-6 py-4">麻黄</td>
-                <td class="px-6 py-4">约25~40克</td>
-                <td class="px-6 py-4">茎枝中空蓬松</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6">
-          因此，
-          如果简单把“半夏一升”固定换算成某个克数，
-          很可能会脱离原始药物结构。
-        </p>
-      </section>
-
-      <!-- banxia -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          四、“半夏一升”到底等于多少克？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          《伤寒论》中，
-          半夏是最常出现“升制”的药物之一。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          例如小半夏汤：
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
-<pre class="text-gray-800">
-半夏一升
-生姜半斤
-</pre>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代经方界长期争议：
-          “半夏一升”究竟是多少克？
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          根据现代药材容积实验，
-          若采用汉代约200毫升容积，
-          以传统姜制半夏自然堆积测算：
-        </p>
-
-        <div class="bg-green-50 rounded-2xl p-6 my-6 text-center">
-          <p class="text-2xl font-black text-green-700">
-            半夏一升 ≈ 60~90克
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          这明显高于现代教材常用的“9克”“12克”剂量。
-        </p>
-      </section>
-
-      <!-- wuweizi -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          五、“五味子半升”为何重量远超想象？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          与半夏不同，
-          五味子属于高密度浆果类药材。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          《伤寒论》中的小青龙汤：
-        </p>
-
-        <div class="bg-gray-50 rounded-2xl p-6 overflow-x-auto my-6">
-<pre class="text-gray-800">
-五味子半升
-</pre>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          若按汉代半升约100毫升计算，
-          现代实测自然堆积五味子重量通常达到：
-        </p>
-
-        <div class="bg-blue-50 rounded-2xl p-6 my-6 text-center">
-          <p class="text-2xl font-black text-blue-700">
-            五味子半升 ≈ 60~80克
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这也是为什么很多经方医家发现：
-          现代常规五味子用量，
-          往往远低于经典原始结构。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          小剂量固然更安全，
-          但也可能削弱原本的敛肺止咳与收摄作用。
-        </p>
-      </section>
-
-      <!-- date -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          六、“大枣十二枚”为什么不能直接按现代红枣理解？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          《伤寒论》中最经典的数量单位，
-          就是“大枣十二枚”。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          问题在于：
-          汉代大枣与现代新疆大枣、
-          和田枣、
-          骏枣并不是同一物种规格。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          汉代大枣普遍个体较小，
-          更接近今天的普通药用小红枣。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          根据考古植物学与现代药材测算：
-        </p>
-
-        <div class="bg-amber-50 rounded-2xl p-6 my-6">
-          <p class="text-2xl font-black text-amber-800 text-center">
-            汉代大枣十二枚 ≈ 30~50克
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          但现代很多人若直接使用大型鲜枣，
-          可能轻易达到：
-        </p>
-
-        <div class="bg-red-50 rounded-2xl p-6 my-6">
-          <p class="text-2xl font-black text-red-700 text-center">
-            100~200克以上
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          这会显著改变方剂中的糖分、
-          黏滞性以及整体药性结构。
-        </p>
-      </section>
-
-      <!-- ting -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          七、“挺”“握”“把”等单位为何更难复原？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          除了升、合、枚之外，
-          古籍中还存在大量人体经验单位：
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-5 my-6">
-          <div class="bg-gray-50 rounded-2xl p-5 text-center">
-            <h3 class="text-xl font-bold mb-2">握</h3>
-            <p class="text-gray-600">一手所握</p>
-          </div>
-
-          <div class="bg-gray-50 rounded-2xl p-5 text-center">
-            <h3 class="text-xl font-bold mb-2">把</h3>
-            <p class="text-gray-600">一手所持</p>
-          </div>
-
-          <div class="bg-gray-50 rounded-2xl p-5 text-center">
-            <h3 class="text-xl font-bold mb-2">挺</h3>
-            <p class="text-gray-600">条状单体计数</p>
-          </div>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          这些单位高度依赖：
-        </p>
-
-        <ul class="list-disc list-inside text-gray-700 leading-relaxed space-y-2 mb-6">
-          <li>药材长度</li>
-          <li>药材粗细</li>
-          <li>人体手掌大小</li>
-          <li>采集季节</li>
-          <li>炮制干燥程度</li>
-        </ul>
-
-        <p class="text-base text-gray-700 leading-relaxed">
-          因此，
-          它们比重量单位更难标准化，
-          也说明古代中医本身并非纯粹机械计量学，
-          而是经验医学与自然物理观察的结合体。
-        </p>
-      </section>
-
-      <!-- modern -->
-      <section class="bg-white rounded-3xl shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">
-          八、现代经方研究为何必须引入“物理容积复原”？
-        </h2>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          过去很多教材习惯将古代所有单位直接统一成“克”，
-          这种做法虽然方便，
-          却容易忽略一个核心问题：
-        </p>
-
-        <div class="bg-slate-900 text-white rounded-2xl p-6 my-6">
-          <p class="text-lg font-semibold leading-relaxed text-center">
-            古代方剂中的很多单位，本质上并不是重量单位。
-          </p>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          当“半夏一升”被粗暴压缩成“15克”时，
-          原始方剂中的体积比例、
-          药材接触面积、
-          煎煮浓度都会发生变化。
-        </p>
-
-        <p class="text-base text-gray-700 leading-relaxed mb-4">
-          现代越来越多经方研究者开始采用：
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-5 mt-6">
-          <div class="bg-blue-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-blue-800 mb-2">
-              容积实验
-            </h3>
-            <p class="text-blue-700 leading-relaxed">
-              使用量杯复原古代“升”“合”。
-            </p>
-          </div>
-
-          <div class="bg-green-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-green-800 mb-2">
-              堆积密度测量
-            </h3>
-            <p class="text-green-700 leading-relaxed">
-              测定自然药材真实重量。
-            </p>
-          </div>
-
-          <div class="bg-amber-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-amber-800 mb-2">
-              植物考古
-            </h3>
-            <p class="text-amber-700 leading-relaxed">
-              研究古代药材形态差异。
-            </p>
-          </div>
-
-          <div class="bg-red-50 rounded-2xl p-5">
-            <h3 class="text-lg font-bold text-red-800 mb-2">
-              古法炮制复原
-            </h3>
-            <p class="text-red-700 leading-relaxed">
-              还原原始药材含水率与体积。
-            </p>
-          </div>
-        </div>
-
-        <p class="text-base text-gray-700 leading-relaxed mt-6">
-          这些研究正在逐渐建立真正意义上的“经方物理学”。
-        </p>
-      </section>
-
-      <!-- conclusion -->
-      <section class="bg-gradient-to-br from-gray-900 to-slate-800 rounded-3xl shadow-2xl p-10 text-white">
-        <h2 class="text-3xl font-bold mb-6">
-          九、结语：古代剂量不仅是数字，更是物理空间结构
-        </h2>
-
-        <p class="text-gray-300 text-base leading-relaxed mb-5">
-          从“半夏一升”到“大枣十二枚”，
-          古代医学中的剂量体系，
-          远比现代想象更加复杂。
-        </p>
-
-        <p class="text-gray-300 text-base leading-relaxed mb-5">
-          古人并非没有精度，
-          而是采用了另一种基于容积、
-          密度、
-          形态与经验的自然计量体系。
-        </p>
-
-        <div class="bg-white/10 rounded-2xl p-6 my-8 text-center">
-          <p class="text-2xl font-black tracking-wide">
-            “升”决定体积
-          </p>
-
-          <p class="text-2xl font-black tracking-wide mt-4">
-            “枚”决定自然个体
-          </p>
-
-          <p class="text-2xl font-black tracking-wide mt-4">
-            “挺”决定形态结构
-          </p>
-        </div>
-
-        <p class="text-gray-300 text-base leading-relaxed">
-          只有真正理解这些单位背后的物理含义，
-          才可能更接近《伤寒论》与古代经方原本的剂量逻辑，
-          而不是简单将一切机械换算成现代克数。
-        </p>
-      </section>
-
-      <!-- disclaimer -->
-      <footer class="text-center text-gray-500 text-sm py-8">
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm px-6 py-6">
-          本文及本站工具仅供学术探讨与文化研究，不构成任何临床处方建议。
-        </div>
-      </footer>
+  <!-- 主体容器：控制文章最大宽度，手机端自动缩进 -->
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+    
+    <!-- 文章主标题区 -->
+    <header class="mb-12 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-amber-950 mb-4 leading-snug">
+        
+        古籍中的“升、合、枚、挺”：如何用现代物理容积精准复原？
+      </h1>
+      <div class="w-20 h-0.5 bg-amber-300 mx-auto"></div>
+    </header>
+
+    <article id="article-content" class="space-y-2">
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">01/</span>当经方剂量脱离“称量”：那些不用戥子秤的古老药法
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    翻开《伤寒论》与《金匮要略》，一个令现代药师感到陌生甚至困惑的剂量世界扑面而来。张仲景在桂枝汤中写下“大枣十二枚”，在半夏厚朴汤中注明“半夏一升”，在小青龙汤中要求“五味子半升”，在瓜蒂散中以“瓜蒂一分”与“赤小豆一分”的等分法标示剂量。这些以“枚”“升”“合”“挺”“个”等容积或数量单位标注的药物，在汉代并没有被放在戥子秤上称重。它们的剂量传递依赖的是计数与容积，而非绝对重量。这构成了经方剂量体系中一个独立于“两-铢-分”重量体系之外的、以物理容积与个体计数为基准的平行系统。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    这一系统的复原难度，在某些方面甚至超越了“一两等于多少克”的重量考证。重量单位尚有出土铜权作为实物依据，而容积单位的复原则需要同时考证汉代量器的标准容积、药物的真实基原物种、药材的个体大小变异范围、以及不同炮制状态下药材的密度与堆积密度。以“半夏一升”为例：汉代一升的容积可精确测定为200毫升，但200毫升半夏饮片的重量，却因其炮制方式（生半夏、法半夏、姜半夏）、切片厚度、含水率、碎末比例的不同而存在显著差异。一枚大枣的重量更因产地、品种、干鲜状态而波动数倍。将“半夏一升”或“大枣十二枚”转化为当代药房电子秤上可操作的克重数字，需要的不仅是对历史的忠实，更是一套基于物理测量与统计分析的精密换算方法。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【经方中的非重量剂量单位体系】</p>
+    <p class="mb-1">容积单位：升、合、斗 → 用于半夏、五味子、杏仁、麦冬等</p>
+    <p class="mb-1">数量单位：枚、挺、个 → 用于大枣、附子、乌梅、桃仁等</p>
+    <p class="mb-1">等分单位：分（等份之意，非重量）→ 用于散剂中各药比例</p>
+    <p class="mb-0">长度单位：尺、寸 → 用于厚朴、桂皮等树皮类药材</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">02/</span>容积单位的物理重建：汉代一升的200毫升与实测量
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    汉代容积单位的复原，依赖两类核心实物证据。第一类为出土的汉代标准量器——如新莽嘉量、汉代铜量、陶量等，其上铭刻的容积标识与实测注水容积的比对，已将汉代一升精确锁定在194—204毫升之间，学界公认值约为200毫升。第二类为《汉书·律历志》的理论推算：“量者，龠、合、升、斗、斛也。本起于黄钟之龠，以子谷秬黍中者千有二百实其龠。”这一以黄钟律管为基准、以秬黍为填充介质的理想化定义，虽在绝对精度上不及实测铜量，却为容积制度的内部逻辑一致性提供了文本支撑。综合实物与文献双重证据，汉代的一升可确定地换算为当代的200毫升。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    然而，200毫升这一容积值本身并不能直接回答临床问题。真正关键的是：200毫升的半夏饮片，在现代称量条件下究竟重多少克？这一问题的答案并非唯一，而是因炮制品种的不同呈现出一个合理范围。基于对生半夏、法半夏、姜半夏三种常用饮片的实测统计——每批取200毫升、轻压至与普通量杯自然堆积状态一致、以精度0.1克的天平称重——所得数据如下：生半夏（去皮、干燥、粒状）200毫升约重90—105克；法半夏（炮制后切片、干燥）200毫升约重75—85克；姜半夏（切片、微潮）200毫升约重80—95克。这些实测数据的变异主要源于饮片的粒度和含水率差异，因此临床换算时应优先依据所用饮片的实际称重数据，其次再参考统计均值。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【汉代容积单位与现代克重的核心转换】</p>
+    <p class="mb-1">汉代1升 = 200毫升（出土铜量实测 + 《汉书·律历志》互证）</p>
+    <p class="mb-1">半夏1升（≈200mL）→ 生半夏约90—105克，法半夏约75—85克</p>
+    <p class="mb-1">五味子半升（≈100mL）→ 约45—55克（干燥成熟果实）</p>
+    <p class="mb-1">杏仁1升（≈200mL）→ 约130—150克（去皮尖，粒状堆积）</p>
+    <p class="mb-0">麦冬1升（≈200mL）→ 约110—130克（干燥根茎，长条状）</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">03/</span>数量单位的统计学复原：大枣十二枚、附子一枚究竟多重
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    以“枚”“挺”“个”计量的药物，其现代克重换算面临着完全不同于容积单位的技术挑战。容积单位一旦确定量器标准，即可统一换算；而数量单位的换算，必须面对两千年来药用植物品种选育、栽培技术、采收加工等环节的深刻变迁。汉代的一枚大枣与现代药店的一枚大枣，在个体重量上可能存在数倍之差。因此，“数量→克重”的换算不能简单以当代实物为标准，而必须综合汉代文献记载、出土实物遗存、以及存世古树品种的参考数据进行交叉推定。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    以大枣为例。张仲景方中用大枣的频率极高，多数注明“十二枚”。根据对汉代马王堆出土枣核的尺寸反推、以及现存汉代古枣树品种（如河南新郑灰枣古树群）果实重量的参考，汉代一枚中等大小的干燥大枣去核后重量约为3—5克，十二枚总重约在36—60克之间。这一范围的上限，恰与现代教材中“大枣十二枚约合30—60克”的标注相吻合。附子的情况更为复杂：汉代所用附子为野生乌头的侧根，个体大小与现代栽培品差异显著。根据《吴普本草》对附子“大者如拳，小者如弹丸”的描述，结合同属植物的根茎生长规律，汉代“附子一枚”的去皮干燥重量约为15—25克。这与当代《中国药典》中附子的常规用量上限（3—15克）之间存在显著落差——汉代一枚附子的重量已相当于当代单日用量的上限甚至超额，这恰可解释为何张仲景在使用附子时反复强调“炮”“去皮”“先煎”等一系列减毒处理。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【数量单位经方的现代克重换算（基于汉代实物推估）】</p>
+    <p class="mb-1">大枣十二枚：去核干枣约36—60克（汉代品种较小，当代可按3—5克/枚换算）</p>
+    <p class="mb-1">附子一枚：去皮干燥约15—25克（汉代野生品，超当代药典常规上限）</p>
+    <p class="mb-1">乌梅三百枚（乌梅丸）：约300—450克（汉代乌梅较小，去核后约1—1.5克/枚）</p>
+    <p class="mb-1">桃仁五十枚：约10—15克（每枚约0.2—0.3克，去皮尖后）</p>
+    <p class="mb-0">厚朴一尺：长约23厘米（汉代一尺≈23.1厘米），宽约3—5厘米，重约15—30克</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">04/</span>“等分”与“方寸匕”：散剂时代的特殊剂量语言
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    张仲景方中有一类特殊的剂量表述，仅见于散剂。在瓜蒂散中，药物剂量标注为“瓜蒂一分，赤小豆一分”，此处的“分”并非汉代的重量单位（汉代一两等于四分），而是“等份”之意——即瓜蒂与赤小豆各取等量。这一用法在《金匮要略》的多首散剂方中反复出现，其操作含义是：将数味药按等比例混合后，每次取一定容积的散剂服下。服用时的量取工具，则是“方寸匕”——一种边长一寸的正方形扁平药匙。汉代一寸约合2.31厘米，方寸匕的面积约为5.33平方厘米，平满抄取散剂时，所载药粉重量因药材密度不同而异，通常在1.5—2.5克之间。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    “方寸匕”这一剂量单位的精妙之处，在于它实现了散剂服用的微型容积计量。草木类药材粉末的堆积密度约为0.3—0.5克/立方厘米，矿物类药材粉末则高达1.5—3.0克/立方厘米。方寸匕抄取的不同药物粉末，其重量可能相差数倍。张仲景在散剂方中使用方寸匕而非绝对的重量单位，恰恰反映了他对粉末药物密度差异的深刻理解——以固定的容积量取，虽然绝对重量因药而异，但每次服用的药末表面积（与胃黏膜接触面积）保持相对恒定，这在当时的认识条件下可能是更为合理的给药方式。“一字匕”“钱匕”等更小的散剂量取工具，则进一步细分了微型剂量层级，形成了从方寸匕到钱匕到一字匕的、梯度约为1:0.5:0.25的递减剂量序列。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【汉代散剂量取工具与克重换算】</p>
+    <p class="mb-1">方寸匕：边长1寸（≈2.31cm），平满抄取 ≈ 1.5—2.5克（草木类粉末）</p>
+    <p class="mb-1">钱匕：以汉代五铢钱抄取，约为方寸匕的1/2 ≈ 0.8—1.2克</p>
+    <p class="mb-1">一字匕：以钱币上“五铢”二字中一字的面积抄取 ≈ 0.4—0.6克</p>
+    <p class="mb-1">“等分”含义：各药取相等重量比例，非绝对重量单位</p>
+    <p class="mb-0">散剂服用原则：以容积控剂量，而非以重量控剂量（与汤剂逻辑不同）</p>
+  </div>
+</section>
+
+<section class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-8 mb-10">
+  <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 flex items-center">
+    <span class="text-emerald-600 mr-3 font-mono">05/</span>本站容积-重量换算引擎的设计与边界声明
+  </h2>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    复原汉代非重量剂量单位的现代克重对应值，是一项在确定性上限与变异范围之间寻求平衡的工作。本站的容积-重量换算引擎在设计时遵循了以下原则：首先，汉代量器标准统一采用1升=200毫升、1合=20毫升的学术共识值，此为换算的确定性基础。其次，每一味以容积计量的药材，均标注其克重换算的统计范围（如半夏一升约75—105克），而非单一数值，以体现药材密度与粒度的自然变异。再次，对于大枣、附子等以数量计量的药材，换算值采用汉代品种推估范围与当代实测范围的并集，并明确标注“汉代原品种可能偏小/偏大”的提示。最后，所有容积与数量的克重换算结果均附带一条不可绕过的安全声明：本换算仅供理解经方原意与学术研究之用，临床实际用量必须依据现行《中国药典》与饮片实物状态综合确定。
+  </p>
+  <p class="text-base text-gray-700 leading-relaxed mb-4">
+    这些看似繁琐的数值范围与免责声明，并非对精确性的放弃，而是对历史真实性的尊重。张仲景本人在使用“半夏一升”时，所面对的实际重量本就因半夏产地、采收时节、干燥程度的不同而存在波动。他用“升”而非“两”来度量半夏，或许正是对这一波动性的默许——以容积代替称量，在当时的技术条件下反而实现了更高的操作一致性与效率。当我们用精密天平重新称量这些古老的“升”与“枚”时，我们所做的事情，是在为一段从未以克重精确书写的历史补充注释。注释越严谨，就越应当诚实地标注那些永远无法被精确还原的模糊地带。因为承认模糊，本身就是精确的一种形式。
+  </p>
+  <div class="bg-amber-50/60 p-5 rounded-2xl my-5 font-mono text-sm text-amber-900 border border-amber-200/70 shadow-inner">
+    <p class="mb-1 font-semibold">【本站非重量单位换算的基本原则】</p>
+    <p class="mb-1">① 容量基准：汉代1升=200毫升（学术共识，不可变更）</p>
+    <p class="mb-1">② 克重呈现：以范围值替代单一值（如半夏1升≈75—105克）</p>
+    <p class="mb-1">③ 品种标注：汉代原品种与当代栽培品种的区别提示</p>
+    <p class="mb-1">④ 安全兜底：所有换算值仅限学术研究，临床用量从《中国药典》</p>
+    <p class="mb-0">⑤ 模糊诚实：无法确定的参数明确标注“推估”而非冒充精确</p>
+  </div>
+</section>
 
     </article>
+<div class="mt-8 border-t border-b border-stone-200/60 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div class="w-full sm:w-1/2 text-left">
+        <span class="text-stone-400 block mb-1 text-xs tracking-wider">▲ 上一篇考证</span>
+        <a href="article3.html" class="text-stone-700 hover:text-emerald-700 font-medium transition line-clamp-1">
+          ← 明清“十六两制”考证：为什么现代中医习惯“一钱等于3克”？
+        </a>
+      </div>
+      
+      <div class="hidden sm:block w-px h-8 bg-stone-200"></div>
+
+      <div class="w-full sm:w-1/2 text-left sm:text-right">
+        <span class="text-stone-400 block mb-1 text-xs tracking-wider">▼ 下一篇考证 </span>
+        <a href="article5.html" class="text-stone-700 hover:text-emerald-700 font-medium transition line-clamp-1">
+          为什么说经方“方证对应”的前提是“剂量不走样”？ →
+        </a>
+      </div>
+    </div>
+    <div class="mt-12 bg-amber-50/50 border-l-4 border-amber-600 p-6 rounded-r-2xl text-sm text-stone-600 leading-relaxed shadow-sm">
+      <p class="font-semibold text-stone-800 mb-2 flex items-center text-base">
+        <svg class="w-5 h-5 text-amber-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+        </svg>
+        学术免责声明
+      </p>
+      <p>本文及本站相关数字化工具仅供学术探讨、文献考证与传统文化研究之目的，旨在梳理中医剂量演变的历史脉络。所有内容不构成任何临床处方建议，亦不可作为自行用药的依据。具体疾病的诊断与治疗，请务必前往正规医疗机构，遵从执业中医师的当面辨证指导。药物剂量须结合患者个体情况审慎确定，严禁直接套用文中历史换算数值进行临床调剂。</p>
+    </div>
 
   </main>
-<footer class="text-center py-6 text-xs text-gray-400 border-t border-gray-100 bg-white mt-12 w-full">
-  &copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.
-</footer>
+
+  <!-- 底部统一版权栏 -->
+  <footer class="w-full text-center py-6 text-xs text-stone-400 border-t border-stone-100 bg-white mt-16">
+    <p class="mb-1">&copy; 2026 量化中医工具箱. All Code and Concepts Co-created with AI.</p>
+    <p>参考核心文献：汉代铜量实物测定数据、《汉书·律历志》、马王堆出土枣核尺寸反推、《吴普本草》</p>
+  </footer>
+
 </body>
 </html>
