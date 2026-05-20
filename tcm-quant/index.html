@@ -7,30 +7,37 @@
   <title>量化中医技术工具箱 - 用代码与精密数据重构传统医学控制精度</title>
   <meta name="description" content="基于《中国历代度量衡考》与现代药理学，提供历代度量衡克重换算、煎煮蒸发量化等硬核技术工具，用数据逻辑复原中医经方剂量体系。" />
 
-  <script src="https://cdn.tailwindcss.com\"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
     body {
-      background-color: #fcfaf5; /* 优雅的宣纸底色，适合深度阅读 */
+      background-color: #fcfaf5;
       font-family: 'Noto Serif SC', 'Times New Roman', '宋体', '仿宋', '华文楷体', Georgia, serif;
     }
   </style>
 </head>
 <body class="antialiased text-gray-800 bg-stone-50 min-h-screen flex flex-col justify-between">
 
-  <header class="bg-white border-b border-stone-200/60 shadow-sm">
+  <header class="bg-white border-b border-stone-200/60 shadow-sm sticky top-0 z-50">
     <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 bg-emerald-700 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-sm">
-          量
-        </div>
-        <div>
-          <span class="text-lg font-black text-stone-900 tracking-tight block">量化中医技术中心</span>
-          <span class="text-[10px] text-stone-400 font-mono block tracking-wider uppercase">TCM Quantization Platform</span>
+      
+      <div class="flex items-center space-x-2 text-sm">
+        <a href="../index.html" class="text-stone-400 hover:text-slate-900 font-mono font-bold flex items-center transition">
+          Matrix
+        </a>
+        <span class="text-stone-300 font-mono">/</span>
+        <div class="flex items-center space-x-2">
+          <div class="w-7 h-7 bg-emerald-700 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-sm">
+            量
+          </div>
+          <div class="hidden sm:block">
+            <span class="text-sm font-black text-stone-900 tracking-tight block">量化中医工具箱</span>
+          </div>
         </div>
       </div>
+
       <div class="text-xs text-stone-500 bg-stone-100 px-3 py-1.5 rounded-full border border-stone-200/40 font-mono">
-        v1.0.0 · Production-Ready
+        v1.0.0 · Module Ready
       </div>
     </div>
   </header>
@@ -114,153 +121,47 @@
           </svg>
           量化中医：历代度量衡与经方剂量精密考证文献
         </h2>
-        <p class="text-stone-500 text-sm mt-1">基于硬核历史文献学与现代药理实验，彻底打破AI垃圾流，将站点EEAT专业信任度拉满。</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-        
         <div class="space-y-4">
           <h3 class="text-xs font-bold uppercase tracking-wider text-stone-400 border-b border-stone-200/40 pb-2">📂 经方源流与剂量差分考证 (01-10)</h3>
           <ul class="space-y-3 text-sm">
-            <li>
-              <a href="blog/article1.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">01.</span>
-                <span class="hover:underline">伤寒论张仲景时代度量衡考证：一两到底等于多少克？</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article2.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">02.</span>
-                <span class="hover:underline">从孙思邈《千金方》看唐代“大两制”的演变与临床影响</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article3.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">03.</span>
-                <span class="hover:underline">明清“十六两制”考证：为什么现代中医习惯“一钱等于3克”？</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article4.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">04.</span>
-                <span class="hover:underline">古籍中的“升、合、枚、挺”：如何用现代物理容积精准复原？</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article5.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">05.</span>
-                <span class="hover:underline">为什么说经方“方证对应”的前提是“剂量不走样”？</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article6.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">06.</span>
-                <span class="hover:underline">桂枝汤的“黄金配比”：用现代数学比例拆解经典第一方</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article7.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">07.</span>
-                <span class="hover:underline">小柴胡汤中柴胡与黄芩的“剂量辩证”：从 8 两到 3 两的玄机</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article8.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">08.</span>
-                <span class="hover:underline">四逆汤里附子与干姜的配比：如何量化“回阳救逆”的猛烈度</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article9.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">09.</span>
-                <span class="hover:underline">白虎汤中石膏用量“大剂频服”的现代药理学机制</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article10.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">10.</span>
-                <span class="hover:underline">当归四逆汤与桂枝汤的基底重合：用代码逻辑拆解方剂演变</span>
-              </a>
-            </li>
+            <li><a href="blog/article1.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">01.</span><span class="hover:underline">伤寒论张仲景时代度量衡考证：一两到底等于多少克？</span></a></li>
+            <li><a href="blog/article2.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">02.</span><span class="hover:underline">从孙思邈《千金方》看唐代“大两制”的演变与临床影响</span></a></li>
+            <li><a href="blog/article3.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">03.</span><span class="hover:underline">明清“十六两制”考证：为什么现代中医习惯“一钱等于3克”？</span></a></li>
+            <li><a href="blog/article4.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">04.</span><span class="hover:underline">古籍中的“升、合、枚、挺”：如何用现代物理容积精准复原？</span></a></li>
+            <li><a href="blog/article5.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">05.</span><span class="hover:underline">为什么说经方“方证对应”的前提是“剂量不走样”？</span></a></li>
+            <li><a href="blog/article6.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">06.</span><span class="hover:underline">桂枝汤的“黄金配比”：用现代数学比例拆解经典第一方</span></a></li>
+            <li><a href="blog/article7.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">07.</span><span class="hover:underline">小柴胡汤中柴胡与黄芩的“剂量辩证”：从 8 两 to 3 两的玄机</span></a></li>
+            <li><a href="blog/article8.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">08.</span><span class="hover:underline">四逆汤里附子与干姜的配比：如何量化“回阳救逆”的猛烈度</span></a></li>
+            <li><a href="blog/article9.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">09.</span><span class="hover:underline">白虎汤中石膏用量“大剂频服”的现代药理学机制</span></a></li>
+            <li><a href="blog/article10.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">10.</span><span class="hover:underline">当归四逆汤与桂枝汤的基底重合：用代码逻辑拆解方剂演变</span></a></li>
           </ul>
         </div>
 
         <div class="space-y-4">
           <h3 class="text-xs font-bold uppercase tracking-wider text-stone-400 border-b border-stone-200/40 pb-2">📂 现代食养量化与系统论模型 (11-20)</h3>
           <ul class="space-y-3 text-sm">
-            <li>
-              <a href="blog/article11.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">11.</span>
-                <span class="hover:underline">长期熬夜程序员的“复原方”：四神汤的精密克重与科学配比</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article12.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">12.</span>
-                <span class="hover:underline">拒绝盲目祛湿：如何根据“红豆薏米汤”的配比判断身体寒热</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article13.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">13.</span>
-                <span class="hover:underline">中年人“气血双补”的极简量化指南：八珍汤的现代应用</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article14.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">14.</span>
-                <span class="hover:underline">现代“酸梅汤”防暑配方考证：乌梅与桑葚的克重对胃酸的影响</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article15.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">15.</span>
-                <span class="hover:underline">程序员久坐腰痛：续断与杜仲在经方中的配比与强筋骨实验</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article16.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">16.</span>
-                <span class="hover:underline">传统草本的“安全边际”：如何用现代药理学看待中药毒性</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article17.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">17.</span>
-                <span class="hover:underline">东方哲学与系统论：为什么说中医更像是一套“高并发分布式代码”</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article18.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">18.</span>
-                <span class="hover:underline">经方临床应用的“精准化”趋势：从粗放抓药到微克控制</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article19.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">19.</span>
-                <span class="hover:underline">关于本站量化中医计算器的开发初衷与学术严谨性声明</span>
-              </a>
-            </li>
-            <li>
-              <a href="blog/article20.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group">
-                <span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">20.</span>
-                <span class="hover:underline">现代中药煎煮法与水分蒸发量化：如何煎出完美的第一煎？</span>
-              </a>
-            </li>
+            <li><a href="blog/article11.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">11.</span><span class="hover:underline">长期熬夜程序员的“复原方”：四神汤的精密克重与科学配比</span></a></li>
+            <li><a href="blog/article12.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">12.</span><span class="hover:underline">拒绝盲目祛湿：如何根据“红豆薏米汤”的配比判断身体寒热</span></a></li>
+            <li><a href="blog/article13.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">13.</span><span class="hover:underline">中年人“气血双补”的极简量化指南：八珍汤的现代应用</span></a></li>
+            <li><a href="blog/article14.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">14.</span><span class="hover:underline">现代“酸梅汤”防暑配方考证：乌梅与桑葚的克重对胃酸的影响</span></a></li>
+            <li><a href="blog/article15.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">15.</span><span class="hover:underline">程序员久坐腰痛：续断与杜仲在经方中的配比与强筋骨实验</span></a></li>
+            <li><a href="blog/article16.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">16.</span><span class="hover:underline">传统草本的“安全边际”：如何用现代药理学看待中药毒性</span></a></li>
+            <li><a href="blog/article17.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">17.</span><span class="hover:underline">东方哲学与系统论：为什么说中医更像是一套“高并发分布式代码”</span></a></li>
+            <li><a href="blog/article18.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">18.</span><span class="hover:underline">经方临床应用的“精准化”趋势：从粗放抓药到微克控制</span></a></li>
+            <li><a href="blog/article19.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">19.</span><span class="hover:underline">关于本站量化中医计算器的开发初衷与学术严谨性声明</span></a></li>
+            <li><a href="blog/article20.html" class="text-stone-700 hover:text-emerald-700 transition flex items-start group"><span class="text-stone-400 font-mono mr-2 group-hover:text-emerald-700">20.</span><span class="hover:underline">现代中药煎煮法与水分蒸发量化：如何煎出完美的第一煎？</span></a></li>
           </ul>
         </div>
-
       </div>
     </section>
   </main>
 
   <footer class="bg-stone-900 text-stone-400 text-xs py-8 mt-20 border-t border-stone-800">
     <div class="max-w-5xl mx-auto px-4 text-center space-y-2 leading-relaxed">
-      <p>© 2026 量化中医技术工具箱. All Rights Reserved. Designed for Academic Research.</p>
-      <p class="text-stone-500 max-w-3xl mx-auto">
-        学术免责声明：本站所有工具计算输出的数据、历史剂量对比、化学溶解度分析及文献考证文章，均属于计算机科学与传统医学交叉领域的纯学术探讨成果，不构成任何临床处方建议与用药指导。非专业医疗人员请勿依据本站数据自行抓药或调理。
-      </p>
+      <p>© 2026 量化中医技术工具箱. All Rights Reserved.</p>
     </div>
   </footer>
 
