@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../../assets/avatar.png">
+    <title>中医方剂加减计算器 — 经方剂量自动加总 | laomunong.com</title>
+    <meta name="description" content="选择经典方剂，加减药材，自动计算总剂量和各药占比。基于《伤寒论》经方数据。纯前端运行。">
+    <link rel="canonical" href="https://laomunong.com/quant-tcm/tools/formula-calc/">
+    <meta property="og:title" content="中医方剂加减计算器 | laomunong.com">
+    <meta property="og:description" content="经方加减，自动计算总剂量和药量配比。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laomunong.com/quant-tcm/tools/formula-calc/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="google-site-verification" content="WBd5ihUqyGU_WVKMVppCAk2anl58qI1BSkAh-lMDjCs">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7499717658670470" crossorigin="anonymous"></script>
+</head>
+<body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
+
+<header class="border-b border-stone-800 bg-stone-950 px-6 py-5">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <div class="text-[11px] text-stone-500 font-mono mb-1">
+                <a href="../../../" class="hover:text-amber-400 transition-colors">Matrix</a>
+                <span class="text-stone-700"> / </span>
+                <a href="../../" class="hover:text-amber-400 transition-colors">Quant TCM</a>
+                <span class="text-stone-700"> / </span>
+                <span class="text-amber-400">Formula Calculator</span>
+            </div>
+            <h1 class="text-xl font-black text-stone-100 tracking-tight">🌿 中医方剂 <span class="text-amber-400">加减计算器</span></h1>
+        </div>
+        <a href="../../" class="text-xs text-stone-500 hover:text-amber-400 border border-stone-700 rounded-lg px-3 py-1.5 transition-colors shrink-0">← 返回实验室</a>
+    </div>
+</header>
+
+<main class="max-w-4xl mx-auto p-6 flex-grow">
+
+<section class="bg-stone-900 border border-stone-700 rounded-xl p-6 mb-6">
+    <h2 class="text-sm text-stone-400 uppercase tracking-widest border-b border-stone-800 pb-2 mb-4">// FORMULA_CALCULATOR / 方剂加减</h2>
+
+    <div class="mb-4">
+        <label class="block text-xs text-amber-400 mb-1 font-bold">1. 选择基础方剂</label>
+        <select id="baseFormula" onchange="loadFormula()" class="w-full bg-stone-800 border border-stone-700 rounded-lg px-3 py-2 text-stone-200 text-sm focus:outline-none focus:border-amber-600">
+            <option value="">-- 选择一个经方 --</option>
+            <option value="guizhi">桂枝汤 (桂枝/芍药/甘草/生姜/大枣)</option>
+            <option value="mahuang">麻黄汤 (麻黄/桂枝/杏仁/甘草)</option>
+            <option value="xiaoqinglong">小青龙汤 (麻黄/芍药/细辛/干姜/甘草/桂枝/五味子/半夏)</option>
+            <option value="banxia">半夏泻心汤 (半夏/黄芩/干姜/人参/甘草/黄连/大枣)</option>
+        </select>
+    </div>
+
+    <!-- 基础方药材列表 -->
+    <div id="herbList" class="mb-4 space-y-2"></div>
+
+    <!-- 加味 -->
+    <div class="mb-4">
+        <div class="flex items-center gap-2 mb-2">
+            <label class="text-xs text-amber-400 font-bold">2. 加味（添加药材）</label>
+        </div>
+        <div class="flex gap-2">
+            <input type="text" id="addHerbName" placeholder="药材名" class="flex-1 bg-stone-800 border border-stone-700 rounded-lg px-3 py-2 text-stone-200 text-sm focus:outline-none focus:border-amber-600">
+            <input type="number" id="addHerbDose" placeholder="克" value="10" min="0" step="0.1" class="w-20 bg-stone-800 border border-stone-700 rounded-lg px-3 py-2 text-stone-200 text-sm focus:outline-none focus:border-amber-600">
+            <button onclick="addHerb()" class="bg-amber-700 hover:bg-amber-600 text-stone-900 font-bold px-4 py-2 rounded text-xs tracking-wider transition">+ 添加</button>
+        </div>
+    </div>
+
+    <!-- 结果面板 -->
+    <div id="resultPanel" class="hidden bg-stone-800 border border-stone-700 rounded-lg p-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center mb-4">
+            <div><span class="text-[10px] text-stone-500 block">药材数</span><span id="rHerbCount" class="text-amber-400 font-bold text-lg">-</span></div>
+            <div><span class="text-[10px] text-stone-500 block">总剂量</span><span id="rTotalDose" class="text-amber-400 font-bold text-lg">-</span></div>
+            <div><span class="text-[10px] text-stone-500 block">君药/总药比</span><span id="rKingRatio" class="text-amber-400 font-bold text-lg">-</span></div>
+            <div><span class="text-[10px] text-stone-500 block">日均参考</span><span id="rDailyAvg" class="text-amber-400 font-bold text-lg">-</span></div>
+        </div>
+
+        <h3 class="text-[10px] text-stone-500 uppercase tracking-wider mb-2">药量占比分布</h3>
+        <div id="ratioBar" class="space-y-1.5 mb-3"></div>
+
+        <h3 class="text-[10px] text-stone-500 uppercase tracking-wider mb-2">详细清单</h3>
+        <table class="w-full text-xs border-collapse">
+            <thead><tr class="border-b border-stone-700"><th class="text-left py-1 text-stone-500">药材</th><th class="text-right py-1 text-stone-500">剂量(g)</th><th class="text-right py-1 text-stone-500">占比</th><th class="text-center py-1 text-stone-500">操作</th></tr></thead>
+            <tbody id="detailTable"></tbody>
+        </table>
+    </div>
+</section>
+
+<div class="tool-footer-note max-w-none">
+    <hr class="border-stone-800 my-4">
+    <p class="text-xs text-stone-500 leading-relaxed mb-2">📝 这个工具是因为看《伤寒论》时发现——桂枝汤才5味药，加减变化能衍生出20多个方子。每味药的加减不是随便的，剂量比例一变，整个方子的方向就变了。没有计算器之前我只能用Excel手动算。</p>
+    <p class="text-xs text-stone-500 leading-relaxed">代码很糙，但能用。如果对你有用，欢迎<a href="../../../support.html" class="text-amber-400 underline hover:text-amber-300">请我喝杯咖啡</a>。</p>
+</div>
+
+</main>
+
+<footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-4xl mx-auto text-center space-y-2">
+        <p class="text-[11px] text-stone-500">© 2026 laomunong.com All Rights Reserved. TCM Lab Engine.</p>
+        <p class="text-[10px] text-stone-600">🛡️ 免责声明：本工具仅供学术研究参考，不构成临床处方建议。</p>
+        <a href="../../../privacy-policy.html" class="text-[10px] text-stone-500 underline hover:text-amber-400 transition-colors">隐私政策 / Privacy Policy</a>
+    </div>
+</footer>
+
+<script>
+var formulas = {
+    guizhi: { name:'桂枝汤', herbs:[
+        { name:'桂枝', dose:45, category:'君' },
+        { name:'芍药', dose:45, category:'臣' },
+        { name:'甘草', dose:30, category:'佐' },
+        { name:'生姜', dose:45, category:'使' },
+        { name:'大枣', dose:45, category:'使' }
+    ]},
+    mahuang: { name:'麻黄汤', herbs:[
+        { name:'麻黄', dose:45, category:'君' },
+        { name:'桂枝', dose:30, category:'臣' },
+        { name:'杏仁', dose:45, category:'佐' },
+        { name:'甘草', dose:15, category:'使' }
+    ]},
+    xiaoqinglong: { name:'小青龙汤', herbs:[
+        { name:'麻黄', dose:45, category:'君' },
+        { name:'芍药', dose:45, category:'臣' },
+        { name:'细辛', dose:15, category:'臣' },
+        { name:'干姜', dose:15, category:'臣' },
+        { name:'甘草', dose:45, category:'佐' },
+        { name:'桂枝', dose:45, category:'佐' },
+        { name:'五味子', dose:15, category:'佐' },
+        { name:'半夏', dose:30, category:'使' }
+    ]},
+    banxia: { name:'半夏泻心汤', herbs:[
+        { name:'半夏', dose:30, category:'君' },
+        { name:'黄芩', dose:15, category:'臣' },
+        { name:'干姜', dose:15, category:'臣' },
+        { name:'人参', dose:15, category:'佐' },
+        { name:'甘草', dose:15, category:'佐' },
+        { name:'黄连', dose:5, category:'佐' },
+        { name:'大枣', dose:30, category:'使' }
+    ]}
+};
+
+var currentHerbs = [];
+
+function loadFormula() {
+    var key = document.getElementById('baseFormula').value;
+    if (!key) { document.getElementById('herbList').innerHTML = ''; currentHerbs = []; recalc(); return; }
+    currentHerbs = JSON.parse(JSON.stringify(formulas[key].herbs));
+    renderHerbs();
+    recalc();
+}
+
+function renderHerbs() {
+    var html = '<label class="block text-xs text-amber-400 font-bold mt-3">基础方药材（可调整剂量）</label>';
+    currentHerbs.forEach(function(h, i) {
+        html += '<div class="flex items-center gap-2 bg-stone-800 rounded-lg p-2 text-sm">'+
+            '<span class="text-[10px] bg-amber-900 text-amber-400 px-1.5 py-0.5 rounded font-mono w-8 text-center">'+h.category+'</span>'+
+            '<span class="flex-1 text-stone-200">'+h.name+'</span>'+
+            '<input type="number" value="'+h.dose+'" onchange="updateDose('+i+',this.value)" class="w-16 bg-stone-900 border border-stone-700 rounded px-2 py-1 text-stone-200 text-xs text-right focus:outline-none focus:border-amber-600">'+
+            '<span class="text-[10px] text-stone-500">g</span>'+
+            '<button onclick="removeHerb('+i+')" class="text-red-400 hover:text-red-300 text-xs">✕</button>'+
+            '</div>';
+    });
+    document.getElementById('herbList').innerHTML = html;
+}
+
+function updateDose(i, val) {
+    currentHerbs[i].dose = parseFloat(val) || 0;
+    recalc();
+}
+
+function addHerb() {
+    var name = document.getElementById('addHerbName').value.trim();
+    var dose = parseFloat(document.getElementById('addHerbDose').value) || 0;
+    if (!name || dose <= 0) return;
+    currentHerbs.push({ name:name, dose:dose, category:'加' });
+    document.getElementById('addHerbName').value = '';
+    renderHerbs();
+    recalc();
+}
+
+function removeHerb(i) {
+    currentHerbs.splice(i, 1);
+    renderHerbs();
+    recalc();
+}
+
+function recalc() {
+    if (currentHerbs.length === 0) {
+        document.getElementById('resultPanel').classList.add('hidden');
+        return;
+    }
+    document.getElementById('resultPanel').classList.remove('hidden');
+
+    var total = currentHerbs.reduce(function(s, h) { return s + h.dose; }, 0);
+    var maxDose = 0;
+    currentHerbs.forEach(function(h) { if (h.dose > maxDose) maxDose = h.dose; });
+    var kingTotal = currentHerbs.filter(function(h) { return h.category === '君'; }).reduce(function(s, h) { return s + h.dose; }, 0);
+
+    document.getElementById('rHerbCount').textContent = currentHerbs.length;
+    document.getElementById('rTotalDose').textContent = total + 'g';
+    document.getElementById('rKingRatio').textContent = kingTotal > 0 ? (kingTotal/total*100).toFixed(0)+'%' : 'N/A';
+    document.getElementById('rDailyAvg').textContent = (total/3).toFixed(0)+'g/次';
+
+    // 占比条
+    var colors = ['#d97706','#f59e0b','#eab308','#84cc16','#10b981','#06b6d4','#6366f1','#a855f7'];
+    var ratioHTML = '';
+    currentHerbs.forEach(function(h, i) {
+        var pct = (h.dose/total*100).toFixed(1);
+        ratioHTML += '<div class="flex items-center gap-2 text-[10px]">'+
+            '<span class="w-16 text-stone-400 text-right truncate">'+h.name+'</span>'+
+            '<span class="flex-1 bg-stone-900 rounded-full h-3 overflow-hidden"><span class="block h-full rounded-full" style="width:'+pct+'%;background:'+colors[i%colors.length]+'"></span></span>'+
+            '<span class="w-10 text-stone-400 text-right">'+pct+'%</span>'+
+            '</div>';
+    });
+    document.getElementById('ratioBar').innerHTML = ratioHTML;
+
+    // 详细表格
+    var tableHTML = '';
+    currentHerbs.forEach(function(h) {
+        tableHTML += '<tr class="border-b border-stone-700">'+
+            '<td class="py-1 text-stone-200">'+h.name+' <span class="text-[10px] text-amber-500">['+h.category+']</span></td>'+
+            '<td class="py-1 text-right font-mono text-stone-200">'+h.dose+'g</td>'+
+            '<td class="py-1 text-right font-mono text-stone-400">'+(h.dose/total*100).toFixed(1)+'%</td>'+
+            '<td class="py-1 text-center"><button onclick="adjustDose(\''+h.name+'\',1.5)" class="text-[10px] text-emerald-400 hover:text-emerald-300 mr-1">×1.5</button><button onclick="adjustDose(\''+h.name+'\',0.5)" class="text-[10px] text-red-400 hover:text-red-300">×0.5</button></td>'+
+            '</tr>';
+    });
+    document.getElementById('detailTable').innerHTML = tableHTML;
+}
+
+function adjustDose(name, factor) {
+    currentHerbs.forEach(function(h) {
+        if (h.name === name) h.dose = Math.round(h.dose * factor * 10) / 10;
+    });
+    renderHerbs();
+    recalc();
+}
+</script>
+</body>
+</html>
