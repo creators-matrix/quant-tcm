@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五运六气先天体质量化推算器 — 方剂结构与药量配比分析 | laomunong.com</title>
+    <meta name="description" content="基于《黄帝内经》五运六气学说的先天体质量化推算工具。输入出生年份，用ECharts雷达图可视化五行能量配比。纯前端运行，100%隐私。">
+    <link rel="canonical" href="https://laomunong.com/quant-tcm/tools/formula/">
+    <meta property="og:title" content="五运六气体质量化器 — 《黄帝内经》运气推算 | laomunong.com">
+    <meta property="og:description" content="输入出生年份，推算先天体质五行雷达图。纯前端，数据不上传。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laomunong.com/quant-tcm/tools/formula/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="google-site-verification" content="WBd5ihUqyGU_WVKMVppCAk2anl58qI1BSkAh-lMDjCs">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7499717658670470" crossorigin="anonymous"></script>
+    <style>
+        .geek-border { border: 1px solid #d9770622; }
+        .geek-glow { box-shadow: 0 0 15px #d9770611; }
+    </style>
+</head>
+<body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
+
+<header class="border-b border-stone-800 bg-stone-950 px-6 py-5">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <div class="text-[11px] text-stone-500 font-mono mb-1">
+                <a href="../../../" class="hover:text-amber-400 transition-colors">Matrix</a>
+                <span class="text-stone-700"> / </span>
+                <a href="../../" class="hover:text-amber-400 transition-colors">Quant TCM</a>
+                <span class="text-stone-700"> / </span>
+                <span class="text-amber-400">Formula Analyzer</span>
+            </div>
+            <h1 class="text-xl font-black text-stone-100 tracking-tight">☯️ 方剂结构与药量 <span class="text-amber-400">配比分析器</span></h1>
+        </div>
+        <a href="../../" class="text-xs text-stone-500 hover:text-amber-400 border border-stone-700 rounded-lg px-3 py-1.5 transition-colors shrink-0">← 返回实验室</a>
+    </div>
+</header>
+
+<main class="max-w-4xl mx-auto p-6 flex-grow">
+
+<section class="bg-stone-900 border border-stone-700 rounded-xl p-6 mb-8">
+    <h2 class="text-sm text-stone-400 uppercase tracking-widest border-b border-stone-800 pb-2 mb-4">// INPUT_CONSOLE / 五运六气先天体质量化推算</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-5 space-y-4">
+            <div>
+                <label class="block text-xs text-amber-400 mb-1 font-bold">1. 选择出生年份 (公历)</label>
+                <input type="number" id="birthYear" min="1930" max="2030" value="1990" class="w-full bg-stone-800 border border-stone-700 rounded-lg px-3 py-2 text-stone-200 focus:outline-none focus:border-amber-600">
+            </div>
+            <div>
+                <label class="block text-xs text-amber-400 mb-1 font-bold">2. 选择出生节气月份段</label>
+                <select id="birthSolarTerm" class="w-full bg-stone-800 border border-stone-700 rounded-lg px-3 py-2 text-stone-200 focus:outline-none focus:border-amber-600">
+                    <option value="1">初气 (大寒 - 春分前) [1月21-3月20]</option>
+                    <option value="2">二气 (春分 - 小满前) [3月21-5月20]</option>
+                    <option value="3">三气 (小满 - 大暑前) [5月21-7月22]</option>
+                    <option value="4">四气 (大暑 - 秋分前) [7月23-9月22]</option>
+                    <option value="5">五气 (秋分 - 小雪前) [9月23-11月22]</option>
+                    <option value="6">终气 (小雪 - 大寒前) [11月23-次年1月20]</option>
+                </select>
+            </div>
+            <button onclick="calculateMetrics()" class="w-full bg-amber-700 hover:bg-amber-600 text-stone-900 font-bold py-3 px-4 rounded-lg transition-colors tracking-widest text-sm">
+                EXECUTE_QUANTIZATION / 执行先天量化
+            </button>
+        </div>
+        <div class="lg:col-span-7">
+            <div class="h-[280px] w-full" id="radarChart"></div>
+            <div class="grid grid-cols-2 gap-2 mt-3 text-[10px] bg-stone-800 rounded-lg p-3">
+                <div><span class="text-stone-500">年干天干:</span> <span id="lblTianGan" class="text-amber-400 font-bold">-</span></div>
+                <div><span class="text-stone-500">岁运属性:</span> <span id="lblSuiYun" class="text-amber-400">-</span></div>
+                <div><span class="text-stone-500">当前主气:</span> <span id="lblZhuQi" class="text-orange-400">-</span></div>
+                <div><span class="text-stone-500">当前客气:</span> <span id="lblKeQi" class="text-sky-400">-</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 bg-stone-800 rounded-lg p-4 border-l-2 border-amber-600">
+        <span class="text-xs font-bold text-amber-400 block mb-2">[ 宿主体质架构分析报告 ]</span>
+        <p id="analysisReport" class="text-xs leading-relaxed text-stone-300">请输入您的出生年份并点击"执行先天量化"按钮，系统将基于《黄帝内经》五运六气推算公式，绘制您的五行先天能量雷达图。</p>
+    </div>
+</section>
+
+<div class="my-6 p-2 bg-stone-900 border border-dashed border-stone-800 text-center rounded-lg">
+    <span class="text-[10px] text-stone-600 block mb-1">ADVERTISEMENT / 赞助商广告位</span>
+    <div class="text-xs text-stone-600 py-3">Responsive Ad Slot</div>
+</div>
+
+<article class="prose prose-invert max-w-none">
+    <h2 class="text-xl font-bold text-stone-100 border-b border-stone-800 pb-2 mb-6">五运六气数学模型全推导：从《黄帝内经》到 JavaScript 算法</h2>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">什么是五运六气？中医的时间医学模型</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">五运六气是《黄帝内经》运气七篇（《天元纪大论》《五运行大论》《六微旨大论》《气交变大论》《五常政大论》《六元正纪大论》《至真要大论》）中构建的一套<strong class="text-stone-200">气候变化与人体健康关系的时间周期模型</strong>。其核心思想是：天地之间的气候变化遵循 60 年（一个甲子）的大周期，每年的气候特征由"五运"（木火土金水五行的运行状态）和"六气"（风寒暑湿燥火六种气候因素）共同决定。人出生时的岁运和主客气格局，会形成该个体的"先天体质偏向"——这有点像编程中的"出厂配置"，决定了你的系统初始参数。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">岁运推算：天干化五运的数学映射</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">岁运由出生年份的天干决定。十天干与五运的对应关系遵循"天干化运"规则：<strong class="text-stone-200">甲己化土、乙庚化金、丙辛化水、丁壬化木、戊癸化火</strong>。其中阳干（甲丙戊庚壬）为"太过"之年——该运气偏盛，对体质的影响为正向加分（+30 分）；阴干（乙丁己辛癸）为"不及"之年——该运气偏衰，对体质的影响为负向减分（-15 分）。例如 1990 年为庚午年，年干为庚（阳金），岁运为"岁金太过"，对应五行中"金"属性加分 30。这个简单但精妙的天干→五行→加权映射，是本工具算法的第一层核心逻辑。本工具内置了 1930-2030 共 100 年的岁运推算数据。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">主气与客气：六气时段的双层叠加</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">一年分为六个"气段"（每段约 60 天），从大寒节气开始：初气（厥阴风木）、二气（少阴君火）、三气（少阳相火）、四气（太阴湿土）、五气（阳明燥金）、终气（太阳寒水）。这六个主气是<strong class="text-stone-200">固定的年周期序列</strong>——每年都一样，就像地球绕太阳运行的固定轨道。而"客气"则是每年变化的，由当年的地支决定其起始位置，按三阴三阳（厥阴→少阴→太阴→少阳→阳明→太阳）的顺序轮替。主气代表"常规气候"，客气代表"当年变异"，两者叠加决定了该时段的气候特征和对人体的综合影响。本工具对此做了精简化：主气按所选节气段固定加分（+20），客气按年份+时段组合动态计算（+15）。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">五行雷达图：先天体质的可视化表达</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">将所有加分因素汇总到五行（木火土金水）五个维度上，每个维度以 50 分作为基准线（代表"平和"状态），最终得分在 35-120 之间浮动。高于 65 分的维度代表该"气"偏盛——该系统的功能容易亢进；低于 35 分的维度代表该"气"偏衰——该系统的功能偏弱。<strong class="text-stone-200">雷达图的形状就是你的"先天体质签名"</strong>。例如火旺+水弱的人，容易心火旺盛但肾水不足，表现在日常生活中就是精力充沛但容易失眠、口干。需要注意的是，这个雷达图反映的是"先天出厂配置"，后天生活习惯、饮食、环境等都会对其产生修正。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">算法的局限性：从经典到代码的简化边界</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">必须诚实指出，本工具是对《黄帝内经》五运六气理论的<strong class="text-stone-200">大幅简化模型</strong>。完整的运气推算还需考虑：中运与客运的交互、主客加临的相得/不相得判断、天符/岁会/同天符/同岁会/太乙天符等特殊年份格局、南北政对脉象的影响、以及五运与六气之间的生克乘侮关系。本工具选择了最具代表性和可计算性的几个维度（岁运太过不及、主气固定加分、客气动态加分），作为入门级的体质推演工具。它不替代专业中医师的诊断，但能给你一个了解自己先天体质偏向的有趣起点。</p>
+
+    <div class="mt-10 space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+        <h3 class="text-lg font-bold text-amber-400 mb-4">常见问题 (FAQ)</h3>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-stone-900 border border-stone-700 rounded-lg p-4">
+            <h4 itemprop="name" class="text-sm font-bold text-stone-200 mb-2">Q: 这个推算准确吗？</h4>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text" class="text-xs text-stone-400 leading-relaxed">A: 本工具基于《黄帝内经》运气七篇的推算公式设计，是一个简化模型（详见上方"算法局限性"说明）。它提供的是一个有趣的体质参考维度，不构成医学诊断。建议结合自身实际体验综合判断。</div></div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-stone-900 border border-stone-700 rounded-lg p-4">
+            <h4 itemprop="name" class="text-sm font-bold text-stone-200 mb-2">Q: 为什么要选出生节气而不只是年份？</h4>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text" class="text-xs text-stone-400 leading-relaxed">A: 五运六气理论中，除岁运（管全年）外，六个气段的主气和客气也在变化。你出生所在的气段会影响当时的客气格局，这在传统体质推算中是一个不可忽略的维度。</div></div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-stone-900 border border-stone-700 rounded-lg p-4">
+            <h4 itemprop="name" class="text-sm font-bold text-stone-200 mb-2">Q: 本工具会上传我的出生数据吗？</h4>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text" class="text-xs text-stone-400 leading-relaxed">A: 不会。本工具为 100% 纯客户端 JavaScript 运行。您的出生数据从不且绝不上传任何服务器，完全保护您的个人隐私。</div></div>
+        </div>
+    </div>
+
+    <div class="mt-10 bg-stone-900 border border-amber-900 rounded-xl p-5">
+        <h4 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-3">// AFFILIATE_GEAR / 推荐资源</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-stone-400">
+            <div class="bg-stone-800 rounded-lg p-3"><span class="text-stone-200 font-bold block mb-1">《黄帝内经》精校版</span><span>运气七篇完整原文，五运六气学说的根本经典。</span></div>
+            <div class="bg-stone-800 rounded-lg p-3"><span class="text-stone-200 font-bold block mb-1">《中医运气学》</span><span>现代学者对五运六气的系统解读，可作为本工具的进阶读物。</span></div>
+        </div>
+    </div>
+
+    <div class="mt-10 bg-stone-900 border border-dashed border-stone-800 rounded-xl p-5 text-center">
+        <span class="text-[10px] text-stone-600 block mb-1">DISCUSSION / 评论区</span>
+        <div class="text-xs text-stone-600 py-4">💬 Giscus 评论系统预留位 — 部署时填入 repo 信息即可启用</div>
+    </div>
+</article>
+</main>
+
+<footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-4xl mx-auto text-center space-y-2">
+        <p class="text-[11px] text-stone-500">© 2026 laomunong.com All Rights Reserved. TCM Lab Engine.</p>
+        <p class="text-[10px] text-stone-600">🛡️ 隐私白皮书：本工具为纯客户端 JavaScript 运行，出生数据从不且绝不上传任何服务器。</p>
+        <p class="text-[10px] text-stone-600">* 免责声明：本工具仅供计算机技术研究与传统文化爱好者学术交流，不构成医疗诊断或建议。</p>
+        <a href="../../../privacy-policy.html" class="text-[10px] text-stone-500 underline hover:text-amber-400 transition-colors">隐私政策 / Privacy Policy</a>
+    </div>
+</footer>
+
+<script>
+var myChart = null;
+window.addEventListener('DOMContentLoaded', function() {
+    myChart = echarts.init(document.getElementById('radarChart'));
+    renderRadar([50, 50, 50, 50, 50]);
+});
+
+function renderRadar(data) {
+    myChart.setOption({
+        radar: {
+            indicator: [
+                { name: '木 (肝胆/风)', max: 120 },
+                { name: '火 (心小肠/热)', max: 120 },
+                { name: '土 (脾胃/湿)', max: 120 },
+                { name: '金 (肺大肠/燥)', max: 120 },
+                { name: '水 (肾膀胱/寒)', max: 120 }
+            ],
+            splitArea: { show: false },
+            splitLine: { lineStyle: { color: '#1f2937' } },
+            axisLine: { lineStyle: { color: '#1f2937' } },
+            axisName: { color: '#9ca3af', fontSize: 10 }
+        },
+        series: [{
+            type: 'radar',
+            data: [{
+                value: data,
+                name: '先天能量配比',
+                areaStyle: { color: 'rgba(217, 119, 6, 0.15)' },
+                lineStyle: { color: '#d97706', width: 2 },
+                itemStyle: { color: '#d97706' }
+            }]
+        }]
+    });
+}
+
+function calculateMetrics() {
+    var year = parseInt(document.getElementById('birthYear').value);
+    var termIdx = parseInt(document.getElementById('birthSolarTerm').value);
+    if (isNaN(year) || year < 1930 || year > 2030) {
+        alert('请输入合法的年份 (1930 - 2030)');
+        return;
+    }
+
+    var tianGanArr = ['庚','辛','壬','癸','甲','乙','丙','丁','戊','己'];
+    var tg = tianGanArr[year % 10];
+    var scores = [50, 50, 50, 50, 50];
+    var suiYunText = '';
+
+    switch(tg) {
+        case '甲': scores[0] += 30; suiYunText = '岁木太过 (风气流行)'; break;
+        case '乙': scores[0] -= 15; suiYunText = '岁木不及 (燥气大行)'; break;
+        case '丙': scores[1] += 30; suiYunText = '岁火太过 (热气流行)'; break;
+        case '丁': scores[1] -= 15; suiYunText = '岁火不及 (寒气大行)'; break;
+        case '戊': scores[2] += 30; suiYunText = '岁土太过 (湿气流行)'; break;
+        case '己': scores[2] -= 15; suiYunText = '岁土不及 (风气大行)'; break;
+        case '庚': scores[3] += 30; suiYunText = '岁金太过 (燥气流行)'; break;
+        case '辛': scores[3] -= 15; suiYunText = '岁金不及 (炎暑流行)'; break;
+        case '壬': scores[4] += 30; suiYunText = '岁水太过 (寒气流行)'; break;
+        case '癸': scores[4] -= 15; suiYunText = '岁水不及 (湿气大行)'; break;
+    }
+
+    var zhuQiMatrix = [
+        { name:'厥阴风木', add:[20,0,0,0,0] },
+        { name:'少阴君火', add:[0,20,0,0,0] },
+        { name:'少阳相火', add:[0,20,0,0,0] },
+        { name:'太阴湿土', add:[0,0,20,0,0] },
+        { name:'阳明燥金', add:[0,0,0,20,0] },
+        { name:'太阳寒水', add:[0,0,0,0,20] }
+    ];
+
+    var curZhuQi = zhuQiMatrix[termIdx - 1];
+    for (var i = 0; i < 5; i++) { scores[i] += curZhuQi.add[i]; }
+
+    var keQiArr = ['少阴君火','太阴湿土','少阳相火','阳明燥金','太阳寒水','厥阴风木'];
+    var keQiIdx = (year + termIdx) % 6;
+    var curKeQiName = keQiArr[keQiIdx];
+    if (curKeQiName.indexOf('木') !== -1) scores[0] += 15;
+    if (curKeQiName.indexOf('火') !== -1) scores[1] += 15;
+    if (curKeQiName.indexOf('土') !== -1) scores[2] += 15;
+    if (curKeQiName.indexOf('金') !== -1) scores[3] += 15;
+    if (curKeQiName.indexOf('水') !== -1) scores[4] += 15;
+
+    document.getElementById('lblTianGan').innerText = year + ' (' + tg + '年)';
+    document.getElementById('lblSuiYun').innerText = suiYunText;
+    document.getElementById('lblZhuQi').innerText = curZhuQi.name;
+    document.getElementById('lblKeQi').innerText = curKeQiName;
+
+    renderRadar(scores);
+    generateReport(scores, tg);
+}
+
+function generateReport(scores, tg) {
+    var elements = ['木','火','土','金','水'];
+    var maxIdx = 0, minIdx = 0;
+    for (var i = 1; i < 5; i++) {
+        if (scores[i] > scores[maxIdx]) maxIdx = i;
+        if (scores[i] < scores[minIdx]) minIdx = i;
+    }
+    var report = '系统初始化完毕。检测到宿主出生年干天干为 [' + tg + ']。经过架构分析：您的先天能量系统以【' + elements[maxIdx] + '】气最旺，【' + elements[minIdx] + '】气相对不及。';
+    if (maxIdx === 1) {
+        report += ' 【硬件风险提示】：心火相傅，高并发运转下极易超频。日常表现为熬夜时心率偏快、易生口疮。作为码农，建议日常以物理降温（桑叶、麦冬泡水）为主，严禁长期强行超频。';
+    } else if (maxIdx === 0) {
+        report += ' 【硬件风险提示】：肝木气旺，系统属于"高敏感度/易焦虑"架构。遇到线上 Bug 时后台线程极易发生情绪锁死。建议多做户外运动，减少死循环思考。';
+    } else if (maxIdx === 2) {
+        report += ' 【硬件风险提示】：湿土过重，系统"缓存清理速度变慢"。容易出现身体沉重、运化无力。打代码时久坐容易肚子长肉。建议精简饮食，多吃陈皮、茯苓以利湿。';
+    } else {
+        report += ' 【系统维护建议】：先天气不均属于常态。请顺应四季时令进行系统维护。切勿让低效垃圾代码（高油高糖、报复性熬夜）长期占用系统主内存。';
+    }
+    document.getElementById('analysisReport').innerText = report;
+}
+
+window.addEventListener('resize', function() { if (myChart) myChart.resize(); });
+</script>
+</body>
+</html>

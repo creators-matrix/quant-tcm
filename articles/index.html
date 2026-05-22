@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量化中医研究文章 — 经方剂量·五运六气·考证研究 | laomunong.com</title>
+    <meta name="description" content="20篇量化中医深度研究文章：伤寒论剂量考证、五运六气数学模型、历代度量衡演变。支持全文搜索。">
+    <link rel="canonical" href="https://laomunong.com/quant-tcm/articles/">
+    <meta property="og:title" content="量化中医研究文章 | laomunong.com">
+    <meta property="og:description" content="20篇深度技术日志，从伤寒论剂量到五运六气数学模型。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laomunong.com/quant-tcm/articles/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="google-site-verification" content="WBd5ihUqyGU_WVKMVppCAk2anl58qI1BSkAh-lMDjCs">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7499717658670470" crossorigin="anonymous"></script>
+</head>
+<body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
+
+<header class="border-b border-stone-800 bg-stone-950 px-6 py-5">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <div class="text-[11px] text-stone-500 font-mono mb-1">
+                <a href="../../" class="hover:text-amber-400 transition-colors">Matrix</a>
+                <span class="text-stone-700"> / </span>
+                <a href="../" class="hover:text-amber-400 transition-colors">Quant TCM</a>
+                <span class="text-stone-700"> / </span>
+                <span class="text-amber-400">Articles</span>
+            </div>
+            <h1 class="text-2xl font-black text-stone-100 tracking-tight">
+                量化中医 <span class="text-amber-400">研究文章</span>
+            </h1>
+        </div>
+        <a href="../" class="text-xs text-stone-500 hover:text-amber-400 border border-stone-700 rounded-lg px-3 py-1.5 transition-colors">← 返回实验室</a>
+    </div>
+</header>
+
+<main class="max-w-5xl mx-auto p-6 flex-grow">
+    <div id="search" class="mb-8"></div>
+    <div id="articlesContainer" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    </div>
+</main>
+
+<footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-5xl mx-auto text-center space-y-2">
+        <p class="text-[11px] text-stone-500">© 2026 laomunong.com All Rights Reserved.</p>
+        <a href="../../privacy-policy.html" class="text-[10px] text-stone-500 underline hover:text-amber-400 transition-colors">隐私政策 / Privacy Policy</a>
+    </div>
+</footer>
+
+<script>
+var articlesData = [
+    { title:'量化中医技术日志 #1', desc:'开篇：用代码逻辑重构传统医学的控制精度', date:'2025-01', href:'./article1.html' },
+    { title:'量化中医技术日志 #2', desc:'汉代度量衡体系与经方剂量溯源', date:'2025-02', href:'./article2.html' },
+    { title:'量化中医技术日志 #3', desc:'《伤寒论》中"两"的现代克重精确换算', date:'2025-02', href:'./article3.html' },
+    { title:'量化中医技术日志 #4', desc:'铢、分、方寸匕：经方小剂量单位的数字化', date:'2025-03', href:'./article4.html' },
+    { title:'量化中医技术日志 #5', desc:'五运六气入门：天干地支与岁运推算', date:'2025-03', href:'./article5.html' },
+    { title:'量化中医技术日志 #6', desc:'主气与客气：六气时段的算法划分', date:'2025-04', href:'./article6.html' },
+    { title:'量化中医技术日志 #7', desc:'岁运太过与不及的五行加权模型', date:'2025-04', href:'./article7.html' },
+    { title:'量化中医技术日志 #8', desc:'从《黄帝内经》运气七篇提取数学公式', date:'2025-05', href:'./article8.html' },
+    { title:'量化中医技术日志 #9', desc:'经方药物配比的数学建模思路', date:'2025-05', href:'./article9.html' },
+    { title:'量化中医技术日志 #10', desc:'《金匮要略》中剂量与煎煮时间的量化关系', date:'2025-06', href:'./article10.html' },
+    { title:'量化中医技术日志 #11', desc:'宋代煮散与汉代汤剂的药量效率对比', date:'2025-06', href:'./article11.html' },
+    { title:'量化中医技术日志 #12', desc:'叶天士温病方的剂量结构分析', date:'2025-07', href:'./article12.html' },
+    { title:'量化中医技术日志 #13', desc:'五运六气与先天体质的相关性验证', date:'2025-07', href:'./article13.html' },
+    { title:'量化中医技术日志 #14', desc:'古籍中"半夏三合"的容量-重量转换模型', date:'2025-08', href:'./article14.html' },
+    { title:'量化中医技术日志 #15', desc:'桂枝汤类方的剂量配比演化史', date:'2025-08', href:'./article15.html' },
+    { title:'量化中医技术日志 #16', desc:'运气同化年的特殊体质偏倾分析', date:'2025-09', href:'./article16.html' },
+    { title:'量化中医技术日志 #17', desc:'明代医家对汉方剂量的修正与误读', date:'2025-09', href:'./article17.html' },
+    { title:'量化中医技术日志 #18', desc:'AI辅助分析《伤寒论》方剂聚类', date:'2025-10', href:'./article18.html' },
+    { title:'量化中医技术日志 #19', desc:'运气学说中客主加临的矩阵算法', date:'2025-10', href:'./article19.html' },
+    { title:'量化中医技术日志 #20', desc:'技术总结：构建中医量化研究的完整方法轮', date:'2025-11', href:'./article20.html' }
+];
+
+function createArticleCard(a) {
+    var c = document.createElement('a');
+    c.href = a.href;
+    c.className = 'block bg-stone-900 border border-stone-700 rounded-xl p-5 hover:border-amber-600 transition-colors group';
+    c.innerHTML = '<time class="text-[10px] text-stone-500 font-mono">'+a.date+'</time>'+
+        '<h3 class="text-base font-bold text-stone-100 mt-1 mb-2 group-hover:text-amber-400 transition-colors">'+a.title+'</h3>'+
+        '<p class="text-xs text-stone-400 leading-relaxed">'+a.desc+'</p>';
+    return c;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var container = document.getElementById('articlesContainer');
+    articlesData.forEach(function(a) { container.appendChild(createArticleCard(a)); });
+});
+</script>
+</body>
+</html>

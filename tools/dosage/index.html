@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>古今剂量精密换算器 — 汉代经方剂量克重换算 | laomunong.com</title>
+    <meta name="description" content="基于《中国历代度量衡考》的经方剂量换算工具。支持汉/唐/明清一两至现代克重精密换算，两/铢/分/方寸匕多单位。纯前端运行。">
+    <link rel="canonical" href="https://laomunong.com/quant-tcm/tools/dosage/">
+    <meta property="og:title" content="古今剂量精密换算器 — 经方剂量现代克重换算 | laomunong.com">
+    <meta property="og:description" content="汉代一两=13.8g？《伤寒论》经方剂量精密换算工具。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://laomunong.com/quant-tcm/tools/dosage/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="google-site-verification" content="WBd5ihUqyGU_WVKMVppCAk2anl58qI1BSkAh-lMDjCs">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7499717658670470" crossorigin="anonymous"></script>
+</head>
+<body class="bg-stone-950 text-stone-200 min-h-screen flex flex-col font-sans">
+
+<header class="border-b border-stone-800 bg-stone-950 px-6 py-5">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <div class="text-[11px] text-stone-500 font-mono mb-1">
+                <a href="../../../" class="hover:text-amber-400 transition-colors">Matrix</a>
+                <span class="text-stone-700"> / </span>
+                <a href="../../" class="hover:text-amber-400 transition-colors">Quant TCM</a>
+                <span class="text-stone-700"> / </span>
+                <span class="text-amber-400">Dosage Converter</span>
+            </div>
+            <h1 class="text-xl font-black text-stone-100 tracking-tight">⚖️ 古今剂量 <span class="text-amber-400">精密换算器</span></h1>
+        </div>
+        <a href="../../" class="text-xs text-stone-500 hover:text-amber-400 border border-stone-700 rounded-lg px-3 py-1.5 transition-colors shrink-0">← 返回实验室</a>
+    </div>
+</header>
+
+<main class="max-w-4xl mx-auto p-6 flex-grow">
+
+<section class="bg-stone-900 border border-stone-700 rounded-xl p-6 mb-8">
+    <h2 class="text-sm text-stone-400 uppercase tracking-widest border-b border-stone-800 pb-2 mb-4">// DOSAGE_CONVERTER / 剂量换算</h2>
+    <div class="space-y-4">
+        <div>
+            <label class="block text-xs text-amber-400 mb-1 font-bold">1. 选择古籍时代/标准</label>
+            <select id="eraSelect" onchange="calculate()" class="w-full bg-stone-800 border border-stone-700 rounded-lg px-3 py-2 text-stone-200 text-sm focus:outline-none focus:border-amber-600">
+                <option value="han">东汉标准 (张仲景《伤寒论》考证原值)</option>
+                <option value="tang">唐代标准 (孙思邈《千金方》大两制)</option>
+                <option value="mingqing">明清标准 (李时珍《本草纲目》十六两制)</option>
+            </select>
+        </div>
+        <div class="flex items-center justify-between p-3 bg-stone-800 rounded-lg border border-amber-900/40">
+            <div class="flex flex-col pr-2">
+                <span class="text-xs font-bold text-amber-400">开启学术考证高级视图</span>
+                <span class="text-[10px] text-stone-400 mt-0.5">解锁真实考古数据(如汉1两=13.8g)。关闭则使用临床安全剂量(1两=3g)</span>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer shrink-0">
+                <input type="checkbox" id="advancedToggle" class="sr-only peer" onchange="calculate()">
+                <div class="w-10 h-5 bg-stone-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-stone-300 after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-700"></div>
+            </label>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+            <div>
+                <label class="block text-xs text-amber-400 mb-1 font-bold">2. 古代数量</label>
+                <input type="number" id="inputValue" value="1" min="0" step="any" oninput="calculate()" class="w-full bg-stone-800 border border-stone-700 rounded-lg px-3 py-2 text-stone-200 text-sm font-mono focus:outline-none focus:border-amber-600">
+            </div>
+            <div>
+                <label class="block text-xs text-amber-400 mb-1 font-bold">3. 古代单位</label>
+                <select id="unitSelect" onchange="calculate()" class="w-full bg-stone-800 border border-stone-700 rounded-lg px-3 py-2 text-stone-200 text-sm focus:outline-none focus:border-amber-600">
+                    <option value="liang">两</option>
+                    <option value="qian">钱</option>
+                    <option value="fen">分</option>
+                    <option value="sheng">升 (容积范围)</option>
+                </select>
+            </div>
+        </div>
+        <div id="resultBox" class="mt-4 rounded-xl p-4 border hidden">
+            <div class="text-[11px] font-bold uppercase tracking-wider mb-1" id="resultTitle">换算结果</div>
+            <div class="flex items-baseline">
+                <span class="text-3xl font-extrabold font-mono tracking-tight" id="resultValue">0</span>
+                <span class="text-base font-bold ml-1.5" id="unitLabel">克 (g)</span>
+            </div>
+            <div class="text-[11px] mt-3 leading-relaxed border-t border-stone-700 pt-2" id="resultTip"></div>
+        </div>
+    </div>
+</section>
+
+<div class="my-6 p-2 bg-stone-900 border border-dashed border-stone-800 text-center rounded-lg">
+    <span class="text-[10px] text-stone-600 block mb-1">ADVERTISEMENT / 赞助商广告位</span>
+    <div class="text-xs text-stone-600 py-3">Responsive Ad Slot</div>
+</div>
+
+<article class="prose prose-invert max-w-none">
+    <h2 class="text-xl font-bold text-stone-100 border-b border-stone-800 pb-2 mb-6">经方剂量精密换算：从汉代一两到现代克重的三千年考证之路</h2>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">张仲景时代的"一两"到底多重？</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">这是中医经方研究中最核心也最具争议的问题。根据中国计量科学院对东汉出土权衡器（如铜权、天平砝码）的精密测定，<strong class="text-stone-200">张仲景《伤寒论》时代的标准一两约合现代 13.8 克</strong>。这意味着《伤寒论》中桂枝汤"桂枝三两"约为 41.4 克，麻黄汤中"麻黄三两"也约为 41.4 克——远高于现代中医教材中"一两按 3 克折算"的临床保守用量。现代教材的 1两=3g 是李时珍"古之一两，今之一钱可也"的折中说法演变而来，目的是降低剂量以保安全，但这种"一刀切"的折损也导致了许多经方在当代临床中效验大打折扣。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">唐代"大两制"：剂量暴增的历史拐点</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">孙思邈《千金方》时代（唐代），度量衡发生了重大变化。唐代推行"大两制"，<strong class="text-stone-200">唐代一两约合现代 41.3 克</strong>——是东汉的整整三倍。这不仅是因为朝代更迭带来的度量衡膨胀，也反映了唐代医学对"大方大剂"治疗风格的偏好。然而这也意味着：同样标记"桂枝三两"的方子，按唐代标准折算竟高达 123.9 克，远超《中国药典》规定的安全上限（桂枝 3-10g）。这是本工具默认锁定"安全模式"的根本原因——我们不希望任何人在未理解背景的情况下盲目按考证值抓药。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">明清十六两制的稳定与"钱"的诞生</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">明清时期度量衡趋于稳定，<strong class="text-stone-200">一两约合现代 37.3 克，一钱约 3.73 克</strong>（十六两制下 1两=10钱）。李时珍在《本草纲目》中提出的"古之一两，今之一钱可也"正是在这一时期被广泛接受，最终演变为现代教材中"一钱等于 3 克"的简便算法。但需注意：李时珍的"一钱"指的是明清的钱（约 3.73g），而汉代的"一两"按考古实测应为 13.8g——两者相差近 4 倍。这个 400 年的误读，至今仍在影响中医临床用药的有效性。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">容量单位的数字化：升、合、方寸匕的克重转换</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">古籍中还有大量以容量计的药材单位。《伤寒论》中的"半夏半升""五味子半升"等，必须将容量转换为现代克重才能精准抓药。关键参数如下：<strong class="text-stone-200">汉代一升 = 200 毫升</strong>（约合现代一纸杯）；唐代一大升 = 600 毫升；明清一小升 = 100 毫升。但容量转重量并非线性——药材的密度（容重）差异极大：半夏约 0.52 g/ml（较重），杏仁约 0.45 g/ml，吴茱萸仅约 0.38 g/ml（较轻）。本工具内置了基于中药平均容重范围（0.38-0.52 g/ml）的科学推估算法，输出的是一个可信区间而非单一值——这正是严谨量化研究所需要的。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">为什么经方剂量还原如此重要？</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4">经方的"方证对应"建立在精确的剂量比例之上。桂枝汤中桂枝:芍药:甘草:生姜:大枣 = 3:3:2:3:12 的比例关系，如果所有药量同时乘以 0.2（即按现代教材一两=3g），比例不变但绝对量不足，可能导致"和解肌表"的力量大打折扣。更关键的是，某些药物的量效关系是非线性的——<strong class="text-stone-200">低于起效阈值则完全无效，超过一定剂量则出现全新药理效应</strong>。这在附子（乌头碱的安全窗极窄）、大黄（小量止泻、大量泻下、极量逐瘀）等药物上表现尤为突出。剂量不是简单的线性缩放，它直接决定了方剂的药效方向。</p>
+
+    <h3 class="text-lg font-bold text-amber-400 mt-8 mb-3">安全红线与学术声明</h3>
+    <p class="text-sm text-stone-400 leading-relaxed mb-4"><strong class="text-red-400">【核心红线】</strong>本计算器所有考证及换算数据仅供学术研究和经方溯源参考，不构成任何临床处方建议。汉代一两=13.8g 的考证值远高于现代《中国药典》的安全剂量范围。个人用药请务必遵循《中国药典》（2025版）规定，并严格遵从执业中医师指导。切勿自行按考证剂量抓药。</p>
+
+    <div class="mt-10 space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+        <h3 class="text-lg font-bold text-amber-400 mb-4">常见问题 (FAQ)</h3>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-stone-900 border border-stone-700 rounded-lg p-4">
+            <h4 itemprop="name" class="text-sm font-bold text-stone-200 mb-2">Q: 汉代一两到底是 13.8g 还是 15.625g？</h4>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text" class="text-xs text-stone-400 leading-relaxed">A: 两个数值都有学术依据。13.8g 基于中国计量科学院对东汉铜权的实测数据。15.625g 则出自吴承洛《中国度量衡史》中 1斤=250g÷16两的理论推算。近年考古学界主流倾向 13.8g。本工具采用 13.8g 作为东汉标准值。</div></div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-stone-900 border border-stone-700 rounded-lg p-4">
+            <h4 itemprop="name" class="text-sm font-bold text-stone-200 mb-2">Q: 为什么现代教材用 1两=3g 而不是考证值？</h4>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text" class="text-xs text-stone-400 leading-relaxed">A: 这是李时珍"古之一两，今之一钱可也"建议的演变结果，目的是将剂量压至安全范围。这是一种临床保守策略，不是考古结论。现代教材优先考虑用药安全性，而非历史还原度。</div></div>
+        </div>
+        <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-stone-900 border border-stone-700 rounded-lg p-4">
+            <h4 itemprop="name" class="text-sm font-bold text-stone-200 mb-2">Q: "升"是容量单位，如何换算成克？</h4>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text" class="text-xs text-stone-400 leading-relaxed">A: 需要结合药材密度（容重）。汉代 1升=200ml。以半夏为例，200ml×0.52g/ml≈104g，所以"半夏半升"≈52g。不同药材容重不同，本工具输出的是一个科学推估范围。</div></div>
+        </div>
+    </div>
+
+    <div class="mt-10 bg-stone-900 border border-amber-900 rounded-xl p-5">
+        <h4 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-3">// AFFILIATE_GEAR / 推荐资源</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-stone-400">
+            <div class="bg-stone-800 rounded-lg p-3"><span class="text-stone-200 font-bold block mb-1">《中国历代度量衡考》</span><span>丘光明著，中国计量科学院权威数据，本工具的核心学术依据。</span></div>
+            <div class="bg-stone-800 rounded-lg p-3"><span class="text-stone-200 font-bold block mb-1">《伤寒论》精校版</span><span>钱超尘校注，经方剂量研究必备的原文版本。</span></div>
+        </div>
+    </div>
+
+    <div class="mt-10 bg-stone-900 border border-dashed border-stone-800 rounded-xl p-5 text-center">
+        <span class="text-[10px] text-stone-600 block mb-1">DISCUSSION / 评论区</span>
+        <div class="text-xs text-stone-600 py-4">💬 Giscus 评论系统预留位 — 部署时填入 repo 信息即可启用</div>
+    </div>
+</article>
+</main>
+
+<footer class="border-t border-stone-800 bg-stone-950 px-6 py-6">
+    <div class="max-w-4xl mx-auto text-center space-y-2">
+        <p class="text-[11px] text-stone-500">© 2026 laomunong.com All Rights Reserved. TCM Lab Engine.</p>
+        <p class="text-[10px] text-stone-600">🛡️ 免责声明：本工具所有数据仅供学术研究参考，不构成临床处方建议。请遵循《中国药典》及执业医师指导。</p>
+        <a href="../../../privacy-policy.html" class="text-[10px] text-stone-500 underline hover:text-amber-400 transition-colors">隐私政策 / Privacy Policy</a>
+    </div>
+</footer>
+
+<script>
+function calculate() {
+    var era = document.getElementById('eraSelect').value;
+    var value = parseFloat(document.getElementById('inputValue').value) || 0;
+    var unit = document.getElementById('unitSelect').value;
+    var isAdvanced = document.getElementById('advancedToggle').checked;
+    var baseLiangInGram = 3.0;
+    var tipText = '当前处于【临床安全模式】：依照当代国家中医药教材标准，统一按 1两 = 3克 计算。';
+    var isWarning = false;
+    var isAdvancedStyle = false;
+
+    if (isAdvanced) {
+        isAdvancedStyle = true;
+        if (era === 'han') {
+            baseLiangInGram = 13.8;
+            tipText = '【学术考证视图】依据东汉考古发掘（中国计量科学院），张仲景时代一两折算为现代 13.8 克。';
+            if (value >= 3) isWarning = true;
+        } else if (era === 'tang') {
+            baseLiangInGram = 41.3;
+            tipText = '【学术考证视图】唐代大两制，孙思邈《千金方》一两约合 41.3 克。该剂量远超药典上限，请务必警惕！';
+            isWarning = true;
+        } else if (era === 'mingqing') {
+            baseLiangInGram = 37.3;
+            tipText = '【学术考证视图】明清十六两制，李时珍时期一两约合 37.3 克（一钱约 3.73 克）。';
+            if (value >= 1) isWarning = true;
+        }
+    }
+
+    var resultDisplay = '';
+    if (unit === 'liang') {
+        resultDisplay = (value * baseLiangInGram).toFixed(2);
+    } else if (unit === 'qian') {
+        resultDisplay = (value * (baseLiangInGram / 10)).toFixed(2);
+    } else if (unit === 'fen') {
+        resultDisplay = (value * (baseLiangInGram / 100)).toFixed(2);
+    } else if (unit === 'sheng') {
+        if (era === 'han') { var ml = 200; }
+        else if (era === 'tang') { var ml = 600; }
+        else { var ml = 100; }
+        var minG = (value * ml * 0.38).toFixed(1);
+        var maxG = (value * ml * 0.52).toFixed(1);
+        resultDisplay = minG + ' ~ ' + maxG;
+        tipText += '【容量换算】容积→质量推估区间，基于药材平均容重 0.38-0.52 g/ml。';
+    }
+
+    var resultBox = document.getElementById('resultBox');
+    document.getElementById('resultValue').innerText = resultDisplay;
+    document.getElementById('resultTip').innerHTML = '* ' + tipText + '<br><strong class="block mt-2 text-red-400">【核心红线】本计算器所有数据仅供学术研究和经方溯源参考，不构成临床处方建议。</strong>';
+
+    if (isWarning && isAdvancedStyle) {
+        resultBox.className = 'mt-4 rounded-xl p-4 border border-red-900 bg-red-950/30 block';
+        document.getElementById('resultTitle').className = 'text-[11px] font-bold text-red-400 uppercase tracking-wider mb-1';
+        document.getElementById('resultValue').className = 'text-3xl font-extrabold font-mono text-red-400 tracking-tight';
+    } else {
+        resultBox.className = 'mt-4 rounded-xl p-4 border border-amber-800 bg-amber-950/20 block';
+        document.getElementById('resultTitle').className = 'text-[11px] font-bold text-amber-400 uppercase tracking-wider mb-1';
+        document.getElementById('resultValue').className = 'text-3xl font-extrabold font-mono text-amber-400 tracking-tight';
+    }
+}
+window.onload = calculate;
+</script>
+</body>
+</html>
